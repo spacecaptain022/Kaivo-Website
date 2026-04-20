@@ -1,0 +1,5 @@
+{
+  "name": "kaivo-website",
+  "private": true,
+  "workspaces": ["web"]
+}
