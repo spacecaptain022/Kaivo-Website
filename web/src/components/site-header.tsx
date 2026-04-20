@@ -31,10 +31,11 @@ export function SiteHeader() {
   const reduceMotion = useReducedMotion();
   const [collapsed, setCollapsed] = useState(false);
   const lastScrollY = useRef(0);
+  /** When reduced motion is on, the bar stays expanded (ignore scroll-collapsed state). */
+  const showCollapsed = reduceMotion ? false : collapsed;
 
   useEffect(() => {
     if (reduceMotion) {
-      setCollapsed(false);
       return;
     }
 
@@ -81,7 +82,7 @@ export function SiteHeader() {
           className={cn(
             "surface-glass pointer-events-auto flex origin-top items-center rounded-2xl",
             "ring-1 ring-[var(--foreground)]/[0.04]",
-            collapsed
+            showCollapsed
               ? "w-fit max-w-[calc(100%-2rem)] gap-8 px-5 py-3"
               : "w-full justify-between gap-4 px-4 py-3 sm:gap-6 sm:px-6 sm:py-3.5",
           )}
@@ -100,7 +101,7 @@ export function SiteHeader() {
           </Link>
 
           <AnimatePresence initial={false} mode="popLayout">
-            {!collapsed && (
+            {!showCollapsed && (
               <motion.nav
                 key="main-nav"
                 layout
