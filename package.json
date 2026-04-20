@@ -1,5 +1,10 @@
 {
   "name": "kaivo-website",
   "private": true,
-  "workspaces": ["web"]
+  "workspaces": ["web"],
+  "scripts": {
+    "build": "npm run build --workspace=web",
+    "dev": "npm run dev --workspace=web",
+    "lint": "npm run lint --workspace=web"
+  }
 }
