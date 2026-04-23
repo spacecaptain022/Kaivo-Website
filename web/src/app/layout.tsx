@@ -11,11 +11,11 @@ const googleSansFlex = localFont({
 export const metadata: Metadata = {
   title: "Kaivo — From search to delegation",
   description:
-    "Book flights in under 60 seconds. Kaivo compares, prepares, and lines everything up for approval.",
+    "Book flights in under 60 seconds. Kaivo finds, compares, and prepares one decision for you.",
   openGraph: {
-    title: "Kaivo — Travel bookings just got better",
+    title: "Kaivo — Search less. Go more.",
     description:
-      "Stop doing. Start delegating. The delegation layer for modern travel.",
+      "Stop searching. Start delegating. The delegation layer for modern travel.",
   },
 };
 

@@ -16,28 +16,18 @@ export function ProblemSection() {
         <div>
           <FadeIn>
             <h2 className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-              You were promised convenience. You got homework.
+              You were promised convenience. You got work.
             </h2>
           </FadeIn>
           <FadeIn delay={0.06} className="mt-8 space-y-5 text-[17px] leading-relaxed text-[var(--muted)]">
-            <p>
-              Search made options infinite. Comparison sites made tabs multiply.
-              AI made answers faster.
-            </p>
             <p className="font-medium text-[var(--foreground)]">
-              But somehow, you still do the work.
-            </p>
-            <p>
-              You still check five websites. You still compare flight times,
-              baggage rules, layovers, and refund policies. You still re-enter
-              passenger details. You still second-guess whether you picked the
-              right option.
+              Tabs. Filters. Re-entering details. Second-guessing choices.
             </p>
           </FadeIn>
           <FadeIn delay={0.1} className="mt-10">
             <div className="surface-card rounded-2xl p-6">
               <p className="border-l-2 border-[var(--accent)] pl-5 text-[20px] font-medium leading-snug tracking-[-0.02em] text-[var(--foreground)]">
-                More choice didn’t remove the work. It extended it.
+                More options didn’t remove the work. They multiplied it.
               </p>
             </div>
           </FadeIn>

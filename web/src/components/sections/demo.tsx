@@ -3,16 +3,15 @@ import { SectionShell } from "@/components/ui/section-shell";
 
 export function DemoSection() {
   const oldWay = [
-    "Search options",
-    "Compare trade-offs",
-    "Enter details",
-    "Check out",
+    "Search across tabs",
+    "Compare manually",
+    "Enter details repeatedly",
     "Hope you chose right",
   ];
 
   const withKaivo = [
     "Tell Kaivo what you need",
-    "Review the best prepared option",
+    "Review one prepared option",
     "Approve once",
     "Done",
   ];
@@ -24,13 +23,13 @@ export function DemoSection() {
           Product
         </p>
         <h2 className="mt-3 text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-          Watch 25 minutes disappear.
+          From tabs and forms → to one decision.
         </h2>
       </FadeIn>
       <FadeIn delay={0.06} className="mt-6 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
         <p>
-          On one side: the old way — tabs, filters, forms, and friction. On the
-          other: Kaivo — one message, one review, one approval.
+          The old way stacks tabs and busywork. Kaivo lines up one clear choice
+          for you to approve.
         </p>
       </FadeIn>
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -75,11 +74,10 @@ export function DemoSection() {
       </div>
       <FadeIn delay={0.12} className="surface-card mt-10 rounded-2xl p-7 text-center">
         <p className="text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-0.03em] text-[var(--foreground)]">
-          From 25 minutes to under 60 seconds.
+          From hours → to under 60 seconds.
         </p>
         <p className="mt-4 text-[13px] text-[var(--muted)]">
-          Video modules: natural-language booking · voice mode · approval card
-          with price, baggage, timing, and refund rules.
+          Natural-language booking. One review. One approval.
         </p>
       </FadeIn>
     </SectionShell>

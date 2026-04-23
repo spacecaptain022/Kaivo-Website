@@ -14,6 +14,7 @@ const links = [
   { href: "#product", label: "Product" },
   { href: "#waitlist", label: "Waitlist" },
   { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const barTransition = {
@@ -128,7 +129,7 @@ export function SiteHeader() {
             href="#waitlist"
             className="shrink-0 rounded-full border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--accent-ink)] shadow-[0_8px_26px_-10px_rgba(38,229,201,0.55),0_2px_8px_-4px_rgba(6,51,46,0.2),inset_0_1px_0_0_rgba(255,255,255,0.42)] transition-[box-shadow,filter] hover:border-[var(--accent-deep)]/40 hover:shadow-[0_12px_34px_-10px_rgba(38,229,201,0.62),0_4px_12px_-4px_rgba(6,51,46,0.22),inset_0_1px_0_0_rgba(255,255,255,0.55)] hover:brightness-[1.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-deep)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] active:brightness-[0.98]"
           >
-            Boarding pass
+            Early access
           </Link>
         </motion.div>
       </div>

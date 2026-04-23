@@ -49,47 +49,39 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-10">
         <div className="flex flex-col gap-8">
           <FadeIn>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--muted)]">
-              Travel bookings just got better
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.05}>
             <h1 className="text-[clamp(2.5rem,6vw,4.75rem)] font-semibold leading-[0.95] tracking-[-0.04em]">
               Search less.
               <br />
               <span className="text-[var(--accent)]">Go more.</span>
             </h1>
           </FadeIn>
-          <FadeIn delay={0.1}>
+          <FadeIn delay={0.08}>
             <p className="max-w-md text-[clamp(1.35rem,2.5vw,1.75rem)] font-medium leading-snug tracking-[-0.02em]">
               Stop doing.{" "}
               <span className="text-[var(--accent)]">Start delegating.</span>
             </p>
           </FadeIn>
-          <FadeIn delay={0.12}>
+          <FadeIn delay={0.1}>
             <p className="max-w-lg text-[17px] leading-relaxed text-[var(--muted)]">
-              Book flights in under 60 seconds. Kaivo compares, prepares, and
-              lines everything up for approval, so you spend less time searching
-              and more time going.
+              Book flights in under 60 seconds. Kaivo finds, compares, and
+              prepares one decision for you.
             </p>
           </FadeIn>
           <FadeIn
-            delay={0.14}
+            delay={0.12}
             className="flex flex-col gap-4 sm:flex-row sm:items-center"
           >
-            <FrameButton href="#waitlist">Get your boarding pass</FrameButton>
+            <FrameButton href="#waitlist">Get early access</FrameButton>
             <FrameButton href="#product" variant="ghost">
-              See the demo
+              See demo
             </FrameButton>
           </FadeIn>
-          <FadeIn delay={0.16}>
+          <FadeIn delay={0.14}>
             <p className="max-w-md text-[13px] leading-relaxed text-[var(--muted)]">
-              Join the waitlist for early access to the live demo launch,
-              priority invites, and a chance to win one of our 26-flights-in-2026
-              giveaway.
+              Join for early access and private demo invites.
             </p>
           </FadeIn>
-          <FadeIn delay={0.18}>
+          <FadeIn delay={0.16}>
             <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--foreground)]">
               Prepared for you · Approved by you · Done for you
             </p>
@@ -149,11 +141,10 @@ export function Hero() {
           <FadeIn delay={0.1}>
             <aside className="surface-card rounded-2xl p-5 text-[13px] leading-relaxed">
               <p className="font-semibold text-[var(--foreground)]">
-                303 minutes. 141 pages.
+                Booking a trip can take hours.
               </p>
               <p className="mt-2 text-[var(--muted)]">
-                That’s how much travel booking can take today. Kaivo cuts the
-                chaos down to one clear decision.
+                Kaivo turns it into one decision.
               </p>
             </aside>
           </FadeIn>

@@ -11,7 +11,7 @@ export function FinalCtaSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <FadeIn>
           <h2 className="max-w-3xl text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
-            Stop doing.{" "}
+            Stop searching.{" "}
             <span className="text-[var(--accent)]">Start delegating.</span>
           </h2>
         </FadeIn>
@@ -22,11 +22,10 @@ export function FinalCtaSection() {
           </p>
         </FadeIn>
         <FadeIn delay={0.1} className="mt-10">
-          <FrameButton href="#waitlist">Get your boarding pass</FrameButton>
+          <FrameButton href="#waitlist">Get early access</FrameButton>
         </FadeIn>
         <FadeIn delay={0.12} className="mt-6 text-[13px] text-[var(--muted)]">
-          Join the waitlist for launch access, beta invites, and the
-          26-flights-in-2026 giveaway.
+          Join for early access, beta invites, and private product drops.
         </FadeIn>
         <div className="mt-16 flex flex-col gap-4 border-t border-[var(--line)]/80 pt-8 text-[12px] text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
           <span className="flex items-center gap-2 font-semibold uppercase tracking-[0.2em] text-[var(--foreground)]">

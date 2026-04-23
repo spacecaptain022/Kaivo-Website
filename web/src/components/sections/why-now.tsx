@@ -3,9 +3,9 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
 
 const caps = [
-  "AI agents that can reason through travel trade-offs",
-  "Travel infrastructure that is programmable in real time",
-  "Embedded payments and approval flows that close the loop instantly",
+  "Agents that reason through real travel trade-offs",
+  "Travel infrastructure you can program in real time",
+  "Payments and approvals that close the loop on the spot",
 ] as const;
 
 export function WhyNowSection() {
@@ -13,18 +13,13 @@ export function WhyNowSection() {
     <SectionShell>
       <FadeIn>
         <h2 className="max-w-3xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-          Why now? Because AI can finally do, not just answer.
+          Why now? AI can finally act, not just answer.
         </h2>
       </FadeIn>
       <FadeIn delay={0.06} className="mt-8 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
         <p>
-          For years, travel platforms have owned discovery. But discovery isn’t
-          the prize. The prize is the decision.
-        </p>
-        <p className="mt-4">
-          Kaivo sits at the moment a traveller wants the answer to become an
-          outcome. That shift is possible now because AI can understand intent,
-          operate across steps, and prepare transactions in real time.
+          AI can now understand intent, handle multi-step workflows, and prepare
+          transactions in real time.
         </p>
       </FadeIn>
       <FadeIn delay={0.08} className="mt-6">

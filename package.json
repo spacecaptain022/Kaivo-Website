@@ -2,6 +2,10 @@
   "name": "kaivo-website",
   "private": true,
   "workspaces": ["web"],
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  },
   "scripts": {
     "build": "npm run build --workspace=web",
     "dev": "npm run dev --workspace=web",

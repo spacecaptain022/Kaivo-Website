@@ -14,7 +14,7 @@ export function TrustStrip() {
     <SectionShell className="border-b border-[var(--line)]/70 bg-[var(--surface)]/65 py-14 backdrop-blur-sm md:py-16">
       <FadeIn>
         <p className="max-w-2xl text-[15px] leading-relaxed text-[var(--muted)] md:text-[17px]">
-          For people who are done wasting half a day booking one trip.
+          For people who are done spending hours booking one trip.
         </p>
         <div className="mt-8 flex flex-wrap gap-2">
           {pills.map((p) => (

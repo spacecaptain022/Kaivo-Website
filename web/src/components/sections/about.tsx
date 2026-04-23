@@ -11,18 +11,15 @@ export function AboutSection() {
       </FadeIn>
       <FadeIn delay={0.06} className="mt-8 max-w-2xl space-y-5 text-[17px] leading-relaxed text-[var(--muted)]">
         <p>
-          Kaivo is building the delegation layer for modern life. We believe the
-          next great consumer products won’t just help people search better.
-          They’ll help people get things done.
+          Kaivo is building the delegation layer for modern life — starting
+          with travel.
         </p>
         <p>
-          We’re starting with travel because it’s one of the clearest examples
-          of digital overload: too many options, too much repetition, too much
-          time lost to admin. Kaivo turns that mess into one clear, controlled,
-          approval-first flow.
+          Travel is the clearest example: too many options, too much
+          repetition, too much time lost.
         </p>
         <p className="font-medium text-[var(--foreground)]">
-          Less browsing. Less admin. Better outcomes.
+          Less searching. Less admin. Better outcomes.
         </p>
       </FadeIn>
     </SectionShell>

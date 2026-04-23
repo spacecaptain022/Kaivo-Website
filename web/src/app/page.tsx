@@ -3,6 +3,7 @@ import { AboutSection } from "@/components/sections/about";
 import { ApprovalSection } from "@/components/sections/approval";
 import { DelegationSection } from "@/components/sections/delegation";
 import { DemoSection } from "@/components/sections/demo";
+import { ContactSection } from "@/components/sections/contact";
 import { FinalCtaSection } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { ProblemSection } from "@/components/sections/problem";
@@ -28,12 +29,13 @@ export default function Home() {
         <SpeaksSection />
         <ApprovalSection />
         <ValueSection />
+        <AboutSection />
+        <ThesisSection />
+        <WhyNowSection />
+        <TeamSection />
         <WaitlistSection />
         <TokenSection />
-        <WhyNowSection />
-        <ThesisSection />
-        <AboutSection />
-        <TeamSection />
+        <ContactSection />
         <FinalCtaSection />
       </main>
     </>

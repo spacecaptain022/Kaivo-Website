@@ -4,15 +4,15 @@ import { SectionShell } from "@/components/ui/section-shell";
 const cards = [
   {
     title: "Saves hours",
-    body: "Less searching. Less comparing. Less admin.",
+    body: "Less search, less comparing, less admin.",
   },
   {
     title: "Gets it right",
-    body: "Built around your timing, bags, budget, airline preferences, and trade-offs.",
+    body: "Timing, bags, budget, airlines, and trade-offs — aligned to how you travel.",
   },
   {
     title: "Improves with you",
-    body: "The more you use Kaivo, the less you have to explain.",
+    body: "The more you use Kaivo, the less you repeat yourself.",
   },
 ];
 
@@ -21,8 +21,7 @@ export function ValueSection() {
     <SectionShell>
       <FadeIn>
         <h2 className="max-w-3xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-          The best travel product isn’t the one with the most options. It’s the
-          one that gives you your time back.
+          The best travel product gives you your time back.
         </h2>
       </FadeIn>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -50,7 +49,7 @@ export function ValueSection() {
       </FadeIn>
       <FadeIn delay={0.2} className="mt-12 rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-field)]/40 px-6 py-8 text-center shadow-[var(--card-shadow-soft)]">
         <p className="text-[clamp(1.25rem,2.5vw,1.65rem)] font-semibold tracking-[-0.03em]">
-          Your next trip, booked in under 60 seconds.
+          Your next trip. One message. One approval. Done.
         </p>
       </FadeIn>
     </SectionShell>

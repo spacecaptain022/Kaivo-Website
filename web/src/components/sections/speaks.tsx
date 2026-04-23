@@ -12,15 +12,13 @@ export function SpeaksSection() {
     <SectionShell>
       <FadeIn>
         <h2 className="max-w-3xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-          It doesn’t feel like software. It feels like having someone on it.
+          It doesn’t feel like software. It feels like someone handling it.
         </h2>
       </FadeIn>
       <FadeIn delay={0.06} className="mt-8 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
         <p>
-          Kaivo isn’t a search bar with better manners. It’s a conversational
-          travel operator. You can type or talk naturally. It can ask clarifying
-          questions, explain why it picked something, and keep things moving
-          without making you manage every step.
+          Kaivo isn’t a better search bar. It’s a conversational travel
+          operator. You describe what you want. It takes care of the rest.
         </p>
       </FadeIn>
       <div className="mt-10 grid gap-3 md:grid-cols-3">

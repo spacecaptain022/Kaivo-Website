@@ -8,14 +8,13 @@ export function DelegationSection() {
     <SectionShell className="bg-[var(--accent-field)]/40">
       <FadeIn>
         <h2 className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-          The next interface isn’t better search. It’s delegation.
+          The next interface isn’t search. It’s delegation.
         </h2>
       </FadeIn>
       <FadeIn delay={0.06} className="mt-8 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
         <p>
-          You tell Kaivo what you need. Kaivo does the searching, compares the
-          trade-offs, structures the best option, and gets it ready. You
-          review. You approve. It’s handled.
+          You tell Kaivo what you need. It finds, compares, and prepares the
+          best option. You review. You approve. It’s done.
         </p>
       </FadeIn>
       <FadeIn delay={0.1} className="mt-10">
@@ -37,15 +36,6 @@ export function DelegationSection() {
       <FadeIn delay={0.12} className="mt-10">
         <p className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-medium tracking-[-0.02em] text-[var(--accent-ink)]">
           Kaivo does the work. You do the deciding.
-        </p>
-      </FadeIn>
-      <FadeIn delay={0.14} className="surface-card mt-12 rounded-2xl border-dashed p-6 text-[13px] text-[var(--muted)]">
-        <p className="font-medium text-[var(--foreground)]">
-          Ask. Approve. Done.
-        </p>
-        <p className="mt-2">
-          A mnemonic for how Kaivo stays in your corner — not the hero headline,
-          but the rhythm of the product.
         </p>
       </FadeIn>
     </SectionShell>

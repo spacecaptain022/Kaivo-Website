@@ -16,15 +16,13 @@ export function ThesisSection() {
       <div className="rounded-3xl border border-[var(--background)]/12 bg-[var(--foreground)]/96 px-6 py-16 text-[var(--background)] shadow-[var(--card-shadow)] md:px-10 md:py-28">
         <FadeIn>
           <h2 className="max-w-3xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-            Travel is the wedge. Delegation is the platform.
+            Travel is the starting point. Delegation is the future.
           </h2>
         </FadeIn>
         <FadeIn delay={0.06} className="mt-8 max-w-2xl text-[17px] leading-relaxed text-[var(--background)]/75">
           <p>
-            Travel is where this problem is most painful: volatile pricing,
-            repeated decisions, multiple tabs, and a high cost of getting it
-            wrong. That’s why it’s the perfect place to prove a bigger behaviour
-            shift.
+            Travel is where the pain is highest: volatile pricing, repeated
+            decisions, too many tabs. It’s the perfect place to prove a new way.
           </p>
           <p className="mt-4">
             Start with flights. Then expand to the rest of travel. Then to
@@ -50,8 +48,7 @@ export function ThesisSection() {
           delay={0.14}
           className="mt-10 max-w-2xl rounded-2xl border border-[var(--background)]/25 p-5 text-[15px] leading-relaxed text-[var(--background)]/85"
         >
-          Kaivo wins by owning the moment of approval. Every approved outcome is
-          a transaction opportunity.
+          Kaivo owns the moment of decision. Every approval becomes an outcome.
         </FadeIn>
       </div>
     </SectionShell>
