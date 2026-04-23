@@ -25,7 +25,7 @@ export function Hero() {
           loop
           playsInline
           poster="/hero/airplane-island.png"
-          className="h-full w-full object-cover opacity-25"
+          className="h-full w-full object-cover opacity-[0.12]"
         >
           <source src="/hero/airplane-island-video.mp4" type="video/mp4" />
         </video>
@@ -109,32 +109,6 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
               <div className="absolute left-4 top-4 rounded-full border border-[var(--surface)]/80 bg-[var(--surface)]/72 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--accent-ink)] backdrop-blur-sm">
                 Demo
-              </div>
-            </div>
-          </FadeIn>
-          <FadeIn
-            delay={0.09}
-            className="pointer-events-none absolute -right-2 -top-5 z-10 hidden rounded-2xl border border-[var(--line)]/75 bg-[var(--surface)]/82 px-3 py-2 shadow-[var(--card-shadow-soft)] backdrop-blur-md md:block"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[var(--surface)] bg-[var(--accent)]/85 text-[10px] font-semibold text-[var(--accent-ink)]">
-                  F
-                </span>
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[var(--surface)] bg-[var(--panel)] text-[10px] font-semibold text-[var(--foreground)]">
-                  O
-                </span>
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[var(--surface)] bg-[var(--surface)] text-[10px] font-semibold text-[var(--muted)]">
-                  T
-                </span>
-              </div>
-              <div className="text-left">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-                  Decision-ready
-                </p>
-                <p className="text-[12px] font-semibold text-[var(--foreground)]">
-                  1 tap approval
-                </p>
               </div>
             </div>
           </FadeIn>
