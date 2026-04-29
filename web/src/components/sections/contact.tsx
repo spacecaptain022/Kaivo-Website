@@ -39,7 +39,7 @@ export function ContactSection() {
               </span>
               <a
                 href={`mailto:${email}`}
-                className="mt-1 block text-[var(--accent-deep)] underline-offset-4 hover:underline"
+                className="mt-1 block text-[var(--foreground)] underline-offset-4 hover:underline"
               >
                 {email}
               </a>

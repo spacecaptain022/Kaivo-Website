@@ -75,7 +75,7 @@ export function ProblemSection() {
                       <span className="block text-[var(--accent-ink)]">
                         {row.primary}
                       </span>
-                      <span className="block text-[var(--accent-deep)]">
+                      <span className="block text-[var(--foreground)]">
                         {row.secondary}
                       </span>
                     </>

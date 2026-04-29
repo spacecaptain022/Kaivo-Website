@@ -1,7 +1,10 @@
-import { KaivoMark } from "@/components/kaivo-mark";
+"use client";
+
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
+import { useState } from "react";
 
 const members = [
   {
@@ -36,69 +39,84 @@ const members = [
   },
 ] as const;
 
-function TeamMarkBackdrop() {
-  return (
-    <div className="flex h-full min-h-[min(28rem,_55vh)] w-full items-center justify-center">
-      <div className="relative aspect-square w-[min(130vw,_68rem)] max-w-[min(130vw,_68rem)]">
-        <span
-          className="absolute inset-[14%] rounded-full bg-[var(--accent)]/[0.04] blur-[72px]"
-          aria-hidden
-        />
-        <KaivoMark
-          className="absolute left-1/2 top-1/2 z-[1] h-[92%] w-[92%] -translate-x-1/2 -translate-y-1/2 text-[color-mix(in_srgb,var(--accent-deep)_48%,var(--background))] opacity-[0.14] contrast-[1.02] [filter:drop-shadow(-1.5px_-1.5px_2px_rgba(255,_255,_255,_0.72))_drop-shadow(2px_2px_6px_rgba(10,_10,_10,_0.12))_drop-shadow(0_1px_0_rgba(255,_255,_255,_0.35))]"
-        />
-      </div>
-    </div>
-  );
-}
-
 export function TeamSection() {
+  const [openBio, setOpenBio] = useState<string | null>(null);
+
   return (
-    <SectionShell tone="panel" overlay={<TeamMarkBackdrop />}>
-      <FadeIn>
-        <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em]">
+    <SectionShell tone="paper">
+      <FadeIn className="text-center">
+        <p className="inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_42%,transparent)] bg-[color-mix(in_srgb,var(--accent)_16%,var(--surface))] px-4 py-1.5 text-[11px] font-medium tracking-[-0.01em] text-[var(--foreground)] shadow-[0_8px_22px_-12px_rgba(38,229,201,0.7)] ring-1 ring-[color-mix(in_srgb,var(--accent)_22%,transparent)]">
           Meet the team
-        </h2>
-        <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
-          Leadership building the future of delegation, starting with travel.
         </p>
+        <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.04em]">
+          The Team Building Kaivo
+        </h2>
       </FadeIn>
-      <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {members.map((m, i) => (
           <FadeIn
             key={`${m.name}-${m.role}`}
             className="h-full min-h-0"
             delay={0.05 + i * 0.04}
           >
-            <article className="surface-card flex h-full min-h-0 flex-col rounded-[1.375rem] p-6">
-              <header className="flex items-start gap-4">
-                <div className="relative size-14 shrink-0 overflow-hidden rounded-full shadow-[var(--card-shadow-soft)] ring-1 ring-[var(--foreground)]/10 md:size-16">
-                  <Image
-                    src={m.photoSrc}
-                    alt={`${m.name}, ${m.role}`}
-                    fill
-                    sizes="72px"
-                    className="object-cover object-top"
-                    quality={92}
-                  />
-                </div>
+            {(() => {
+              const memberId = `${m.name}-${m.role}`;
+              const bioPanelId = `bio-${i}`;
+              const isOpen = openBio === memberId;
+
+              return (
+            <article className="group mx-auto h-full w-full max-w-[22rem] rounded-2xl">
+              <div className="relative aspect-[0.92/1] overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] shadow-[var(--card-shadow-soft)]">
+                <Image
+                  src={m.photoSrc}
+                  alt={`${m.name}, ${m.role}`}
+                  fill
+                  sizes="(max-width: 768px) 88vw, (max-width: 1280px) 40vw, 22rem"
+                  className="object-cover object-top"
+                  quality={100}
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/22 via-black/5 to-transparent"
+                />
+              </div>
+              <div className="mt-3 rounded-2xl border border-[var(--line)] bg-[var(--surface)]/94 px-4 py-3 shadow-[var(--card-shadow-soft)]">
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-[15px] font-semibold leading-snug tracking-[-0.02em] sm:text-[17px]">
+                  <h3 className="truncate text-[clamp(1.15rem,1.5vw,1.9rem)] font-semibold tracking-[-0.03em] text-[var(--foreground)]">
                     {m.name}
                   </h3>
-                  <p className="mt-1 inline-block rounded-md bg-[color-mix(in_srgb,var(--accent)_14%,transparent)] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--accent-deep)]">
+                  <p className="mt-0.5 text-[15px] leading-tight text-[var(--muted)]">
                     {m.role}
                   </p>
                 </div>
-              </header>
-              <div
-                aria-hidden
-                className="my-5 h-px shrink-0 bg-gradient-to-r from-[color-mix(in_srgb,var(--accent-deep)_22%,transparent)] via-[color-mix(in_srgb,var(--accent-deep)_08%,transparent)] to-transparent opacity-80"
-              />
-              <p className="flex-1 text-pretty text-[14px] leading-[1.65] text-[var(--muted)]">
-                {m.bio}
-              </p>
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={bioPanelId}
+                  onClick={() => setOpenBio(isOpen ? null : memberId)}
+                  className="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--foreground)]"
+                >
+                  {isOpen ? "Hide bio" : "Read bio"}
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen ? (
+                    <motion.p
+                      id={bioPanelId}
+                      key="bio"
+                      initial={{ height: 0, opacity: 0, y: -6 }}
+                      animate={{ height: "auto", opacity: 1, y: 0 }}
+                      exit={{ height: 0, opacity: 0, y: -4 }}
+                      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                      className="mt-3 overflow-hidden text-[14px] leading-relaxed text-[var(--muted)]"
+                    >
+                      {m.bio}
+                    </motion.p>
+                  ) : null}
+                </AnimatePresence>
+              </div>
             </article>
+              );
+            })()}
           </FadeIn>
         ))}
       </div>
