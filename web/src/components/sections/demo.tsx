@@ -2,11 +2,18 @@
 
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 export function DemoSection() {
   const reduceMotion = useReducedMotion();
   const easeOut = [0.22, 1, 0.36, 1] as const;
+  const calloutRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: calloutRef,
+    offset: ["start end", "end start"],
+  });
+  const calloutParallaxY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   const oldWay = [
     "Search across tabs",
@@ -152,13 +159,26 @@ export function DemoSection() {
           </article>
         </FadeIn>
       </div>
-      <FadeIn delay={0.12} className="surface-card mt-10 rounded-2xl p-7 text-center">
-        <p className="mx-auto max-w-4xl text-[clamp(0.9375rem,2.35vw,1.5rem)] font-extrabold uppercase leading-snug tracking-[0.085em] text-[var(--foreground)]">
-          WE EXIST SO YOU CAN MAKE BETTER CHOICES. AND QUICKER.
-        </p>
-        <p className="mt-4 text-[13px] text-[var(--muted)]">
-          Natural-language booking. One review. One approval.
-        </p>
+      <FadeIn delay={0.12} className="mt-10">
+        <div
+          ref={calloutRef}
+          className="relative overflow-hidden rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-field)]/40 p-7 text-center shadow-[var(--card-shadow-soft)]"
+        >
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 -inset-y-8 bg-cover bg-center bg-no-repeat opacity-10"
+            style={{
+              backgroundImage: "url(/lady-booking.png)",
+              y: reduceMotion ? "0%" : calloutParallaxY,
+            }}
+          />
+          <p className="relative z-10 mx-auto max-w-4xl text-[clamp(0.9375rem,2.35vw,1.5rem)] font-extrabold uppercase leading-snug tracking-[0.085em] text-[var(--foreground)]">
+            WE EXIST SO YOU CAN MAKE BETTER CHOICES. AND QUICKER.
+          </p>
+          <p className="relative z-10 mt-4 text-[13px] text-[var(--muted)]">
+            Natural-language booking. One review. One approval.
+          </p>
+        </div>
       </FadeIn>
     </SectionShell>
   );
