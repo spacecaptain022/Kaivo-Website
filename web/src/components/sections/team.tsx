@@ -10,7 +10,7 @@ const members = [
   {
     name: "Aragon M. v. B. Brettschneider",
     role: "CEO",
-    photoSrc: "/team/aragon.jpeg",
+    photoSrc: "/team/aragon.jpg",
     linkedinUrl: "https://www.linkedin.com/in/aragonbrettschneider",
     bio: "Started his entrepreneurial journey over a decade ago, helping scale Rocket Internet’s e-commerce platform Daraz in Myanmar, which was later acquired by Alibaba in a nine-figure exit. He later built a medical PPE business during COVID that generated eight-figure profits while managing 100+ employees, before founding Astoria Succession Partners, an AI-powered B2B M&A lead generation platform.",
   },
