@@ -1,5 +1,6 @@
 import { SectionShell } from "@/components/ui/section-shell";
 import { SixtySecondTagline } from "@/components/sections/sixty-second-tagline";
+import { ValueHeadline } from "@/components/sections/value-headline";
 
 const cards = [
   {
@@ -24,17 +25,7 @@ export function ValueSection() {
         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
           Why people will love it
         </p>
-        <h2 className="mx-auto mt-3 max-w-4xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.12] tracking-[-0.03em] [text-wrap:balance]">
-          <span className="text-[var(--foreground)]">
-            The best travel product isn&apos;t
-          </span>{" "}
-          <span className="text-[var(--accent)]">the one with</span>{" "}
-          <span className="text-[var(--foreground)]">the most options.</span>{" "}
-          <span className="text-[var(--accent)]">It&apos;s the one that</span>{" "}
-          <span className="text-[var(--foreground)]">
-            gives you your time back.
-          </span>
-        </h2>
+        <ValueHeadline />
       </div>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {cards.map((c) => (
