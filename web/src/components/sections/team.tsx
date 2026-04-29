@@ -23,7 +23,7 @@ const members = [
     bio: "A fintech engineering leader and cloud architecture expert with senior experience across payments and platform infrastructure. He previously held engineering leadership roles linked to JPMorgan and Wise, and has worked on scaling modern payment and cloud-native systems.",
   },
   {
-    name: "Claire C",
+    name: "Claire Cairns",
     role: "CMO",
     photoSrc: "/team/claire.jpeg",
     bio: "An award-winning CMO with 10 years of experience in Web3, AI, digital assets, and regulated fintech, specializing in turning complex technologies into clear market positioning. Before leading go-to-market, communications, and ecosystem growth for multiple emerging tech platforms, she founded and exited Bottle PR, building it into a top 10 UK agency and working with clients including IBM, Honda, Uber, and AMINA Bank.",
