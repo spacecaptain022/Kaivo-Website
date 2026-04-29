@@ -39,15 +39,21 @@ export function Hero() {
           muted
           loop
           playsInline
+          controls={false}
+          disablePictureInPicture
+          controlsList="nofullscreen nodownload noremoteplayback"
+          preload="auto"
+          tabIndex={-1}
+          aria-hidden
           poster="/hero/airplane-island.png"
-          className="h-full min-h-full w-full scale-105 object-cover object-[center_35%]"
+          className="pointer-events-none h-full min-h-full w-full scale-105 object-cover object-[center_35%]"
         >
           <source src="/hero/airplane-island-video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(6,20,28,0.9)_0%,rgba(6,30,38,0.78)_45%,rgba(5,16,24,0.9)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(6,6,8,0.92)_0%,rgba(8,8,10,0.82)_45%,rgba(5,5,7,0.92)_100%)]" />
         <div className="absolute inset-0 bg-[color-mix(in_srgb,var(--accent)_11%,transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(38,229,201,0.16),transparent_56%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#050a14]/82 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/82 to-transparent" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" />
       </div>
 
@@ -151,8 +157,8 @@ export function Hero() {
               aria-hidden
               className={cn(
                 "pointer-events-none absolute inset-x-0 bottom-0 z-[1] min-h-[38%]",
-                "bg-gradient-to-t from-[#070a11]/[0.98] via-[#070a11]/52 to-transparent",
-                "sm:from-[#050608]/[0.93]",
+                "bg-gradient-to-t from-black/[0.98] via-black/52 to-transparent",
+                "sm:from-black/[0.93]",
               )}
             />
           </div>

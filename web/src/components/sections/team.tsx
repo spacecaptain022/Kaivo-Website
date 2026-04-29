@@ -1,5 +1,6 @@
 "use client";
 
+import { KaivoMark } from "@/components/kaivo-mark";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
 import { AnimatePresence, motion } from "motion/react";
@@ -12,6 +13,10 @@ const members = [
     role: "CEO",
     photoSrc: "/team/aragon.jpg",
     linkedinUrl: "https://www.linkedin.com/in/aragonbrettschneider",
+    logos: [
+      { src: "/team/rocket-logo.jpg", alt: "Rocket Internet" },
+      { src: "/team/accenture.png", alt: "Accenture" },
+    ],
     bio: "Started his entrepreneurial journey over a decade ago, helping scale Rocket Internet’s e-commerce platform Daraz in Myanmar, which was later acquired by Alibaba in a nine-figure exit. He later built a medical PPE business during COVID that generated eight-figure profits while managing 100+ employees, before founding Astoria Succession Partners, an AI-powered B2B M&A lead generation platform.",
   },
   {
@@ -19,13 +24,21 @@ const members = [
     role: "COO",
     photoSrc: "/team/davide.png",
     linkedinUrl: "https://www.linkedin.com/in/davide-nuessle-b82860174/",
+    logos: [
+      { src: "/team/bain-and-company.png", alt: "Bain & Company" },
+      { src: "/team/blackrock-logo.png", alt: "BlackRock" },
+    ],
     bio: "Former Senior Manager at Bain & Company with a focus on value creation plans and performance improvement for private equity portfolio companies. Previous experience in finance (Deutsche Bank, BlackRock) combined with hands-on operations experience give him the right foundation for scaling teams and pragmatic execution.",
   },
   {
     name: "Claire Cairns",
     role: "CMO",
     photoSrc: "/team/claire.jpeg",
-    linkedinUrl: "https://www.linkedin.com/in/olivia-y-cai",
+    linkedinUrl: "https://www.linkedin.com/in/clairecblockchain/",
+    logos: [
+      { src: "/team/uber-logo.png", alt: "Uber" },
+      { src: "/team/ibm.svg", alt: "IBM" },
+    ],
     bio: "An award-winning CMO with 10 years of experience in Web3, AI, digital assets, and regulated fintech, specializing in turning complex technologies into clear market positioning. Before leading go-to-market, communications, and ecosystem growth for multiple emerging tech platforms, she founded and exited Bottle PR, building it into a top 10 UK agency and working with clients including IBM, Honda, Uber, and AMINA Bank.",
   },
   {
@@ -34,14 +47,21 @@ const members = [
     photoSrc: "/team/julian.png",
     linkedinUrl:
       "https://www.linkedin.com/in/julianmick?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    logos: [
+      { src: "/team/thi-logo.png", alt: "THI Investments" },
+      { src: "/team/barclays-logo.svg", alt: "Barclays" },
+    ],
     bio: "A private equity and M&A professional with experience spanning investing, corporate development, and transaction execution. His background includes THI Investments, Banyan Software, and prior exposure to firms such as Maxburg Capital Partners, Barclays, and EY.",
   },
   {
-    name: "Umair Malik",
+    name: "Mihir",
     role: "CTO",
     photoSrc: "/team/umair.png",
-    linkedinUrl:
-      "https://www.linkedin.com/in/umair-malik-47a3a4132?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    usePlaceholderPhoto: true,
+    logos: [
+      { src: "/team/jp-morgan-logo.jpg", alt: "JP Morgan" },
+      { src: "/team/wise-logo.png", alt: "Wise" },
+    ],
     bio: "A fintech engineering leader and cloud architecture expert with senior experience across payments and platform infrastructure. He previously held engineering leadership roles linked to JPMorgan and Wise, and has worked on scaling modern payment and cloud-native systems.",
   },
 ] as const;
@@ -74,14 +94,20 @@ export function TeamSection() {
               return (
             <article className="group mx-auto h-full w-full max-w-[22rem] rounded-2xl">
               <div className="relative aspect-[0.92/1] overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] shadow-[var(--card-shadow-soft)]">
-                <Image
-                  src={m.photoSrc}
-                  alt={`${m.name}, ${m.role}`}
-                  fill
-                  sizes="(max-width: 768px) 88vw, (max-width: 1280px) 40vw, 22rem"
-                  className="object-cover object-top"
-                  quality={100}
-                />
+                {("usePlaceholderPhoto" in m && m.usePlaceholderPhoto) ? (
+                  <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(120%_100%_at_50%_0%,rgba(38,229,201,0.14),rgba(10,10,10,0.96)_50%,rgba(0,0,0,1)_100%)]">
+                    <KaivoMark className="h-24 w-24 text-[var(--accent)] opacity-95 drop-shadow-[0_0_24px_rgba(38,229,201,0.35)]" />
+                  </div>
+                ) : (
+                  <Image
+                    src={m.photoSrc}
+                    alt={`${m.name}, ${m.role}`}
+                    fill
+                    sizes="(max-width: 768px) 88vw, (max-width: 1280px) 40vw, 22rem"
+                    className="object-cover object-top"
+                    quality={100}
+                  />
+                )}
                 <div
                   aria-hidden
                   className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/22 via-black/5 to-transparent"
@@ -97,6 +123,50 @@ export function TeamSection() {
                   </p>
                 </div>
                 <div className="mt-3 flex items-center justify-between gap-3">
+                  {"logos" in m ? (
+                    <div className="flex items-center gap-2">
+                      {m.logos.map((logo) => (
+                        <span
+                          key={logo.src}
+                          className="inline-flex h-10 items-center rounded-md border border-[var(--line-strong)]/45 bg-[var(--surface)] px-3"
+                        >
+                          <Image
+                            src={logo.src}
+                            alt={logo.alt}
+                            width={120}
+                            height={30}
+                            className={`w-auto object-contain ${
+                              logo.alt === "THI Investments"
+                                ? "h-[52px]"
+                                : logo.alt === "Uber" || logo.alt === "IBM"
+                                ? "h-[24px]"
+                                : "h-[28px]"
+                            }`}
+                          />
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <span />
+                  )}
+                  {"linkedinUrl" in m ? (
+                    <a
+                      href={m.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${m.name} on LinkedIn`}
+                      className="inline-flex size-9 items-center justify-center rounded-md border border-[var(--line-strong)]/70 bg-[var(--surface)] text-[var(--foreground)]"
+                    >
+                      <span
+                        aria-hidden
+                        className="size-4 bg-[var(--accent)] [mask-image:url(/linkedin-svgrepo-com.svg)] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain] [-webkit-mask-image:url(/linkedin-svgrepo-com.svg)] [-webkit-mask-position:center] [-webkit-mask-repeat:no-repeat] [-webkit-mask-size:contain]"
+                      />
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+                </div>
+                <div className="mt-3 flex items-center justify-between gap-3">
                   <button
                     type="button"
                     aria-expanded={isOpen}
@@ -106,18 +176,7 @@ export function TeamSection() {
                   >
                     {isOpen ? "Hide bio" : "Read bio"}
                   </button>
-                  <a
-                    href={m.linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${m.name} on LinkedIn`}
-                    className="inline-flex size-9 items-center justify-center rounded-md border border-[var(--line-strong)]/70 bg-[var(--surface)] text-[var(--foreground)]"
-                  >
-                    <span
-                      aria-hidden
-                      className="size-4 bg-[var(--accent)] [mask-image:url(/linkedin-svgrepo-com.svg)] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain] [-webkit-mask-image:url(/linkedin-svgrepo-com.svg)] [-webkit-mask-position:center] [-webkit-mask-repeat:no-repeat] [-webkit-mask-size:contain]"
-                    />
-                  </a>
+                  <span />
                 </div>
                 <AnimatePresence initial={false}>
                   {isOpen ? (
