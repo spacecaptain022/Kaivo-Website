@@ -44,16 +44,17 @@ export function Hero() {
         >
           <source src="/hero/airplane-island-video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070a11]/92 via-[#0a1620]/45 to-[#050608]/82" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(38,229,201,0.07),transparent_52%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/72 to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(6,20,28,0.9)_0%,rgba(6,30,38,0.78)_45%,rgba(5,16,24,0.9)_100%)]" />
+        <div className="absolute inset-0 bg-[color-mix(in_srgb,var(--accent)_11%,transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(38,229,201,0.16),transparent_56%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#050a14]/82 to-transparent" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" />
       </div>
 
       {/* Centered copy + capsule + phone mock */}
       <motion.div
         className={cn(
-          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(7.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(7.75rem+env(safe-area-inset-top))]",
+          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(8.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(8.75rem+env(safe-area-inset-top))]",
           !reduceMotion && "will-change-[opacity]",
         )}
         style={
@@ -80,25 +81,8 @@ export function Hero() {
           <FadeIn delay={0.1}>
             <p className="mx-auto max-w-lg text-[clamp(1.2rem,_2.4vw,_1.85rem)] font-medium leading-snug tracking-[-0.02em] text-white/95">
               Stop doing.{" "}
-              <span className="font-semibold text-[var(--accent)]">
-                Start delegating.
-              </span>
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.12}>
-            <p
-              className={cn(
-                "mx-auto max-w-[min(100%,20rem)] text-center leading-snug text-white/74",
-                "text-[clamp(14px,_2.85vw,_16px)]",
-                /* Room for ~two lines at md+ inside max-w-3xl column */
-                "sm:max-w-2xl sm:text-[clamp(14.5px,_2vw,_17px)]",
-                "md:max-w-full md:text-[clamp(14.75px,_1.45vw,_17px)] md:leading-[1.42]",
-              )}
-            >
-              Book flights in under 60 seconds. Kaivo compares, prepares, and
-              lines everything up for approval, so you spend less time searching
-              and more time going.
+              <span className="font-semibold text-[var(--accent)]">Start delegating.</span>{" "}
+              Book a flight in under 60 seconds.
             </p>
           </FadeIn>
 
