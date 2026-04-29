@@ -22,14 +22,6 @@ const members = [
     bio: "Former Senior Manager at Bain & Company with a focus on value creation plans and performance improvement for private equity portfolio companies. Previous experience in finance (Deutsche Bank, BlackRock) combined with hands-on operations experience give him the right foundation for scaling teams and pragmatic execution.",
   },
   {
-    name: "Umair Malik",
-    role: "CTO",
-    photoSrc: "/team/umair.png",
-    linkedinUrl:
-      "https://www.linkedin.com/in/umair-malik-47a3a4132?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-    bio: "A fintech engineering leader and cloud architecture expert with senior experience across payments and platform infrastructure. He previously held engineering leadership roles linked to JPMorgan and Wise, and has worked on scaling modern payment and cloud-native systems.",
-  },
-  {
     name: "Claire Cairns",
     role: "CMO",
     photoSrc: "/team/claire.jpeg",
@@ -43,6 +35,14 @@ const members = [
     linkedinUrl:
       "https://www.linkedin.com/in/julianmick?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
     bio: "A private equity and M&A professional with experience spanning investing, corporate development, and transaction execution. His background includes THI Investments, Banyan Software, and prior exposure to firms such as Maxburg Capital Partners, Barclays, and EY.",
+  },
+  {
+    name: "Umair Malik",
+    role: "CTO",
+    photoSrc: "/team/umair.png",
+    linkedinUrl:
+      "https://www.linkedin.com/in/umair-malik-47a3a4132?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    bio: "A fintech engineering leader and cloud architecture expert with senior experience across payments and platform infrastructure. He previously held engineering leadership roles linked to JPMorgan and Wise, and has worked on scaling modern payment and cloud-native systems.",
   },
 ] as const;
 
