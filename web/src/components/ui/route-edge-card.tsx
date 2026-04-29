@@ -3,11 +3,6 @@ import type { ReactNode } from "react";
 const cardChrome =
   "surface-card rounded-2xl ring-1 ring-[var(--foreground)]/[0.04]";
 
-/**
- * Capability row — shares chrome with Value / Demo cards. Step index reads as
- * a small “gate / sequence” mark in brand teal fields (cohesive with the rest
- * of the UI, not a separate illustration style).
- */
 export function RouteEdgeCard({
   children,
   step,
