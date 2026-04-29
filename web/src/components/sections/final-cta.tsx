@@ -43,7 +43,7 @@ export function FinalCtaSection() {
               </a>
             ))}
             <a
-              href="https://x.com/"
+              href="https://x.com/askkaivo"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[var(--foreground)] transition-colors duration-150 hover:text-[var(--accent-deep)] focus-visible:outline-none focus-visible:underline"

@@ -13,6 +13,8 @@ type SectionShellProps = {
   children: ReactNode;
   className?: string;
   innerClassName?: string;
+  /** Covers the section backdrop (fills viewport width); stacks above tonal pseudos but below children. */
+  overlay?: ReactNode;
   /** Background & atmosphere — rhythms the page beyond flat gray slabs */
   tone?: SectionTone;
 };
@@ -34,6 +36,7 @@ export function SectionShell({
   children,
   className,
   innerClassName,
+  overlay,
   tone = "default",
 }: SectionShellProps) {
   return (
@@ -49,9 +52,14 @@ export function SectionShell({
         className,
       )}
     >
+      {overlay != null ? (
+        <div className="pointer-events-none absolute inset-0 z-[2] overflow-visible">
+          {overlay}
+        </div>
+      ) : null}
       <div
         className={cn(
-          "relative z-[1] mx-auto max-w-6xl px-5 sm:px-8 lg:px-10",
+          "relative z-[8] mx-auto max-w-6xl px-5 sm:px-8 lg:px-10",
           innerClassName,
         )}
       >

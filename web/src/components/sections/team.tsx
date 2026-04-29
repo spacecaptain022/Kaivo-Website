@@ -1,3 +1,4 @@
+import { KaivoMark } from "@/components/kaivo-mark";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
 import Image from "next/image";
@@ -35,9 +36,23 @@ const members = [
   },
 ] as const;
 
+function TeamMarkBackdrop() {
+  return (
+    <div className="flex h-full min-h-[min(28rem,_55vh)] w-full items-center justify-center">
+      <div className="relative aspect-square w-[min(130vw,_68rem)] max-w-[min(130vw,_68rem)]">
+        <span
+          className="absolute inset-[14%] rounded-full bg-[var(--accent)]/[0.04] blur-[72px]"
+          aria-hidden
+        />
+        <KaivoMark className="absolute left-1/2 top-1/2 z-[1] h-[92%] w-[92%] -translate-x-1/2 -translate-y-1/2 text-[color-mix(in_srgb,var(--accent-deep)_45%,var(--background))] opacity-[0.18]" />
+      </div>
+    </div>
+  );
+}
+
 export function TeamSection() {
   return (
-    <SectionShell tone="panel">
+    <SectionShell tone="panel" overlay={<TeamMarkBackdrop />}>
       <FadeIn>
         <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em]">
           Meet the team
