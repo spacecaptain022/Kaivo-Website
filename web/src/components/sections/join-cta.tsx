@@ -7,10 +7,8 @@ export function JoinCtaSection() {
     <SectionShell id="final-cta" tone="surface" className="py-16 md:py-24">
       <FadeIn>
         <h2 className="max-w-3xl text-[clamp(1.85rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--foreground)]">
-          Stop time wasting.{" "}
-          <span className="text-[var(--accent)]">
-            Start fast-forwarding travel.
-          </span>
+          Stop the searching.{" "}
+          <span className="text-[var(--accent)]">Start travelling.</span>
         </h2>
       </FadeIn>
       <FadeIn delay={0.06} className="mt-8 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
