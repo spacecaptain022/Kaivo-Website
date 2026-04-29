@@ -30,7 +30,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative isolate overflow-hidden rounded-b-[2.75rem] border-b border-white/10 sm:rounded-b-[3.75rem]"
+      className="relative isolate overflow-hidden rounded-b-[2.75rem] sm:rounded-b-[3.75rem]"
     >
       {/* Full-bleed media */}
       <div className="absolute inset-0 z-0 min-h-[100%]" aria-hidden>
@@ -53,7 +53,7 @@ export function Hero() {
       {/* Centered copy + capsule; mock bottom-center — floats out on scroll down, returns on scroll up */}
       <motion.div
         className={cn(
-          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(9.5rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(9.75rem+env(safe-area-inset-top))]",
+          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(6.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(6.75rem+env(safe-area-inset-top))]",
           !reduceMotion && "will-change-[transform,opacity]",
         )}
         style={
@@ -117,11 +117,10 @@ export function Hero() {
           <FadeIn delay={0.18} className="w-full max-w-xl md:max-w-[34rem]">
             <div
               className={cn(
-                "mx-auto flex w-full flex-row items-center justify-between gap-3 rounded-[2.25rem] px-5 py-2.5 pl-8 sm:gap-4 sm:pl-10",
-                /* Kaivo accent glass — denser teal + clearer rim */
-                "border-2 border-[color-mix(in_srgb,var(--accent)_62%,transparent)]",
-                "bg-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-xl backdrop-saturate-[1.45]",
-                "shadow-[0_28px_80px_-28px_rgba(0,_0,_0,_0.5),inset_0_0_0_1px_rgba(255,_255,_255,_0.42),inset_0_1px_0_0_rgba(255,_255,_255,_0.22)]",
+                "relative z-10 mx-auto flex w-full flex-row items-center justify-between gap-3 px-5 py-2.5 pl-8 sm:gap-4 sm:pl-10",
+                reduceMotion
+                  ? "rounded-[2.25rem] bg-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-xl backdrop-saturate-[1.45] shadow-[0_28px_80px_-28px_rgba(0,_0,_0,_0.5)] ring-1 ring-[color-mix(in_srgb,var(--accent)_40%,transparent)]"
+                  : "hero-waitlist-bordered",
               )}
             >
               <div className="min-w-0 flex-1 py-1 text-left">

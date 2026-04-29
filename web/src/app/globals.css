@@ -90,3 +90,69 @@ body {
   background-size: 3px 3px, 4px 4px;
   background-position: 0 0, 1px 1px;
 }
+
+/* Waitlist rim: conic on ::before with mask — no pixels under the glass (translucent fill otherwise shows the full conic). */
+@property --hero-waitlist-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes hero-waitlist-border-spin {
+  to {
+    --hero-waitlist-angle: 360deg;
+  }
+}
+
+/* Conic is drawn only in a 2px ring (mask composite), not under the glass fill — avoids “searchlight” through translucent interior. */
+.hero-waitlist-bordered {
+  --hero-waitlist-angle: 0deg;
+  position: relative;
+  isolation: isolate;
+  border-radius: 2.25rem;
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  backdrop-filter: blur(38px) saturate(1.45);
+  -webkit-backdrop-filter: blur(38px) saturate(1.45);
+  box-shadow: 0 28px 80px -28px rgba(0, 0, 0, 0.5);
+}
+
+.hero-waitlist-bordered::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 2px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--hero-waitlist-angle),
+    rgba(15, 61, 56, 0.95) 0deg,
+    rgba(15, 61, 56, 0.88) 272deg,
+    rgba(38, 229, 201, 0.35) 295deg,
+    var(--accent) 308deg,
+    #bffaf0 322deg,
+    rgba(38, 229, 201, 0.45) 340deg,
+    rgba(15, 61, 56, 0.95) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: hero-waitlist-border-spin 3.5s linear infinite;
+}
+
+.hero-waitlist-bordered > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-waitlist-bordered::before {
+    animation: none;
+    --hero-waitlist-angle: 300deg;
+  }
+}

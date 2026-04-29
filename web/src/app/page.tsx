@@ -1,5 +1,4 @@
 import { SiteHeader } from "@/components/site-header";
-import { HeroLogoTab } from "@/components/hero-logo-tab";
 import { AboutSection } from "@/components/sections/about";
 import { ApprovalSection } from "@/components/sections/approval";
 import { DelegationSection } from "@/components/sections/delegation";
@@ -20,7 +19,6 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
-      <HeroLogoTab />
       <main className="overflow-x-hidden bg-[var(--surface)]">
         <Hero />
         <ProblemSection />

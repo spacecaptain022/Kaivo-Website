@@ -19,7 +19,7 @@ export function FrameButton({
 
   const styles =
     variant === "primary"
-      ? "border-[var(--foreground)]/95 bg-[var(--foreground)] text-[var(--background)] hover:bg-[#2a2a2a] hover:shadow-[var(--card-shadow)] hover:-translate-y-[1px]"
+      ? "border-[color-mix(in_srgb,var(--accent-deep)_40%,transparent)] bg-[var(--accent)] text-[var(--accent-ink)] hover:bg-[color-mix(in_srgb,var(--accent)_88%,black)] hover:border-[color-mix(in_srgb,var(--accent-deep)_55%,transparent)] hover:shadow-[var(--card-shadow)] hover:-translate-y-[1px]"
       : variant === "inverted"
         ? "border-[var(--background)]/80 bg-[var(--background)] text-[var(--foreground)] hover:bg-[#e8e8e4] hover:-translate-y-[1px]"
         : "border-[var(--line-strong)] bg-[var(--surface)]/55 text-[var(--foreground)] backdrop-blur-md hover:border-[var(--foreground)]/55 hover:bg-[var(--surface)]/72 hover:-translate-y-[1px]";
