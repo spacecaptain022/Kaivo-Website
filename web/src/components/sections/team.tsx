@@ -65,29 +65,37 @@ export function TeamSection() {
       </FadeIn>
       <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
         {members.map((m, i) => (
-          <FadeIn key={`${m.name}-${m.role}`} delay={0.05 + i * 0.04}>
-            <article className="surface-card flex h-full flex-col rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl shadow-[var(--card-shadow-soft)] ring-1 ring-[var(--foreground)]/[0.08]">
+          <FadeIn
+            key={`${m.name}-${m.role}`}
+            className="h-full min-h-0"
+            delay={0.05 + i * 0.04}
+          >
+            <article className="surface-card flex h-full min-h-0 flex-col rounded-[1.375rem] p-6">
+              <header className="flex items-start gap-4">
+                <div className="relative size-14 shrink-0 overflow-hidden rounded-full shadow-[var(--card-shadow-soft)] ring-1 ring-[var(--foreground)]/10 md:size-16">
                   <Image
                     src={m.photoSrc}
-                    alt={`${m.name}`}
+                    alt={`${m.name}, ${m.role}`}
                     fill
-                    sizes="56px"
+                    sizes="72px"
                     className="object-cover object-top"
                     quality={92}
                   />
                 </div>
-                <div className="min-w-0">
-                  <h3 className="text-[16px] font-semibold leading-snug tracking-[-0.02em] sm:text-[17px]">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-[15px] font-semibold leading-snug tracking-[-0.02em] sm:text-[17px]">
                     {m.name}
                   </h3>
-                  <p className="mt-0.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+                  <p className="mt-1 inline-block rounded-md bg-[color-mix(in_srgb,var(--accent)_14%,transparent)] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--accent-deep)]">
                     {m.role}
                   </p>
                 </div>
-              </div>
-              <p className="mt-5 text-[14px] leading-relaxed text-[var(--muted)]">
+              </header>
+              <div
+                aria-hidden
+                className="my-5 h-px shrink-0 bg-gradient-to-r from-[color-mix(in_srgb,var(--accent-deep)_22%,transparent)] via-[color-mix(in_srgb,var(--accent-deep)_08%,transparent)] to-transparent opacity-80"
+              />
+              <p className="flex-1 text-pretty text-[14px] leading-[1.65] text-[var(--muted)]">
                 {m.bio}
               </p>
             </article>
