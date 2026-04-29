@@ -20,13 +20,20 @@ const cards = [
 export function ValueSection() {
   return (
     <SectionShell tone="surface">
-      <div>
+      <div className="text-center">
         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
           Why people will love it
         </p>
-        <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em]">
-          The best travel product isn&apos;t the one with the most options.
-          It&apos;s the one that gives you your time back.
+        <h2 className="mx-auto mt-3 max-w-4xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.12] tracking-[-0.03em] [text-wrap:balance]">
+          <span className="text-[var(--foreground)]">
+            The best travel product isn&apos;t
+          </span>{" "}
+          <span className="text-[var(--accent)]">the one with</span>{" "}
+          <span className="text-[var(--foreground)]">the most options.</span>{" "}
+          <span className="text-[var(--accent)]">It&apos;s the one that</span>{" "}
+          <span className="text-[var(--foreground)]">
+            gives you your time back.
+          </span>
         </h2>
       </div>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
