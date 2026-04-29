@@ -10,7 +10,10 @@ const channels = [
 
 export function ContactSection() {
   return (
-    <SectionShell id="contact" className="border-t border-[var(--line)]/80">
+    <SectionShell
+      id="contact"
+      className="border-t border-[color-mix(in_srgb,var(--foreground)_6%,transparent)] bg-[linear-gradient(to_bottom,var(--surface)_0%,color-mix(in_srgb,var(--background)_94%,transparent)_85%)]"
+    >
       <FadeIn>
         <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em]">
           Contact Kaivo

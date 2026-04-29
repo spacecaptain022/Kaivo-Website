@@ -6,37 +6,47 @@ const contrast = [
   { label: "Search", value: "more options" },
   { label: "OTAs", value: "more pages" },
   { label: "AI chat", value: "more answers" },
-  { label: "Kaivo", value: "one ready decision", highlight: true },
-];
+  {
+    label: "Kaivo",
+    primary: "better options.",
+    secondary: "quicker booking.",
+  },
+] as const;
 
 export function ProblemSection() {
   return (
-    <SectionShell>
+    <SectionShell tone="paper">
       <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
           <FadeIn>
-            <h2 className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
+            <h2 className="max-w-xl text-[clamp(1.75rem,4vw,2.85rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--foreground)]">
               You were promised convenience. You got work.
             </h2>
           </FadeIn>
-          <FadeIn delay={0.06} className="mt-8 space-y-5 text-[17px] leading-relaxed text-[var(--muted)]">
-            <p className="font-medium text-[var(--foreground)]">
+          <FadeIn delay={0.06} className="mt-8">
+            <p className="font-medium text-[17px] leading-relaxed text-[var(--foreground)]">
               Tabs. Filters. Re-entering details. Second-guessing choices.
             </p>
           </FadeIn>
-          <FadeIn delay={0.1} className="mt-10">
-            <div className="surface-card rounded-2xl p-6">
-              <p className="border-l-2 border-[var(--accent)] pl-5 text-[20px] font-medium leading-snug tracking-[-0.02em] text-[var(--foreground)]">
-                More options didn’t remove the work. They multiplied it.
-              </p>
-            </div>
+          <FadeIn
+            delay={0.08}
+            className="mt-10 max-w-2xl text-[17px] font-light leading-[1.62] tracking-[-0.01em] text-[var(--muted)] antialiased"
+          >
+            <p>
+              Search made options infinite. Comparison sites made tabs multiply.
+              AI made answers faster. But somehow, you still do the work. You
+              still check five websites. You still compare flight times, baggage
+              rules, layovers, and refund policies. You still re-enter passenger
+              details. You still second-guess whether you picked the right
+              option.
+            </p>
           </FadeIn>
         </div>
         <FadeIn delay={0.08}>
           <ul className="surface-card overflow-hidden rounded-2xl">
             {contrast.map((row) => (
               <li
-                key={row.label}
+                key={row.label === "Kaivo" ? "kaivo-brand" : row.label}
                 className="flex items-center justify-between gap-4 border-b border-[var(--line)] px-4 py-4 last:border-b-0"
               >
                 <span
@@ -47,18 +57,29 @@ export function ProblemSection() {
                   }
                 >
                   {row.label === "Kaivo" && (
-                    <KaivoMark className="h-7 w-7 shrink-0" />
+                    <KaivoMark className="h-7 w-7 shrink-0" aria-hidden />
                   )}
-                  {row.label}
+                  {row.label === "Kaivo" ? "KAIVO" : row.label}
                 </span>
                 <span
                   className={
-                    row.highlight
-                      ? "inline-flex shrink-0 items-center rounded-full border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-3.5 py-2 text-right text-[14px] font-semibold leading-snug text-[var(--accent-ink)] shadow-[0_8px_26px_-10px_rgba(38,229,201,0.55),0_2px_8px_-4px_rgba(6,51,46,0.2),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:px-4 sm:text-[15px]"
+                    "primary" in row && "secondary" in row
+                      ? "inline-flex min-h-[3.75rem] shrink-0 flex-col justify-center gap-1 rounded-full border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-5 py-3 text-center text-[13px] font-semibold leading-snug shadow-[0_8px_26px_-10px_rgba(38,229,201,0.45),0_2px_8px_-4px_rgba(6,51,46,0.18),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-w-[11rem] sm:text-[14px]"
                       : "text-right text-[15px] text-[var(--foreground)]"
                   }
                 >
-                  {row.value}
+                  {"value" in row ? (
+                    row.value
+                  ) : (
+                    <>
+                      <span className="block text-[var(--accent-ink)]">
+                        {row.primary}
+                      </span>
+                      <span className="block text-[var(--accent-deep)]">
+                        {row.secondary}
+                      </span>
+                    </>
+                  )}
                 </span>
               </li>
             ))}

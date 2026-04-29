@@ -1,35 +1,50 @@
-import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
 
-const aligned = [
-  "Usage drives demand",
-  "Activity reduces supply",
-  "Revenue feeds back into the system",
+const pillars = [
+  {
+    title: "Built on Real Usage",
+    body: "Every action on Kaivo runs through the token. More usage = more demand. Simple.",
+  },
+  {
+    title: "Supply That Shrinks",
+    body: "Activity triggers automatic burns, permanently removing tokens from circulation. The more Kaivo is used, the scarcer it gets.",
+  },
+  {
+    title: "Revenue That Buys Back",
+    body: "A share of platform revenue is used to buy tokens off the market, feeding value straight back into the ecosystem.",
+  },
+  {
+    title: "Everything Aligned",
+    body: "Users, builders, and holders all pull in the same direction. Growth isn't extracted - it's shared.",
+  },
 ] as const;
 
 export function TokenSection() {
   return (
-    <SectionShell className="border-t border-[var(--line)]/80 bg-[var(--panel)]/50">
-      <FadeIn>
+    <SectionShell tone="panel" className="border-t border-[color-mix(in_srgb,var(--foreground)_6%,transparent)]">
+      <article className="surface-card rounded-3xl px-6 py-10 shadow-[var(--card-shadow-soft)] md:px-10 md:py-12">
         <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--muted)]">
           Tokenomics
         </p>
-        <h2 className="mt-3 max-w-3xl text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-tight tracking-[-0.03em]">
-          The system aligns incentives.
+        <h2 className="mt-3 max-w-3xl text-[clamp(1.5rem,3vw,2.35rem)] font-semibold leading-tight tracking-[-0.03em] text-[var(--foreground)]">
+          {`Kaivo's token isn't just part of the system…it `}
+          <span className="text-[var(--accent-ink)]">is</span>
+          {` the system.`}
         </h2>
-      </FadeIn>
-      <FadeIn delay={0.08} className="mt-10">
-        <ul className="grid gap-3 sm:grid-cols-3">
-          {aligned.map((line) => (
-            <li
-              key={line}
-              className="surface-card rounded-2xl px-5 py-4 text-[15px] font-medium leading-snug text-[var(--foreground)] shadow-[var(--card-shadow-soft)]"
-            >
-              {line}
-            </li>
+
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-12">
+          {pillars.map((p) => (
+            <div key={p.title}>
+              <p className="text-[15px] font-semibold leading-snug text-[var(--foreground)]">
+                {p.title}
+              </p>
+              <p className="mt-2 text-[15px] leading-relaxed text-[var(--muted)]">
+                {p.body}
+              </p>
+            </div>
           ))}
-        </ul>
-      </FadeIn>
+        </div>
+      </article>
     </SectionShell>
   );
 }

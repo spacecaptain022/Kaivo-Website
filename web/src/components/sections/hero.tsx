@@ -1,139 +1,187 @@
+"use client";
+
 import { FrameButton } from "@/components/ui/frame-button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/cn";
-
-const microCards = [
-  "Best flight found",
-  "1 bag included",
-  "Arrives before 7pm",
-  "Approved in 1 tap",
-];
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
+import { useRef } from "react";
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -56]);
+
+  /* Inner mock slides up slightly faster than surrounding copy → reveals lower UI vs a blunt crop */
+  const phoneRevealY = useTransform(scrollYProgress, [0, 1], [0, -42]);
+
   return (
     <section
+      ref={sectionRef}
       id="top"
-      className="relative overflow-hidden rounded-b-[60px] border-b border-[var(--line)] bg-[var(--background)] pb-16 pt-32 md:pb-24 md:pt-40"
+      className="relative isolate overflow-hidden rounded-b-[2.75rem] border-b border-white/10 sm:rounded-b-[3.75rem]"
     >
-      <div
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-        aria-hidden
-      >
+      {/* Full-bleed media */}
+      <div className="absolute inset-0 z-0 min-h-[100%]" aria-hidden>
         <video
           autoPlay
           muted
           loop
           playsInline
           poster="/hero/airplane-island.png"
-          className="h-full w-full object-cover opacity-[0.12]"
+          className="h-full min-h-full w-full scale-105 object-cover object-[center_35%]"
         >
           <source src="/hero/airplane-island-video.mp4" type="video/mp4" />
         </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070a11]/92 via-[#0a1620]/45 to-[#050608]/82" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(38,229,201,0.07),transparent_52%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/72 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" />
       </div>
-      <div
-        className="pointer-events-none absolute -left-28 top-24 z-[1] h-64 w-64 rounded-full bg-[var(--accent)]/24 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-16 bottom-20 z-[1] h-72 w-72 rounded-full bg-[var(--accent-mid)]/24 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[var(--surface)]/35 via-[var(--background)]/10 to-[var(--background)]/42"
-        aria-hidden
-      />
-      <div
-        className="texture-noise pointer-events-none absolute inset-0 z-[2] opacity-[0.12] mix-blend-soft-light"
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-10">
-        <div className="flex flex-col gap-8">
+
+      {/* Centered copy + capsule; mock bottom-center — floats out on scroll down, returns on scroll up */}
+      <motion.div
+        className={cn(
+          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(9.5rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(9.75rem+env(safe-area-inset-top))]",
+          !reduceMotion && "will-change-[transform,opacity]",
+        )}
+        style={
+          reduceMotion
+            ? undefined
+            : {
+                opacity,
+                y,
+              }
+        }
+      >
+        <div className="flex w-full max-w-3xl flex-col items-center gap-4 text-center sm:gap-5 md:gap-6">
           <FadeIn>
-            <h1 className="text-[clamp(2.5rem,6vw,4.75rem)] font-semibold leading-[0.95] tracking-[-0.04em]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/72">
+              From search to delegation
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.05}>
+            <h1 className="font-sans text-[clamp(2.75rem,_9vw,_5.75rem)] font-semibold leading-[0.9] tracking-[-0.03em] text-white drop-shadow-[0_12px_40px_rgba(0,_0,_0,_0.35)] md:leading-[0.88]">
               Search less.
               <br />
-              <span className="text-[var(--accent)]">Go more.</span>
+              <span className="bg-gradient-to-r from-[var(--accent)] via-[#7efceb] to-[var(--accent-mid)] bg-clip-text text-transparent">
+                Go more.
+              </span>
             </h1>
           </FadeIn>
-          <FadeIn delay={0.08}>
-            <p className="max-w-md text-[clamp(1.35rem,2.5vw,1.75rem)] font-medium leading-snug tracking-[-0.02em]">
-              Stop doing.{" "}
-              <span className="text-[var(--accent)]">Start delegating.</span>
-            </p>
-          </FadeIn>
+
           <FadeIn delay={0.1}>
-            <p className="max-w-lg text-[17px] leading-relaxed text-[var(--muted)]">
-              Book flights in under 60 seconds. Kaivo finds, compares, and
-              prepares one decision for you.
+            <p className="mx-auto max-w-lg text-[clamp(1.2rem,_2.4vw,_1.85rem)] font-medium leading-snug tracking-[-0.02em] text-white/95">
+              Stop doing.{" "}
+              <span className="font-semibold text-[var(--accent)]">
+                Start delegating.
+              </span>
             </p>
           </FadeIn>
-          <FadeIn
-            delay={0.12}
-            className="flex flex-col gap-4 sm:flex-row sm:items-center"
-          >
-            <FrameButton href="#waitlist">Get early access</FrameButton>
-            <FrameButton href="#product" variant="ghost">
-              See demo
-            </FrameButton>
+
+          <FadeIn delay={0.12}>
+            <p
+              className={cn(
+                "mx-auto max-w-[min(100%,20rem)] text-center leading-snug text-white/74",
+                "text-[clamp(14px,_2.85vw,_16px)]",
+                /* Room for ~two lines at md+ inside max-w-3xl column */
+                "sm:max-w-2xl sm:text-[clamp(14.5px,_2vw,_17px)]",
+                "md:max-w-full md:text-[clamp(14.75px,_1.45vw,_17px)] md:leading-[1.42]",
+              )}
+            >
+              Book flights in under 60 seconds. Kaivo compares, prepares, and
+              lines everything up for approval, so you spend less time searching
+              and more time going.
+            </p>
           </FadeIn>
+
           <FadeIn delay={0.14}>
-            <p className="max-w-md text-[13px] leading-relaxed text-[var(--muted)]">
-              Join for early access and private demo invites.
+            <p className="mx-auto max-w-[40rem] text-[15px] font-semibold leading-snug text-white/88">
+              Join the waitlist for early access to the live demo launch, priority
+              invites, and a chance to win one of our 26-flights-in-2026 giveaway.
             </p>
           </FadeIn>
-          <FadeIn delay={0.16}>
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--foreground)]">
-              Prepared for you · Approved by you · Done for you
-            </p>
+
+          <FadeIn delay={0.18} className="w-full max-w-xl md:max-w-[34rem]">
+            <div
+              className={cn(
+                "mx-auto flex w-full flex-row items-center justify-between gap-3 rounded-[2.25rem] px-5 py-2.5 pl-8 sm:gap-4 sm:pl-10",
+                /* Kaivo accent glass — denser teal + clearer rim */
+                "border-2 border-[color-mix(in_srgb,var(--accent)_62%,transparent)]",
+                "bg-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-xl backdrop-saturate-[1.45]",
+                "shadow-[0_28px_80px_-28px_rgba(0,_0,_0,_0.5),inset_0_0_0_1px_rgba(255,_255,_255,_0.42),inset_0_1px_0_0_rgba(255,_255,_255,_0.22)]",
+              )}
+            >
+              <div className="min-w-0 flex-1 py-1 text-left">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/78">
+                  Waitlist
+                </p>
+                <p className="truncate text-[15px] font-medium tracking-[-0.02em] text-white sm:text-[16px]">
+                  Early access &amp; live demo invites
+                </p>
+              </div>
+              <FrameButton href="#final-cta" variant="primary" className="shrink-0">
+                Join waitlist
+              </FrameButton>
+            </div>
           </FadeIn>
         </div>
 
-        <div className="relative flex flex-col gap-6">
-          <FadeIn delay={0.08}>
-            <div
+        <FadeIn
+          delay={0.06}
+          className="mt-auto flex w-full justify-center pt-8 sm:pt-10 md:pt-12"
+        >
+          <div
+            className={cn(
+              "relative mx-auto w-[min(448px,_94vw)] overflow-hidden rounded-b-[1.875rem]",
+              "sm:w-[min(488px,_90vw)]",
+              "[height:calc(min(448px,_94vw)*2/3)] sm:h-[calc(min(488px,_90vw)*2/3)]",
+            )}
+          >
+            <motion.img
+              src="/hero/kaivo-mockup-phone-2026.png"
+              alt="Kaivo on a phone"
+              width={800}
+              height={800}
+              draggable={false}
+              decoding="sync"
+              sizes="(max-width: 639px) 94vw, 488px"
+              fetchPriority="high"
               className={cn(
-                "surface-card relative aspect-[4/3] w-full overflow-hidden rounded-2xl",
-                "ring-1 ring-[var(--foreground)]/[0.04]",
+                "absolute left-1/2 top-0 block h-[128%] w-full max-w-none -translate-x-1/2 object-cover object-top select-none",
+                "drop-shadow-[0_28px_64px_-8px_rgba(0,_0,_0,_0.55)]",
               )}
-            >
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/hero/airplane-island.png"
-                className="absolute inset-0 h-full w-full object-cover"
-              >
-                <source src="/Kaivo Demo.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
-              <div className="absolute left-4 top-4 rounded-full border border-[var(--surface)]/80 bg-[var(--surface)]/72 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--accent-ink)] backdrop-blur-sm">
-                Demo
-              </div>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <aside className="surface-card rounded-2xl p-5 text-[13px] leading-relaxed">
-              <p className="font-semibold text-[var(--foreground)]">
-                Booking a trip can take hours.
-              </p>
-              <p className="mt-2 text-[var(--muted)]">
-                Kaivo turns it into one decision.
-              </p>
-            </aside>
-          </FadeIn>
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-2">
-            {microCards.map((label) => (
-              <li
-                key={label}
-                className="rounded-xl border border-[var(--line)]/90 bg-[var(--surface)]/72 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.08em] text-[var(--muted)] backdrop-blur-sm"
-              >
-                {label}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+              style={
+                reduceMotion
+                  ? undefined
+                  : {
+                      y: phoneRevealY,
+                    }
+              }
+            />
+            <div
+              aria-hidden
+              className={cn(
+                "pointer-events-none absolute inset-x-0 bottom-0 z-[1] min-h-[38%]",
+                "bg-gradient-to-t from-[#070a11]/[0.98] via-[#070a11]/52 to-transparent",
+                "sm:from-[#050608]/[0.93]",
+              )}
+            />
+          </div>
+        </FadeIn>
+      </motion.div>
     </section>
   );
 }

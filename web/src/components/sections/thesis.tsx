@@ -29,7 +29,13 @@ export function ThesisSection() {
             everything repetitive people are tired of managing manually.
           </p>
         </FadeIn>
-        <FadeIn delay={0.1} className="mt-10">
+        <FadeIn
+          delay={0.1}
+          className="mt-10 max-w-2xl rounded-2xl border border-[var(--background)]/25 p-5 text-[15px] leading-relaxed text-[var(--background)]/85"
+        >
+          Kaivo owns the moment of decision. Every approval becomes an outcome.
+        </FadeIn>
+        <FadeIn delay={0.14} className="mt-10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--background)]/55">
             Expansion
           </p>
@@ -43,12 +49,6 @@ export function ThesisSection() {
               </span>
             ))}
           </div>
-        </FadeIn>
-        <FadeIn
-          delay={0.14}
-          className="mt-10 max-w-2xl rounded-2xl border border-[var(--background)]/25 p-5 text-[15px] leading-relaxed text-[var(--background)]/85"
-        >
-          Kaivo owns the moment of decision. Every approval becomes an outcome.
         </FadeIn>
       </div>
     </SectionShell>

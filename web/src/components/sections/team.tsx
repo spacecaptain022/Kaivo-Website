@@ -1,46 +1,82 @@
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
+import Image from "next/image";
 
-const placeholders = [
-  { name: "Name", role: "Role", line: "One-line credibility / story." },
-  { name: "Name", role: "Role", line: "One-line credibility / story." },
-];
+const members = [
+  {
+    name: "Aragon M. v. B. Brettschneider",
+    role: "CEO",
+    photoSrc: "/team/aragon.jpeg",
+    bio: "Started his entrepreneurial journey over a decade ago, helping scale Rocket Internet’s e-commerce platform Daraz in Myanmar, which was later acquired by Alibaba in a nine-figure exit. He later built a medical PPE business during COVID that generated eight-figure profits while managing 100+ employees, before founding Astoria Succession Partners, an AI-powered B2B M&A lead generation platform.",
+  },
+  {
+    name: "Davide Nuessle",
+    role: "COO",
+    photoSrc: "/team/davide.jpeg",
+    bio: "Former Senior Manager at Bain & Company with a focus on value creation plans and performance improvement for private equity portfolio companies. Previous experience in finance (Deutsche Bank, BlackRock) combined with hands-on operations experience give him the right foundation for scaling teams and pragmatic execution.",
+  },
+  {
+    name: "Umair Malik",
+    role: "CTO",
+    photoSrc: "/team/umair.jpeg",
+    bio: "A fintech engineering leader and cloud architecture expert with senior experience across payments and platform infrastructure. He previously held engineering leadership roles linked to JPMorgan and Wise, and has worked on scaling modern payment and cloud-native systems.",
+  },
+  {
+    name: "Claire C",
+    role: "CMO",
+    photoSrc: "/team/claire.jpeg",
+    bio: "An award-winning CMO with 10 years of experience in Web3, AI, digital assets, and regulated fintech, specializing in turning complex technologies into clear market positioning. Before leading go-to-market, communications, and ecosystem growth for multiple emerging tech platforms, she founded and exited Bottle PR, building it into a top 10 UK agency and working with clients including IBM, Honda, Uber, and AMINA Bank.",
+  },
+  {
+    name: "Julian Mick",
+    role: "CFO",
+    photoSrc: "/team/julian.jpeg",
+    bio: "A private equity and M&A professional with experience spanning investing, corporate development, and transaction execution. His background includes THI Investments, Banyan Software, and prior exposure to firms such as Maxburg Capital Partners, Barclays, and EY.",
+  },
+] as const;
 
 export function TeamSection() {
   return (
-    <SectionShell className="bg-[var(--panel)]/34">
+    <SectionShell tone="panel">
       <FadeIn>
         <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em]">
           Meet the team
         </h2>
         <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
-          A team building the future of delegation, starting with travel.
+          Leadership building the future of delegation, starting with travel.
         </p>
       </FadeIn>
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {placeholders.map((m, i) => (
-          <FadeIn key={i} delay={0.06 + i * 0.05}>
-            <article className="surface-card rounded-2xl p-6">
-              <div className="aspect-[4/3] w-full rounded-xl border border-[var(--line)] bg-[var(--panel)]" />
-              <h3 className="mt-4 text-[17px] font-semibold">{m.name}</h3>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-                {m.role}
-              </p>
-              <p className="mt-2 text-[14px] leading-relaxed text-[var(--muted)]">
-                {m.line}
+      <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+        {members.map((m, i) => (
+          <FadeIn key={`${m.name}-${m.role}`} delay={0.05 + i * 0.04}>
+            <article className="surface-card flex h-full flex-col rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl shadow-[var(--card-shadow-soft)] ring-1 ring-[var(--foreground)]/[0.08]">
+                  <Image
+                    src={m.photoSrc}
+                    alt={`${m.name}`}
+                    fill
+                    sizes="56px"
+                    className="object-cover object-top"
+                    quality={92}
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-[16px] font-semibold leading-snug tracking-[-0.02em] sm:text-[17px]">
+                    {m.name}
+                  </h3>
+                  <p className="mt-0.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+                    {m.role}
+                  </p>
+                </div>
+              </div>
+              <p className="mt-5 text-[14px] leading-relaxed text-[var(--muted)]">
+                {m.bio}
               </p>
             </article>
           </FadeIn>
         ))}
       </div>
-      <FadeIn delay={0.15} className="mt-10">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-          Advisors
-        </p>
-        <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-[var(--muted)]">
-          Operators across AI, travel, product, fintech, and consumer scale.
-        </p>
-      </FadeIn>
     </SectionShell>
   );
 }

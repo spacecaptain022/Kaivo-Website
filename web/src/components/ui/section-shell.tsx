@@ -1,11 +1,32 @@
 import { cn } from "@/lib/cn";
 import type { ReactNode } from "react";
 
+export type SectionTone =
+  | "default"
+  | "paper"
+  | "brand"
+  | "surface"
+  | "panel";
+
 type SectionShellProps = {
   id?: string;
   children: ReactNode;
   className?: string;
   innerClassName?: string;
+  /** Background & atmosphere — rhythms the page beyond flat gray slabs */
+  tone?: SectionTone;
+};
+
+const toneBg: Record<SectionTone, string> = {
+  default:
+    "bg-[var(--background)]",
+  paper:
+    "bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--surface)_93%,var(--panel)_7%)_0%,var(--background)_100%)]",
+  brand:
+    "bg-[linear-gradient(180deg,var(--accent-field)_0%,rgba(245,245,245,0.96)_52%,var(--background)_100%)]",
+  surface: "bg-[var(--surface)]",
+  panel:
+    "bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--panel)_45%,var(--background)_55%)_0%,var(--background)_100%)]",
 };
 
 export function SectionShell({
@@ -13,18 +34,24 @@ export function SectionShell({
   children,
   className,
   innerClassName,
+  tone = "default",
 }: SectionShellProps) {
   return (
     <section
       id={id}
       className={cn(
-        "relative isolate scroll-mt-28 border-b border-[var(--line)]/80 bg-[var(--background)] py-20 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-12 before:bg-gradient-to-b before:from-[var(--surface)]/55 before:to-transparent md:py-28",
+        "relative isolate scroll-mt-[7.25rem] overflow-hidden border-b border-[color-mix(in_srgb,var(--foreground)_6%,transparent)] py-24 md:py-32",
+        toneBg[tone],
+        /* soft top vignette — section feels lifted from neighbour */
+        "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[0] before:h-24 before:bg-gradient-to-b before:from-[var(--surface)]/75 before:to-transparent",
+        /* ambient Kaivo wash (very subtle depth) */
+        "after:pointer-events-none after:absolute after:-right-[15%] after:-top-[45%] after:z-[0] after:h-[min(480px,75vw)] after:w-[min(480px,75vw)] after:rounded-full after:bg-[radial-gradient(circle,var(--accent)_0%,transparent_68%)] after:opacity-[0.056] after:blur-3xl",
         className,
       )}
     >
       <div
         className={cn(
-          "mx-auto max-w-6xl px-5 sm:px-8 lg:px-10",
+          "relative z-[1] mx-auto max-w-6xl px-5 sm:px-8 lg:px-10",
           innerClassName,
         )}
       >
