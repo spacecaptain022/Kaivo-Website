@@ -7,11 +7,7 @@ const menuLinks = [
   { href: "#contact", label: "Contact" },
 ] as const;
 
-const START_YEAR = 2024;
-
 export function FinalCtaSection() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="relative z-10 border-t border-[var(--line)] bg-[var(--background)] text-[var(--foreground)]">
       <div className="mx-auto max-w-6xl px-5 py-[clamp(3.75rem,10vw,6rem)] sm:px-8 lg:px-10">
@@ -53,7 +49,7 @@ export function FinalCtaSection() {
           </nav>
 
           <p className="text-center text-[12px] leading-relaxed text-[var(--muted)]">
-            © {START_YEAR}–{year} Kaivo. All rights reserved.
+            © 2026 Kaivo. All rights reserved.
           </p>
         </div>
       </div>

@@ -20,11 +20,11 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
+  /* Fade hero copy on scroll; no translate on the column (clips vs overflow-hidden rounding). */
   const opacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, -56]);
 
-  /* Inner mock slides up slightly faster than surrounding copy → reveals lower UI vs a blunt crop */
-  const phoneRevealY = useTransform(scrollYProgress, [0, 1], [0, -42]);
+  /* Subtle vertical shift on mock only — keep small so the bezel clears overflow-hidden clipping */
+  const phoneRevealY = useTransform(scrollYProgress, [0, 1], [0, -6]);
 
   return (
     <section
@@ -50,19 +50,14 @@ export function Hero() {
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" />
       </div>
 
-      {/* Centered copy + capsule; mock bottom-center — floats out on scroll down, returns on scroll up */}
+      {/* Centered copy + capsule + phone mock */}
       <motion.div
         className={cn(
-          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(6.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(6.75rem+env(safe-area-inset-top))]",
-          !reduceMotion && "will-change-[transform,opacity]",
+          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(7.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(7.75rem+env(safe-area-inset-top))]",
+          !reduceMotion && "will-change-[opacity]",
         )}
         style={
-          reduceMotion
-            ? undefined
-            : {
-                opacity,
-                y,
-              }
+          reduceMotion ? undefined : { opacity }
         }
       >
         <div className="flex w-full max-w-3xl flex-col items-center gap-4 text-center sm:gap-5 md:gap-6">
@@ -104,13 +99,6 @@ export function Hero() {
               Book flights in under 60 seconds. Kaivo compares, prepares, and
               lines everything up for approval, so you spend less time searching
               and more time going.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.14}>
-            <p className="mx-auto max-w-[40rem] text-[15px] font-semibold leading-snug text-white/88">
-              Join the waitlist for early access to the live demo launch, priority
-              invites, and a chance to win one of our 26-flights-in-2026 giveaway.
             </p>
           </FadeIn>
 
@@ -159,7 +147,7 @@ export function Hero() {
               sizes="(max-width: 639px) 94vw, 488px"
               fetchPriority="high"
               className={cn(
-                "absolute left-1/2 top-0 block h-[128%] w-full max-w-none -translate-x-1/2 object-cover object-top select-none",
+                "absolute left-1/2 top-0 block h-[130%] w-full max-w-none -translate-x-1/2 object-cover object-top select-none",
                 "drop-shadow-[0_28px_64px_-8px_rgba(0,_0,_0,_0.55)]",
               )}
               style={
