@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "motion/react";
 
 export function DemoSection() {
   const reduceMotion = useReducedMotion();
+  const easeOut = [0.22, 1, 0.36, 1] as const;
 
   const oldWay = [
     "Search across tabs",
@@ -23,15 +24,64 @@ export function DemoSection() {
 
   return (
     <SectionShell id="product">
-      <FadeIn>
+      <FadeIn className="text-center">
         <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--muted)]">
           Product
         </p>
-        <h2 className="mt-3 text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
-          From tabs and forms → to one decision.
-        </h2>
+        {reduceMotion ? (
+          <h2 className="mt-3 text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
+            From tabs and forms → to one decision.
+          </h2>
+        ) : (
+          <motion.h2
+            className="mt-3 flex flex-wrap items-baseline justify-center gap-x-[0.2em] text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.65, margin: "-72px 0px" }}
+            variants={{
+              hidden: { opacity: 0.6, y: 14 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.45, ease: easeOut },
+              },
+            }}
+          >
+            <span>From tabs and forms</span>
+            <motion.span
+              aria-hidden
+              className="inline-block will-change-transform"
+              variants={{
+                hidden: { x: -22, opacity: 0.45 },
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { duration: 0.5, ease: easeOut, delay: 0.08 },
+                },
+              }}
+            >
+              →
+            </motion.span>
+            <motion.span
+              className="inline-block"
+              variants={{
+                hidden: { x: 14, opacity: 0.72 },
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { duration: 0.45, ease: easeOut, delay: 0.12 },
+                },
+              }}
+            >
+              to one decision.
+            </motion.span>
+          </motion.h2>
+        )}
       </FadeIn>
-      <FadeIn delay={0.06} className="mt-6 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">
+      <FadeIn
+        delay={0.06}
+        className="mx-auto mt-6 max-w-2xl text-center text-[17px] leading-relaxed text-[var(--muted)]"
+      >
         <p>
           The old way stacks tabs and busywork. Kaivo lines up one clear choice
           for you to approve.
