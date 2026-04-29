@@ -105,21 +105,26 @@ export function Hero() {
           <FadeIn delay={0.18} className="w-full max-w-xl md:max-w-[34rem]">
             <div
               className={cn(
-                "relative z-10 mx-auto flex w-full flex-row items-center justify-between gap-3 px-5 py-2.5 pl-8 sm:gap-4 sm:pl-10",
+                "relative z-10 mx-auto flex w-full flex-col items-stretch gap-4 px-5 py-4",
+                "sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-2.5 sm:pl-10 sm:pr-5",
                 reduceMotion
                   ? "rounded-[2.25rem] bg-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-xl backdrop-saturate-[1.45] shadow-[0_28px_80px_-28px_rgba(0,_0,_0,_0.5)] ring-1 ring-[color-mix(in_srgb,var(--accent)_40%,transparent)]"
                   : "hero-waitlist-bordered",
               )}
             >
-              <div className="min-w-0 flex-1 py-1 text-left">
+              <div className="min-w-0 flex-1 space-y-0.5 px-0 text-center sm:text-left">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/78">
                   Waitlist
                 </p>
-                <p className="truncate text-[15px] font-medium tracking-[-0.02em] text-white sm:text-[16px]">
+                <p className="text-[14px] font-medium leading-snug tracking-[-0.02em] text-white text-balance sm:text-[15px] md:text-[16px]">
                   Early access &amp; live demo invites
                 </p>
               </div>
-              <FrameButton href="#final-cta" variant="primary" className="shrink-0">
+              <FrameButton
+                href="#final-cta"
+                variant="primary"
+                className="w-full shrink-0 justify-center sm:w-auto"
+              >
                 Join waitlist
               </FrameButton>
             </div>

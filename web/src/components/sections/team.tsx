@@ -44,7 +44,9 @@ function TeamMarkBackdrop() {
           className="absolute inset-[14%] rounded-full bg-[var(--accent)]/[0.04] blur-[72px]"
           aria-hidden
         />
-        <KaivoMark className="absolute left-1/2 top-1/2 z-[1] h-[92%] w-[92%] -translate-x-1/2 -translate-y-1/2 text-[color-mix(in_srgb,var(--accent-deep)_45%,var(--background))] opacity-[0.18]" />
+        <KaivoMark
+          className="absolute left-1/2 top-1/2 z-[1] h-[92%] w-[92%] -translate-x-1/2 -translate-y-1/2 text-[color-mix(in_srgb,var(--accent-deep)_48%,var(--background))] opacity-[0.14] contrast-[1.02] [filter:drop-shadow(-1.5px_-1.5px_2px_rgba(255,_255,_255,_0.72))_drop-shadow(2px_2px_6px_rgba(10,_10,_10,_0.12))_drop-shadow(0_1px_0_rgba(255,_255,_255,_0.35))]"
+        />
       </div>
     </div>
   );
