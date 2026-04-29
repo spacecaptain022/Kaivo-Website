@@ -5,7 +5,13 @@ import { motion, useReducedMotion } from "motion/react";
 const flow = ["Intent", "Prepare", "Review", "Approve", "Done"] as const;
 
 const containerVariants = {
-  hidden: {},
+  /** Reverse stagger when leaving viewport so it reads DONE → INTENT */
+  hidden: {
+    transition: {
+      staggerChildren: 0.075,
+      staggerDirection: -1,
+    },
+  },
   visible: {
     transition: {
       staggerChildren: 0.11,
@@ -29,6 +35,10 @@ const stepVariants = {
     scale: 0.82,
     x: -36,
     filter: "blur(3px)",
+    transition: {
+      duration: 0.32,
+      ease: [0.4, 0, 0.2, 1] as const,
+    },
   },
   visible: {
     opacity: 1,
@@ -91,7 +101,7 @@ export function DelegationFlow() {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-60px 0px" }}
+      viewport={{ once: false, margin: "-56px 0px" }}
     >
       {flow.map((step, i) => {
         const isDone = step === "Done";

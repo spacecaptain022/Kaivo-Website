@@ -1,4 +1,5 @@
 import { SectionShell } from "@/components/ui/section-shell";
+import { SixtySecondTagline } from "@/components/sections/sixty-second-tagline";
 
 const cards = [
   {
@@ -43,10 +44,13 @@ export function ValueSection() {
           </article>
         ))}
       </div>
-      <div className="mt-12 rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-field)]/40 px-6 py-9 text-center shadow-[var(--card-shadow-soft)]">
-        <p className="text-[clamp(1.35rem,2.8vw,1.85rem)] font-semibold tracking-[-0.03em] text-[var(--foreground)]">
-          Your next trip, booked in under 60 seconds.
-        </p>
+      <div className="relative mt-12 overflow-hidden rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-field)]/40 px-6 py-9 text-center shadow-[var(--card-shadow-soft)]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: "url(/60-second-bg.png)" }}
+        />
+        <SixtySecondTagline />
       </div>
     </SectionShell>
   );
