@@ -1,20 +1,22 @@
 import { FadeIn } from "@/components/ui/fade-in";
+import { AboutHeadline } from "@/components/sections/about-headline";
 import { SectionShell } from "@/components/ui/section-shell";
 
 export function AboutSection() {
   return (
     <SectionShell id="about" tone="paper">
-      <FadeIn>
-        <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em]">
+      <FadeIn className="text-center">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
           About Kaivo
-        </h2>
-      </FadeIn>
-      <FadeIn delay={0.06} className="mt-8 max-w-2xl space-y-5 text-[17px] leading-relaxed text-[var(--muted)]">
-        <p className="text-[var(--foreground)]">
-          Kaivo is building the delegation layer for modern life. We believe the
-          next great consumer products won&apos;t just help people search
-          better. They&apos;ll help people get things done.
         </p>
+      </FadeIn>
+      <div className="mt-6">
+        <AboutHeadline />
+      </div>
+      <FadeIn
+        delay={0.08}
+        className="mx-auto mt-10 max-w-3xl space-y-5 text-center text-[17px] leading-relaxed text-[var(--muted)]"
+      >
         <p>
           We&apos;re starting with travel because it&apos;s one of the clearest
           examples of digital overload: too many options, too much repetition,
