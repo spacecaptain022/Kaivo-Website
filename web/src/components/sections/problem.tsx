@@ -61,7 +61,9 @@ export function ProblemSection() {
                   className={
                     row.label === "Kaivo"
                       ? "inline-flex min-w-0 items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--foreground)]"
-                      : "text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]"
+                      : row.label === "OTAs"
+                        ? "text-[12px] font-semibold tracking-[0.14em] text-[var(--muted)]"
+                        : "text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]"
                   }
                 >
                   {row.label === "Kaivo" && (

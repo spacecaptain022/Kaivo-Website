@@ -174,7 +174,7 @@ export function DemoSection() {
             }}
           />
           <p className="relative z-10 mx-auto max-w-4xl text-[clamp(0.9375rem,2.35vw,1.5rem)] font-extrabold uppercase leading-snug tracking-[0.085em] text-[var(--foreground)]">
-            WE EXIST SO YOU CAN MAKE BETTER CHOICES. AND QUICKER.
+            We exist so you can make the best choice, faster.
           </p>
           <p className="relative z-10 mt-4 text-[13px] text-[var(--muted)]">
             Natural-language booking. One review. One approval.
