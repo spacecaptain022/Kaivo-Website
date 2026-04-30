@@ -104,7 +104,7 @@ export function Hero() {
                 </p>
               </div>
               <FrameButton
-                href="#final-cta"
+                href="/waitlist"
                 variant="primary"
                 className="w-full shrink-0 justify-center sm:w-auto"
               >

@@ -25,7 +25,7 @@ export function JoinCtaSection() {
       </FadeIn>
       <FadeIn delay={0.1} className="mt-10">
         <FrameButton
-          href="#contact"
+          href="/waitlist"
           variant="primary"
           className="rounded-full px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em]"
         >

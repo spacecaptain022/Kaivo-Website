@@ -12,7 +12,7 @@ import { cn } from "@/lib/cn";
 
 const links = [
   { href: "#product", label: "Product" },
-  { href: "#final-cta", label: "Waitlist" },
+  { href: "/waitlist", label: "Waitlist" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
@@ -148,7 +148,7 @@ export function SiteHeader() {
                 </span>
               </Link>
               <Link
-                href="#final-cta"
+                href="/waitlist"
                 className={cn(
                   "shrink-0 rounded-full border border-[var(--accent-deep)]/[0.22]",
                   "bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)]",
@@ -220,7 +220,7 @@ export function SiteHeader() {
               </AnimatePresence>
 
               <Link
-                href="#final-cta"
+                href="/waitlist"
                 className={cn(
                   "justify-self-end rounded-full border border-[var(--accent-deep)]/[0.22]",
                   "bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)]",
