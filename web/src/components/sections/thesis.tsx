@@ -42,7 +42,7 @@ export function ThesisSection() {
         </FadeIn>
         <FadeIn
           delay={0.1}
-          className="mt-10 max-w-2xl rounded-2xl border border-[color-mix(in_srgb,var(--accent)_55%,transparent)] bg-[linear-gradient(120deg,color-mix(in_srgb,var(--accent)_22%,transparent)_0%,color-mix(in_srgb,var(--accent)_10%,transparent)_55%,color-mix(in_srgb,var(--accent)_18%,transparent)_100%)] p-5 text-[15px] font-medium leading-relaxed text-[var(--background)]/95 shadow-[0_14px_30px_-16px_rgba(38,229,201,0.5)] ring-1 ring-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-sm"
+          className="mt-10 max-w-2xl rounded-2xl border border-[color-mix(in_srgb,var(--accent)_55%,transparent)] bg-[linear-gradient(120deg,color-mix(in_srgb,var(--accent)_22%,transparent)_0%,color-mix(in_srgb,var(--accent)_10%,transparent)_55%,color-mix(in_srgb,var(--accent)_18%,transparent)_100%)] p-5 text-[15px] font-medium leading-relaxed text-[var(--background)]/95 shadow-[0_14px_30px_-16px_rgba(87,212,196,0.5)] ring-1 ring-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-sm"
         >
           Kaivo owns the moment of decision. Every approval becomes an outcome.
         </FadeIn>

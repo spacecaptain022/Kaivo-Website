@@ -58,6 +58,7 @@ const members = [
     role: "CTO",
     photoSrc: "/team/umair.png",
     usePlaceholderPhoto: true,
+    linkedinUrl: "https://www.linkedin.com/in/mihir-khatwani-3019a3128/",
     logos: [
       { src: "/team/jp-morgan-logo.jpg", alt: "JP Morgan" },
       { src: "/team/wise-logo.png", alt: "Wise" },
@@ -72,7 +73,7 @@ export function TeamSection() {
   return (
     <SectionShell tone="paper">
       <FadeIn className="text-center">
-        <p className="inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_42%,transparent)] bg-[color-mix(in_srgb,var(--accent)_16%,var(--surface))] px-4 py-1.5 text-[11px] font-medium tracking-[-0.01em] text-[var(--foreground)] shadow-[0_8px_22px_-12px_rgba(38,229,201,0.7)] ring-1 ring-[color-mix(in_srgb,var(--accent)_22%,transparent)]">
+        <p className="inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_42%,transparent)] bg-[color-mix(in_srgb,var(--accent)_16%,var(--surface))] px-4 py-1.5 text-[11px] font-medium tracking-[-0.01em] text-[var(--foreground)] shadow-[0_8px_22px_-12px_rgba(87,212,196,0.7)] ring-1 ring-[color-mix(in_srgb,var(--accent)_22%,transparent)]">
           Meet the team
         </p>
         <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.04em]">
@@ -95,8 +96,8 @@ export function TeamSection() {
             <article className="group mx-auto h-full w-full max-w-[22rem] rounded-2xl">
               <div className="relative aspect-[0.92/1] overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] shadow-[var(--card-shadow-soft)]">
                 {("usePlaceholderPhoto" in m && m.usePlaceholderPhoto) ? (
-                  <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(120%_100%_at_50%_0%,rgba(38,229,201,0.14),rgba(10,10,10,0.96)_50%,rgba(0,0,0,1)_100%)]">
-                    <KaivoMark className="h-24 w-24 text-[var(--accent)] opacity-95 drop-shadow-[0_0_24px_rgba(38,229,201,0.35)]" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(120%_100%_at_50%_0%,rgba(87,212,196,0.14),rgba(10,10,10,0.96)_50%,rgba(0,0,0,1)_100%)]">
+                    <KaivoMark className="h-24 w-24 text-[var(--accent)] opacity-95 drop-shadow-[0_0_24px_rgba(87,212,196,0.35)]" />
                   </div>
                 ) : (
                   <Image

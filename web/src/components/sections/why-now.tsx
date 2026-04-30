@@ -23,7 +23,7 @@ export function WhyNowSection() {
         </p>
       </FadeIn>
       <FadeIn delay={0.08} className="mt-6">
-        <p className="inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_42%,transparent)] bg-[color-mix(in_srgb,var(--accent)_16%,var(--surface))] px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--foreground)] shadow-[0_8px_22px_-12px_rgba(38,229,201,0.7)] ring-1 ring-[color-mix(in_srgb,var(--accent)_22%,transparent)]">
+        <p className="inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_42%,transparent)] bg-[color-mix(in_srgb,var(--accent)_16%,var(--surface))] px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--foreground)] shadow-[0_8px_22px_-12px_rgba(87,212,196,0.7)] ring-1 ring-[color-mix(in_srgb,var(--accent)_22%,transparent)]">
           What’s possible now
         </p>
       </FadeIn>

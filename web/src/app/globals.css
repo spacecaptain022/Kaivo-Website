@@ -10,9 +10,9 @@
   --line: rgba(10, 10, 10, 0.08);
   --line-strong: rgba(10, 10, 10, 0.2);
   /* Primary brand teal (split-screen destination field) */
-  --accent: #26e5c9;
+  --accent: #57d4c4;
   --accent-mid: #40e0d0;
-  --accent-field: rgba(38, 229, 201, 0.22);
+  --accent-field: rgba(87, 212, 196, 0.22);
   --accent-deep: #0f3d38;
   --accent-ink: #06332e;
   --panel: #ecece9;
@@ -128,10 +128,10 @@ body {
     from var(--hero-waitlist-angle),
     rgba(15, 61, 56, 0.95) 0deg,
     rgba(15, 61, 56, 0.88) 272deg,
-    rgba(38, 229, 201, 0.35) 295deg,
+    rgba(87, 212, 196, 0.35) 295deg,
     var(--accent) 308deg,
     #bffaf0 322deg,
-    rgba(38, 229, 201, 0.45) 340deg,
+    rgba(87, 212, 196, 0.45) 340deg,
     rgba(15, 61, 56, 0.95) 360deg
   );
   -webkit-mask:

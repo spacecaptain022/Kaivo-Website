@@ -154,9 +154,9 @@ export function SiteHeader() {
                   "bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)]",
                   "px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em]",
                   "text-[var(--accent-ink)]",
-                  "shadow-[0_5px_20px_-6px_rgba(38,_229,_201,_0.42),inset_0_1px_0_0_rgba(255,_255,_255,_0.2)]",
+                  "shadow-[0_5px_20px_-6px_rgba(87,_212,_196,_0.42),inset_0_1px_0_0_rgba(255,_255,_255,_0.2)]",
                   "transition-[box-shadow,_filter,_transform,_border-color]",
-                  "hover:border-[var(--accent-deep)]/[0.38] hover:shadow-[0_8px_22px_-4px_rgba(38,_229,_201,_0.46)] hover:brightness-[1.05]",
+                  "hover:border-[var(--accent-deep)]/[0.38] hover:shadow-[0_8px_22px_-4px_rgba(87,_212,_196,_0.46)] hover:brightness-[1.05]",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-deep)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
                   "active:scale-[0.99] active:brightness-[0.99]",
                 )}
@@ -226,9 +226,9 @@ export function SiteHeader() {
                   "bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)]",
                   "px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em]",
                   "text-[var(--accent-ink)]",
-                  "shadow-[0_5px_20px_-6px_rgba(38,_229,_201,_0.42),inset_0_1px_0_0_rgba(255,_255,_255,_0.2)]",
+                  "shadow-[0_5px_20px_-6px_rgba(87,_212,_196,_0.42),inset_0_1px_0_0_rgba(255,_255,_255,_0.2)]",
                   "transition-[box-shadow,_filter,_transform,_border-color]",
-                  "hover:border-[var(--accent-deep)]/[0.38] hover:shadow-[0_8px_22px_-4px_rgba(38,_229,_201,_0.46)] hover:brightness-[1.05]",
+                  "hover:border-[var(--accent-deep)]/[0.38] hover:shadow-[0_8px_22px_-4px_rgba(87,_212,_196,_0.46)] hover:brightness-[1.05]",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-deep)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
                   "active:scale-[0.99] active:brightness-[0.99]",
                 )}

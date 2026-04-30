@@ -102,19 +102,22 @@ export default function WaitlistPage() {
             <div className="h-px w-full bg-[color-mix(in_srgb,var(--foreground)_10%,transparent)]" />
 
             <label className="flex flex-col gap-3 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
-              <span className="pl-0.5">What should Kaivo handle first?</span>
-              <textarea
-                name="priority"
-                rows={4}
-                placeholder="Flight searches, multi-city planning, redemption bookings..."
-                className="w-full resize-none rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3 text-[15px] normal-case leading-relaxed tracking-normal text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted-light)] focus:border-[var(--accent)]"
+              <span className="pl-0.5">
+                What&apos;s the current go-to platform you mainly use for booking
+                flights?
+              </span>
+              <input
+                type="text"
+                name="currentPlatform"
+                placeholder="Skyscanner, Booking.com, Expedia..."
+                className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted-light)] focus:border-[var(--accent)]"
               />
             </label>
 
             <div className="pt-1">
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--accent-deep)_38%,transparent)] bg-[var(--accent)] px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--accent-ink)] transition-[filter,transform,box-shadow] hover:brightness-[1.03] hover:shadow-[0_16px_30px_-16px_rgba(38,_229,_201,_0.8)] active:scale-[0.99]"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--accent-deep)_38%,transparent)] bg-[var(--accent)] px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--accent-ink)] transition-[filter,transform,box-shadow] hover:brightness-[1.03] hover:shadow-[0_16px_30px_-16px_rgba(87,_212,_196,_0.8)] active:scale-[0.99]"
               >
                 Submit application
               </button>

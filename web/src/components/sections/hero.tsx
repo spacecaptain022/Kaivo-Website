@@ -52,7 +52,7 @@ export function Hero() {
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(6,6,8,0.92)_0%,rgba(8,8,10,0.82)_45%,rgba(5,5,7,0.92)_100%)]" />
         <div className="absolute inset-0 bg-[color-mix(in_srgb,var(--accent)_11%,transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(38,229,201,0.16),transparent_56%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(87,212,196,0.16),transparent_56%)]" />
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/82 to-transparent" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" />
       </div>
