@@ -60,7 +60,7 @@ export function Hero() {
       {/* Centered copy + capsule + phone mock */}
       <motion.div
         className={cn(
-          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(8.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(8.75rem+env(safe-area-inset-top))]",
+          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(9.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(9.75rem+env(safe-area-inset-top))]",
           !reduceMotion && "will-change-[opacity]",
         )}
         style={
@@ -68,12 +68,6 @@ export function Hero() {
         }
       >
         <div className="flex w-full max-w-4xl flex-col items-center gap-4 text-center sm:gap-5 md:gap-6">
-          <FadeIn>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/72">
-              From search to delegation
-            </p>
-          </FadeIn>
-
           <FadeIn delay={0.05}>
             <h1 className="mx-auto max-w-[16ch] font-sans text-[clamp(2.2rem,_7vw,_4.6rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-white drop-shadow-[0_12px_40px_rgba(0,_0,_0,_0.35)] sm:max-w-[18ch] md:max-w-none md:leading-[0.9]">
               Let AI do the work.
@@ -87,14 +81,14 @@ export function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p className="mx-auto max-w-lg text-[clamp(1.2rem,_2.4vw,_1.85rem)] font-medium leading-snug tracking-[-0.02em] text-white/95">
+            <p className="mx-auto max-w-none text-[clamp(1.2rem,_2.4vw,_1.85rem)] font-medium leading-snug tracking-[-0.02em] text-white/95 md:whitespace-nowrap">
               Stop doing.{" "}
               <span className="font-semibold text-[var(--accent)]">Start delegating.</span>{" "}
               Book a flight in under 60 seconds.
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.18} className="w-full max-w-xl md:max-w-[34rem]">
+          <FadeIn delay={0.18} className="mt-2 w-full max-w-xl md:max-w-[34rem]">
             <div
               className={cn(
                 "relative z-10 mx-auto flex w-full flex-col items-stretch gap-4 px-5 py-4",
