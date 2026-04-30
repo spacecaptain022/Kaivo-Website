@@ -1,6 +1,9 @@
+"use client";
+
 import { KaivoMark } from "@/components/kaivo-mark";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
+import { motion } from "motion/react";
 
 const contrast = [
   { label: "Search", value: "browse and filter it yourself" },
@@ -15,7 +18,13 @@ const contrast = [
 export function ProblemSection() {
   return (
     <SectionShell tone="paper">
-      <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+      <motion.div
+        className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16"
+        initial={{ opacity: 0, y: -36 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, margin: "-72px 0px" }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div>
           <FadeIn>
             <h2 className="max-w-xl text-[clamp(1.75rem,4vw,2.85rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--foreground)]">
@@ -73,7 +82,7 @@ export function ProblemSection() {
             ))}
           </ul>
         </FadeIn>
-      </div>
+      </motion.div>
     </SectionShell>
   );
 }

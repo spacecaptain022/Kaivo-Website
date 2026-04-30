@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/site-header";
 import { AboutSection } from "@/components/sections/about";
 import { ApprovalSection } from "@/components/sections/approval";
 import { DelegationSection } from "@/components/sections/delegation";
+import { DifferentiatorSection } from "@/components/sections/differentiator";
 import { DemoSection } from "@/components/sections/demo";
 import { ContactSection } from "@/components/sections/contact";
 import { FinalCtaSection } from "@/components/sections/final-cta";
@@ -21,6 +22,18 @@ export default function Home() {
       <SiteHeader />
       <main className="overflow-x-hidden bg-[var(--surface)]">
         <Hero />
+        <section className="bg-[var(--surface)] py-10 sm:py-12 md:py-14">
+          <div className="mx-auto flex w-full max-w-6xl justify-center px-5 sm:px-8 lg:px-10">
+            <video
+              src="/KVID.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full max-w-4xl rounded-2xl object-cover"
+            />
+          </div>
+        </section>
         <ProblemSection />
         <DelegationSection />
         <DemoSection />
@@ -29,6 +42,7 @@ export default function Home() {
         <ValueSection />
         <WhyNowSection />
         <AboutSection />
+        <DifferentiatorSection />
         <ThesisSection />
         <TokenSection />
         <TeamSection />
