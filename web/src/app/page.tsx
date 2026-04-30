@@ -7,6 +7,7 @@ import { DemoSection } from "@/components/sections/demo";
 import { ContactSection } from "@/components/sections/contact";
 import { FinalCtaSection } from "@/components/sections/final-cta";
 import { JoinCtaSection } from "@/components/sections/join-cta";
+import { KvidSection } from "@/components/sections/kvid-section";
 import { Hero } from "@/components/sections/hero";
 import { ProblemSection } from "@/components/sections/problem";
 import { SpeaksSection } from "@/components/sections/speaks";
@@ -22,18 +23,7 @@ export default function Home() {
       <SiteHeader />
       <main className="overflow-x-hidden bg-[var(--surface)]">
         <Hero />
-        <section className="bg-[var(--surface)] py-10 sm:py-12 md:py-14">
-          <div className="mx-auto flex w-full max-w-6xl justify-center px-5 sm:px-8 lg:px-10">
-            <video
-              src="/KVID.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full max-w-4xl rounded-2xl object-cover"
-            />
-          </div>
-        </section>
+        <KvidSection />
         <ProblemSection />
         <DelegationSection />
         <DemoSection />

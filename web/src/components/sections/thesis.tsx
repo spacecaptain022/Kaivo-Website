@@ -32,12 +32,20 @@ export function ThesisSection() {
         </FadeIn>
         <FadeIn delay={0.06} className="mt-8 max-w-2xl text-[17px] leading-relaxed text-[var(--background)]/75">
           <p>
-            Travel is where the pain is highest: volatile pricing, repeated
-            decisions, too many tabs. It’s the perfect place to prove a new way.
+            Flights are where the friction is highest: constant price swings,
+            endless options, repeated decisions, and plans that need to fit
+            around personal preferences.
           </p>
           <p className="mt-4">
-            Start with flights. Then expand to the rest of travel. Then to
-            everything repetitive people are tired of managing manually.
+            The same search, over and over again - different dates, different
+            routes, different trade-offs. Too many tabs. Too many variables.
+            Never a clear best choice.
+          </p>
+          <p className="mt-4">It’s the perfect place to prove a better way.</p>
+          <p className="mt-4">
+            Start with flights. Then expand to the rest of travel, and
+            eventually everything repetitive people are tired of managing
+            manually.
           </p>
         </FadeIn>
         <FadeIn

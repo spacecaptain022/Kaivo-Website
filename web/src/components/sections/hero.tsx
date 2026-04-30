@@ -23,9 +23,6 @@ export function Hero() {
   /* Fade hero copy on scroll; no translate on the column (clips vs overflow-hidden rounding). */
   const opacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
-  /* Subtle vertical shift on mock only — keep small so the bezel clears overflow-hidden clipping */
-  const phoneRevealY = useTransform(scrollYProgress, [0, 1], [0, -6]);
-
   return (
     <section
       ref={sectionRef}
@@ -60,7 +57,7 @@ export function Hero() {
       {/* Centered copy + capsule + phone mock */}
       <motion.div
         className={cn(
-          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(9.25rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(9.75rem+env(safe-area-inset-top))]",
+          "relative z-10 flex min-h-[min(880px,_88svh)] flex-col items-center px-5 pb-0 pt-[calc(9.75rem+env(safe-area-inset-top))] sm:px-8 md:pt-[calc(10.25rem+env(safe-area-inset-top))]",
           !reduceMotion && "will-change-[opacity]",
         )}
         style={
@@ -114,48 +111,46 @@ export function Hero() {
           </FadeIn>
         </div>
 
-        <FadeIn
-          delay={0.06}
-          className="mt-auto flex w-full justify-center pt-8 sm:pt-10 md:pt-12"
+        <div
+          className={cn(
+            "mt-auto flex w-full flex-col items-center justify-center pt-8 sm:pt-10 md:pt-12",
+            "h-[calc(min(448px,_94vw)*2/3)] sm:h-[calc(min(488px,_90vw)*2/3)]",
+          )}
         >
-          <div
-            className={cn(
-              "relative mx-auto w-[min(448px,_94vw)] overflow-hidden rounded-b-[1.875rem]",
-              "sm:w-[min(488px,_90vw)]",
-              "[height:calc(min(448px,_94vw)*2/3)] sm:h-[calc(min(488px,_90vw)*2/3)]",
-            )}
+          <p className="text-center text-[12px] font-semibold uppercase tracking-[0.18em] text-white/85 sm:text-[13px]">
+            Scroll to view demo
+          </p>
+          <motion.span
+            aria-hidden
+            className="mt-2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--accent)_48%,transparent)] bg-[color-mix(in_srgb,var(--accent)_16%,transparent)] text-[var(--accent)] shadow-[0_10px_24px_-16px_rgba(87,_212,_196,_0.85)] backdrop-blur-sm"
+            animate={reduceMotion ? undefined : { y: [0, 5, 0] }}
+            transition={
+              reduceMotion
+                ? undefined
+                : {
+                    duration: 1.8,
+                    ease: [0.22, 1, 0.36, 1],
+                    repeat: Number.POSITIVE_INFINITY,
+                  }
+            }
           >
-            <motion.img
-              src="/hero/kaivo-mockup-phone-2026.png"
-              alt="Kaivo on a phone"
-              width={800}
-              height={800}
-              draggable={false}
-              decoding="sync"
-              sizes="(max-width: 639px) 94vw, 488px"
-              fetchPriority="high"
-              className={cn(
-                "absolute left-1/2 top-0 block h-[130%] w-full max-w-none -translate-x-1/2 object-cover object-top select-none",
-                "drop-shadow-[0_28px_64px_-8px_rgba(0,_0,_0,_0.55)]",
-              )}
-              style={
-                reduceMotion
-                  ? undefined
-                  : {
-                      y: phoneRevealY,
-                    }
-              }
-            />
-            <div
+            <svg
+              viewBox="0 0 20 20"
+              className="h-5 w-5"
+              focusable="false"
               aria-hidden
-              className={cn(
-                "pointer-events-none absolute inset-x-0 bottom-0 z-[1] min-h-[38%]",
-                "bg-gradient-to-t from-black/[0.98] via-black/52 to-transparent",
-                "sm:from-black/[0.93]",
-              )}
-            />
-          </div>
-        </FadeIn>
+            >
+              <path
+                d="M10 3v11.2m0 0l-4.2-4.2M10 14.2l4.2-4.2"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.span>
+        </div>
       </motion.div>
     </section>
   );

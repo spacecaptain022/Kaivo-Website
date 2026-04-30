@@ -55,7 +55,7 @@ export function ProblemSection() {
             {contrast.map((row) => (
               <li
                 key={row.label === "Kaivo" ? "kaivo-brand" : row.label}
-                className="flex items-center justify-between gap-4 border-b border-[var(--line)] px-4 py-4 last:border-b-0"
+                className="flex flex-col items-start gap-3 border-b border-[var(--line)] px-4 py-4 last:border-b-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
               >
                 <span
                   className={
@@ -74,8 +74,8 @@ export function ProblemSection() {
                 <span
                   className={
                     row.label === "Kaivo"
-                      ? "inline-flex min-h-[3.75rem] shrink-0 items-center rounded-3xl border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-5 py-3 text-center text-[13px] font-semibold leading-snug text-[var(--accent-ink)] shadow-[0_8px_26px_-10px_rgba(87,212,196,0.45),0_2px_8px_-4px_rgba(6,51,46,0.18),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-w-[17rem] sm:text-[14px]"
-                      : "text-right text-[15px] text-[var(--foreground)]"
+                      ? "inline-flex min-h-[3.5rem] w-full sm:w-auto max-w-none items-center justify-center rounded-3xl border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-4 py-2.5 text-center text-[12px] font-semibold leading-snug text-[var(--accent-ink)] shadow-[0_8px_26px_-10px_rgba(87,212,196,0.45),0_2px_8px_-4px_rgba(6,51,46,0.18),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-h-[3.75rem] sm:px-5 sm:py-3 sm:text-[14px] sm:min-w-[17rem]"
+                      : "text-left sm:text-right text-[15px] text-[var(--foreground)]"
                   }
                 >
                   {row.value}
