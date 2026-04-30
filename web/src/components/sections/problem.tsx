@@ -3,13 +3,12 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { SectionShell } from "@/components/ui/section-shell";
 
 const contrast = [
-  { label: "Search", value: "more options" },
-  { label: "OTAs", value: "more pages" },
-  { label: "AI chat", value: "more answers" },
+  { label: "Search", value: "browse and filter it yourself" },
+  { label: "OTAs", value: "compare endlessly, then book manually" },
+  { label: "AI chat", value: "get answers, then start booking from scratch" },
   {
     label: "Kaivo",
-    primary: "better options.",
-    secondary: "quicker booking.",
+    value: "get matched and book instantly",
   },
 ] as const;
 
@@ -63,23 +62,12 @@ export function ProblemSection() {
                 </span>
                 <span
                   className={
-                    "primary" in row && "secondary" in row
-                      ? "inline-flex min-h-[3.75rem] shrink-0 flex-col justify-center gap-1 rounded-3xl border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-5 py-3 text-center text-[13px] font-semibold leading-snug shadow-[0_8px_26px_-10px_rgba(38,229,201,0.45),0_2px_8px_-4px_rgba(6,51,46,0.18),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-w-[11rem] sm:text-[14px]"
+                    row.label === "Kaivo"
+                      ? "inline-flex min-h-[3.75rem] shrink-0 items-center rounded-3xl border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-5 py-3 text-center text-[13px] font-semibold leading-snug text-[var(--accent-ink)] shadow-[0_8px_26px_-10px_rgba(38,229,201,0.45),0_2px_8px_-4px_rgba(6,51,46,0.18),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-w-[17rem] sm:text-[14px]"
                       : "text-right text-[15px] text-[var(--foreground)]"
                   }
                 >
-                  {"value" in row ? (
-                    row.value
-                  ) : (
-                    <>
-                      <span className="block text-[var(--accent-ink)]">
-                        {row.primary}
-                      </span>
-                      <span className="block text-[var(--foreground)]">
-                        {row.secondary}
-                      </span>
-                    </>
-                  )}
+                  {row.value}
                 </span>
               </li>
             ))}

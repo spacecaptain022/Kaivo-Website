@@ -33,10 +33,11 @@ export function ValueHeadline() {
         <span className="text-[var(--foreground)]">
           The best travel product isn&apos;t
         </span>{" "}
-        <span className="text-[var(--accent)]">the one with</span>{" "}
-        <span className="text-[var(--foreground)]">the most options.</span>{" "}
-        <span className="text-[var(--accent)]">It&apos;s the one that</span>{" "}
-        <span className="text-[var(--foreground)]">gives you your time back.</span>
+        <span className="text-[var(--foreground)]">the one with</span>{" "}
+        <span className="text-[var(--accent)]">the most options.</span>{" "}
+        <span className="text-[var(--foreground)]">It&apos;s the one that</span>{" "}
+        <span className="text-[var(--foreground)]">gives you </span>
+        <span className="text-[var(--accent)]">your time back.</span>
       </h2>
     );
   }
@@ -51,22 +52,24 @@ export function ValueHeadline() {
       <span className="text-[var(--foreground)]">
         The best travel product isn&apos;t
       </span>{" "}
+      <span className="text-[var(--foreground)]">
+        the one with
+      </span>{" "}
       <motion.span
         className="inline-block text-[var(--accent)] will-change-[opacity,filter,transform]"
         variants={popVariants}
         transition={popTransition}
       >
-        the one with
+        the most options.
       </motion.span>{" "}
-      <span className="text-[var(--foreground)]">the most options.</span>{" "}
+      <span className="text-[var(--foreground)]">It&apos;s the one that gives you </span>
       <motion.span
         className="inline-block text-[var(--accent)] will-change-[opacity,filter,transform]"
         variants={popVariants}
         transition={{ ...popTransition, delay: 0.1 }}
       >
-        It&apos;s the one that
-      </motion.span>{" "}
-      <span className="text-[var(--foreground)]">gives you your time back.</span>
+        your time back.
+      </motion.span>
     </motion.h2>
   );
 }

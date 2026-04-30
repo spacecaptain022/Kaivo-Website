@@ -22,7 +22,8 @@ export function SpeaksSection() {
     <SectionShell tone="surface" className="py-16 md:py-24">
       <FadeIn>
         <h2 className="max-w-3xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--foreground)]">
-          It doesn&apos;t feel like software. It feels like someone handling it.
+          It doesn&apos;t feel like software. It feels like someone&apos;s got
+          this for you.
         </h2>
       </FadeIn>
       <FadeIn

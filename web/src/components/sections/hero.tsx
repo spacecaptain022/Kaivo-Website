@@ -103,9 +103,6 @@ export function Hero() {
               )}
             >
               <div className="min-w-0 flex-1 space-y-0.5 px-0 text-center sm:text-left">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/78">
-                  Waitlist
-                </p>
                 <p className="text-[14px] font-medium leading-snug tracking-[-0.02em] text-white text-balance sm:text-[15px] md:text-[16px]">
                   Early access &amp; live demo invites
                 </p>
