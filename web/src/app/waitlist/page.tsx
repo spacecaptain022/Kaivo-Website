@@ -39,11 +39,14 @@ export default function WaitlistPage() {
             Apply for the{" "}
             <span className="text-[var(--accent)]">Kaivo waitlist.</span>
           </h1>
-          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--muted)]">
-            Tell us a bit about your travel habits and we will prioritize the
-            first wave of invites for people who are ready to delegate flights
-            now.
-          </p>
+          <div className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--muted)]">
+            <p className="font-semibold">Join Kaivo&apos;s early boarders to enjoy:</p>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 marker:text-[var(--muted)]">
+              <li>Early access to the launch demo</li>
+              <li>Priority entry into beta</li>
+              <li>Private product drops, plus a chance to win a free flight</li>
+            </ul>
+          </div>
 
           <form className="mt-9 space-y-6">
             <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
