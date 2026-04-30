@@ -67,7 +67,7 @@ export function Hero() {
           reduceMotion ? undefined : { opacity }
         }
       >
-        <div className="flex w-full max-w-3xl flex-col items-center gap-4 text-center sm:gap-5 md:gap-6">
+        <div className="flex w-full max-w-4xl flex-col items-center gap-4 text-center sm:gap-5 md:gap-6">
           <FadeIn>
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/72">
               From search to delegation
@@ -75,11 +75,13 @@ export function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.05}>
-            <h1 className="font-sans text-[clamp(2.75rem,_9vw,_5.75rem)] font-semibold leading-[0.9] tracking-[-0.03em] text-white drop-shadow-[0_12px_40px_rgba(0,_0,_0,_0.35)] md:leading-[0.88]">
-              Search less.
+            <h1 className="mx-auto max-w-[16ch] font-sans text-[clamp(2.2rem,_7vw,_4.6rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-white drop-shadow-[0_12px_40px_rgba(0,_0,_0,_0.35)] sm:max-w-[18ch] md:max-w-none md:leading-[0.9]">
+              Let AI do the work.
               <br />
-              <span className="bg-gradient-to-r from-[var(--accent)] via-[#7efceb] to-[var(--accent-mid)] bg-clip-text text-transparent">
-                Go more.
+              <span className="inline-block bg-gradient-to-r from-[var(--accent)] via-[#7efceb] to-[var(--accent-mid)] bg-clip-text text-transparent">
+                Enjoy your trip
+                <br />
+                before you even arrive.
               </span>
             </h1>
           </FadeIn>
