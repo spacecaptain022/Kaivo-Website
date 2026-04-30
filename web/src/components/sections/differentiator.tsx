@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/ui/fade-in";
+import { SectionTag } from "@/components/ui/section-tag";
 import { SectionShell } from "@/components/ui/section-shell";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
@@ -50,9 +51,9 @@ export function DifferentiatorSection() {
         />
         <div className="relative z-10">
           <FadeIn>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+            <SectionTag icon="layers">
               Business model
-            </p>
+            </SectionTag>
             <h2 className="mt-3 max-w-4xl text-[clamp(1.6rem,3.2vw,2.45rem)] font-semibold leading-tight tracking-[-0.03em] text-[var(--foreground)]">
               What drives &amp; differentiates Kaivo?
             </h2>

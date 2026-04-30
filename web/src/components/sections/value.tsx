@@ -1,6 +1,7 @@
 import { SectionShell } from "@/components/ui/section-shell";
 import { SixtySecondTagline } from "@/components/sections/sixty-second-tagline";
 import { ValueHeadline } from "@/components/sections/value-headline";
+import { SectionTag } from "@/components/ui/section-tag";
 
 const cards = [
   {
@@ -22,9 +23,9 @@ export function ValueSection() {
   return (
     <SectionShell tone="surface">
       <div className="text-center">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+        <SectionTag icon="heart">
           Why people will love it
-        </p>
+        </SectionTag>
         <ValueHeadline />
       </div>
       <div className="mt-12 grid gap-6 md:grid-cols-3">

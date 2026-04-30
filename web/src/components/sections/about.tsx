@@ -1,15 +1,16 @@
 import { FadeIn } from "@/components/ui/fade-in";
 import { AboutCopyScroll } from "@/components/sections/about-copy-scroll";
 import { AboutHeadline } from "@/components/sections/about-headline";
+import { SectionTag } from "@/components/ui/section-tag";
 import { SectionShell } from "@/components/ui/section-shell";
 
 export function AboutSection() {
   return (
     <SectionShell id="about" tone="paper">
       <FadeIn className="text-center">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+        <SectionTag icon="briefcase">
           About Kaivo
-        </p>
+        </SectionTag>
       </FadeIn>
       <div className="mt-6">
         <AboutHeadline />

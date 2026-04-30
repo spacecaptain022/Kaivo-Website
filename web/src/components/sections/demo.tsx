@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/ui/fade-in";
+import { SectionTag } from "@/components/ui/section-tag";
 import { SectionShell } from "@/components/ui/section-shell";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
@@ -32,9 +33,9 @@ export function DemoSection() {
   return (
     <SectionShell id="product">
       <FadeIn className="text-center">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--muted)]">
+        <SectionTag icon="bolt">
           Product
-        </p>
+        </SectionTag>
         {reduceMotion ? (
           <h2 className="mt-3 text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em]">
             From tabs and forms → to one decision.

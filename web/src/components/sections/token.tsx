@@ -1,4 +1,5 @@
 import { SectionShell } from "@/components/ui/section-shell";
+import { SectionTag } from "@/components/ui/section-tag";
 
 const pillars = [
   {
@@ -23,9 +24,9 @@ export function TokenSection() {
   return (
     <SectionShell tone="panel" className="border-t border-[color-mix(in_srgb,var(--foreground)_6%,transparent)]">
       <article className="surface-card rounded-3xl px-6 py-10 shadow-[var(--card-shadow-soft)] md:px-10 md:py-12">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--muted)]">
+        <SectionTag icon="cube">
           Tokenomics
-        </p>
+        </SectionTag>
         <h2 className="mt-3 max-w-3xl text-[clamp(1.5rem,3vw,2.35rem)] font-semibold leading-tight tracking-[-0.03em] text-[var(--foreground)]">
           {`Kaivo's token isn't just part of the system…it `}
           <span className="text-[var(--accent-ink)]">is</span>

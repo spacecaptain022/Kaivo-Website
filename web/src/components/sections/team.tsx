@@ -2,6 +2,7 @@
 
 import { KaivoMark } from "@/components/kaivo-mark";
 import { FadeIn } from "@/components/ui/fade-in";
+import { SectionTag } from "@/components/ui/section-tag";
 import { SectionShell } from "@/components/ui/section-shell";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
@@ -73,9 +74,13 @@ export function TeamSection() {
   return (
     <SectionShell tone="paper">
       <FadeIn className="text-center">
-        <p className="inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_42%,transparent)] bg-[color-mix(in_srgb,var(--accent)_16%,var(--surface))] px-4 py-1.5 text-[11px] font-medium tracking-[-0.01em] text-[var(--foreground)] shadow-[0_8px_22px_-12px_rgba(87,212,196,0.7)] ring-1 ring-[color-mix(in_srgb,var(--accent)_22%,transparent)]">
+        <SectionTag
+          variant="accent"
+          icon="users"
+          className="tracking-[0.01em] normal-case"
+        >
           Meet the team
-        </p>
+        </SectionTag>
         <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(2rem,4.8vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.04em]">
           The Team Building Kaivo
         </h2>
