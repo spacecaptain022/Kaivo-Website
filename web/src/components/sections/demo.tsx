@@ -1,5 +1,6 @@
 "use client";
 
+import { KaivoMark } from "@/components/kaivo-mark";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionTag } from "@/components/ui/section-tag";
 import { SectionShell } from "@/components/ui/section-shell";
@@ -115,17 +116,20 @@ export function DemoSection() {
           </article>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <article className="flex h-full flex-col rounded-2xl border border-[var(--accent-ink)]/45 bg-[var(--accent-field)]/45 p-6 shadow-[var(--card-shadow)]">
-            <h3 className="max-w-md text-[11px] font-extrabold uppercase leading-snug tracking-[0.11em] text-[var(--foreground)] sm:text-[12px] md:max-w-none">
+          <article className="relative flex h-full flex-col rounded-2xl border border-[color-mix(in_srgb,var(--accent)_48%,transparent)] bg-[linear-gradient(170deg,color-mix(in_srgb,var(--accent)_18%,rgba(7,14,16,0.92))_0%,rgba(7,12,16,0.96)_100%)] p-6 shadow-[0_24px_56px_-30px_rgba(0,0,0,0.65),0_0_0_1px_color-mix(in_srgb,var(--accent)_26%,transparent),0_0_42px_-16px_color-mix(in_srgb,var(--accent)_45%,transparent)]">
+            <div className="pointer-events-none absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--accent)_32%,transparent)] bg-[color-mix(in_srgb,var(--accent)_14%,transparent)] text-[var(--accent)]/90 shadow-[0_12px_28px_-20px_color-mix(in_srgb,var(--accent)_55%,transparent)]">
+              <KaivoMark className="h-5 w-5" />
+            </div>
+            <h3 className="max-w-md text-[11px] font-extrabold uppercase leading-snug tracking-[0.11em] text-white sm:text-[12px] md:max-w-none">
               WITH KAIVO, LESS IS MORE.
             </h3>
-            <ul className="mt-4 space-y-2 text-[15px] font-medium leading-relaxed text-[var(--foreground)]">
+            <ul className="mt-4 space-y-2.5 text-[15px] font-medium leading-relaxed text-white/92">
               {withKaivo.map((step, i) => {
                 const content = (
                   <>
                     <span
                       aria-hidden
-                      className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/60 text-[10px] leading-none text-[var(--accent-ink)]"
+                      className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--accent)_58%,transparent)] bg-[color-mix(in_srgb,var(--accent)_26%,transparent)] text-[10px] leading-none text-[var(--accent)]"
                     >
                       ✓
                     </span>
