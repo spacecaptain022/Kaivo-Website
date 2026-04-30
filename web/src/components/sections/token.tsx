@@ -29,7 +29,7 @@ export function TokenSection() {
         </SectionTag>
         <h2 className="mt-3 max-w-3xl text-[clamp(1.5rem,3vw,2.35rem)] font-semibold leading-tight tracking-[-0.03em] text-[var(--foreground)]">
           {`Kaivo's token isn't just part of the system…it `}
-          <span className="text-[var(--accent-ink)]">is</span>
+          <span className="italic text-[var(--accent-ink)]">is</span>
           {` the system.`}
         </h2>
 
