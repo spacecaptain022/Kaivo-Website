@@ -35,7 +35,7 @@ export default function WaitlistPage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--accent-deep)]">
             Early Access
           </p>
-          <h1 className="mt-3 text-[clamp(2rem,6vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.03em]">
+          <h1 className="mt-3 text-[clamp(2rem,6vw,3.2rem)] font-semibold leading-[1.04] tracking-[-0.03em]">
             Apply for the{" "}
             <span className="text-[var(--accent)]">Kaivo waitlist.</span>
           </h1>
@@ -45,47 +45,47 @@ export default function WaitlistPage() {
             now.
           </p>
 
-          <form className="mt-8 space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="space-y-2 text-[12px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-                Full name
+          <form className="mt-9 space-y-6">
+            <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
+              <label className="flex flex-col gap-3 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+                <span className="pl-0.5">Full name</span>
                 <input
                   type="text"
                   name="fullName"
                   required
-                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
+                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3.5 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
                 />
               </label>
 
-              <label className="space-y-2 text-[12px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-                Work email
+              <label className="flex flex-col gap-3 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+                <span className="pl-0.5">Email</span>
                 <input
                   type="email"
                   name="email"
                   required
-                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
+                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3.5 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
                 />
               </label>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="space-y-2 text-[12px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-                Home airport
+            <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
+              <label className="flex flex-col gap-3 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+                <span className="pl-0.5">Home airport</span>
                 <input
                   type="text"
                   name="homeAirport"
                   placeholder="LHR, DXB, JFK..."
-                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted-light)] focus:border-[var(--accent)]"
+                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3.5 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted-light)] focus:border-[var(--accent)]"
                 />
               </label>
 
-              <label className="space-y-2 text-[12px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-                Travel frequency
+              <label className="flex flex-col gap-3 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+                <span className="pl-0.5">Travel frequency</span>
                 <select
                   name="travelFrequency"
                   defaultValue=""
                   required
-                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
+                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3.5 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
                 >
                   <option value="" disabled>
                     Select frequency
@@ -99,8 +99,10 @@ export default function WaitlistPage() {
               </label>
             </div>
 
-            <label className="space-y-2 text-[12px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-              What should Kaivo handle first?
+            <div className="h-px w-full bg-[color-mix(in_srgb,var(--foreground)_10%,transparent)]" />
+
+            <label className="flex flex-col gap-3 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+              <span className="pl-0.5">What should Kaivo handle first?</span>
               <textarea
                 name="priority"
                 rows={4}
@@ -109,7 +111,7 @@ export default function WaitlistPage() {
               />
             </label>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <button
                 type="submit"
                 className="inline-flex w-full items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--accent-deep)_38%,transparent)] bg-[var(--accent)] px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--accent-ink)] transition-[filter,transform,box-shadow] hover:brightness-[1.03] hover:shadow-[0_16px_30px_-16px_rgba(38,_229,_201,_0.8)] active:scale-[0.99]"
