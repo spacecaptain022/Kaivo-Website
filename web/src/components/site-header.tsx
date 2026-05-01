@@ -31,6 +31,7 @@ const layoutSpring = {
 export function SiteHeader() {
   const reduceMotion = useReducedMotion();
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   const [heroInView, setHeroInView] = useState(true);
   const showCollapsed = reduceMotion ? false : collapsed;
@@ -80,6 +81,13 @@ export function SiteHeader() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, [reduceMotion]);
+
+  useEffect(() => {
+    if (!showCollapsed) {
+      return;
+    }
+    setMobileMenuOpen(false);
+  }, [showCollapsed]);
 
   const barTone = heroInView
     ? "border-white/[0.14] bg-[rgba(10,14,22,0.42)] shadow-[inset_0_1px_0_0_rgba(255,_255,_255,_0.06),0_12px_40px_-14px_rgba(0,_0,_0,_0.45)]"
@@ -163,6 +171,37 @@ export function SiteHeader() {
               >
                 Join waitlist
               </Link>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen((v) => !v)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                className={cn(
+                  "inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line-strong)]/70 sm:hidden",
+                  heroInView ? "text-white" : "text-[var(--foreground)]",
+                )}
+              >
+                <span className="sr-only">Menu</span>
+                <svg viewBox="0 0 20 20" className="h-4.5 w-4.5" aria-hidden>
+                  {mobileMenuOpen ? (
+                    <path
+                      d="M5 5l10 10M15 5L5 15"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  ) : (
+                    <path
+                      d="M3.5 6h13M3.5 10h13M3.5 14h13"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  )}
+                </svg>
+              </button>
             </div>
           ) : (
             <div className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
@@ -235,8 +274,74 @@ export function SiteHeader() {
               >
                 Join waitlist
               </Link>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen((v) => !v)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                className={cn(
+                  "inline-flex h-9 w-9 items-center justify-center justify-self-end rounded-full border border-[var(--line-strong)]/70 sm:hidden",
+                  heroInView ? "text-white" : "text-[var(--foreground)]",
+                )}
+              >
+                <span className="sr-only">Menu</span>
+                <svg viewBox="0 0 20 20" className="h-4.5 w-4.5" aria-hidden>
+                  {mobileMenuOpen ? (
+                    <path
+                      d="M5 5l10 10M15 5L5 15"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  ) : (
+                    <path
+                      d="M3.5 6h13M3.5 10h13M3.5 14h13"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  )}
+                </svg>
+              </button>
             </div>
           )}
+          <AnimatePresence initial={false}>
+            {mobileMenuOpen && !showCollapsed ? (
+              <motion.nav
+                key="mobile-nav"
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className={cn(
+                  "absolute left-3 right-3 top-[calc(100%+0.55rem)] rounded-2xl border p-3 shadow-[var(--glass-shadow)] backdrop-blur-xl sm:hidden",
+                  heroInView
+                    ? "border-white/[0.14] bg-[rgba(10,14,22,0.42)]"
+                    : "border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)]",
+                )}
+              >
+                <div className="flex flex-col">
+                  {links.map((l) => (
+                    <Link
+                      key={`mobile-${l.href}`}
+                      href={l.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={cn(
+                        "rounded-lg px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em]",
+                        heroInView
+                          ? "text-white/85 hover:bg-white/10 hover:text-white"
+                          : "text-[var(--foreground)] hover:bg-[var(--panel)]",
+                      )}
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+              </motion.nav>
+            ) : null}
+          </AnimatePresence>
         </motion.div>
       </div>
     </header>
