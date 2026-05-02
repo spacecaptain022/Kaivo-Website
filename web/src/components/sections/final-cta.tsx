@@ -1,7 +1,7 @@
 import { KaivoMark } from "@/components/kaivo-mark";
 
 const menuLinks = [
-  { href: "#product", label: "Product" },
+  { href: "#top", label: "Home" },
   { href: "/waitlist", label: "Waitlist" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
