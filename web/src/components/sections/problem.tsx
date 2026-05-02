@@ -2,6 +2,7 @@
 
 import { KaivoMark } from "@/components/kaivo-mark";
 import { FadeIn } from "@/components/ui/fade-in";
+import { SectionTag } from "@/components/ui/section-tag";
 import { SectionShell } from "@/components/ui/section-shell";
 import { motion } from "motion/react";
 
@@ -19,15 +20,20 @@ export function ProblemSection() {
   return (
     <SectionShell tone="paper">
       <motion.div
-        className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16"
+        className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16"
         initial={{ opacity: 0, y: -36 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, margin: "-72px 0px" }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div>
+        <div className="lg:self-center">
+          <FadeIn className="flex justify-start">
+            <SectionTag icon="bolt" variant="accent">
+              The problem
+            </SectionTag>
+          </FadeIn>
           <FadeIn>
-            <h2 className="max-w-xl text-[clamp(1.75rem,4vw,2.85rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--foreground)]">
+            <h2 className="mt-4 max-w-xl text-balance text-[clamp(1.75rem,4vw,2.85rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--foreground)]">
               You were promised convenience. You got work.
             </h2>
           </FadeIn>
@@ -51,19 +57,23 @@ export function ProblemSection() {
           </FadeIn>
         </div>
         <FadeIn delay={0.08}>
-          <ul className="surface-card overflow-hidden rounded-2xl">
+          <ul className="overflow-hidden rounded-3xl border border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-[color-mix(in_srgb,var(--surface)_96%,white_4%)] shadow-[0_20px_34px_-26px_rgba(8,12,14,0.28)]">
             {contrast.map((row) => (
               <li
                 key={row.label === "Kaivo" ? "kaivo-brand" : row.label}
-                className="flex flex-col items-start gap-3 border-b border-[var(--line)] px-4 py-4 last:border-b-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                className={
+                  row.label === "Kaivo"
+                    ? "grid grid-cols-1 gap-3 border-t border-[color-mix(in_srgb,var(--accent)_24%,var(--line))] bg-[color-mix(in_srgb,var(--accent-field)_45%,var(--surface)_55%)] px-4 py-4 sm:grid-cols-[minmax(120px,150px)_1fr] sm:items-center sm:gap-5 sm:px-5"
+                    : "grid grid-cols-1 gap-3 border-b border-[var(--line)] px-4 py-4 last:border-b-0 sm:grid-cols-[minmax(120px,150px)_1fr] sm:items-center sm:gap-5 sm:px-5"
+                }
               >
                 <span
                   className={
                     row.label === "Kaivo"
                       ? "inline-flex min-w-0 items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--foreground)]"
                       : row.label === "OTAs"
-                        ? "text-[12px] font-semibold tracking-[0.14em] text-[var(--muted)]"
-                        : "text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]"
+                        ? "text-[12px] font-semibold tracking-[0.14em] text-[var(--muted)] sm:pl-1"
+                        : "text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)] sm:pl-1"
                   }
                 >
                   {row.label === "Kaivo" && (
@@ -74,8 +84,8 @@ export function ProblemSection() {
                 <span
                   className={
                     row.label === "Kaivo"
-                      ? "inline-flex min-h-[3.5rem] w-full sm:w-auto max-w-none items-center justify-center rounded-3xl border border-[var(--accent-deep)]/25 bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)] px-4 py-2.5 text-center text-[12px] font-semibold leading-snug text-[var(--accent-ink)] shadow-[0_8px_26px_-10px_rgba(87,212,196,0.45),0_2px_8px_-4px_rgba(6,51,46,0.18),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-h-[3.75rem] sm:px-5 sm:py-3 sm:text-[14px] sm:min-w-[17rem]"
-                      : "text-left sm:text-right text-[15px] text-[var(--foreground)]"
+                      ? "inline-flex min-h-[3.2rem] w-full items-center justify-center rounded-2xl border border-[color-mix(in_srgb,var(--accent)_42%,var(--line))] bg-[color-mix(in_srgb,var(--accent-field)_82%,var(--surface)_18%)] px-4 py-2.5 text-center text-[13px] font-semibold leading-snug text-[var(--accent-ink)] shadow-[0_10px_22px_-16px_rgba(87,212,196,0.45),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-h-[3.6rem] sm:px-5 sm:text-[15px]"
+                      : "text-left text-[15px] leading-relaxed text-[var(--foreground)] sm:max-w-[27ch]"
                   }
                 >
                   {row.value}
