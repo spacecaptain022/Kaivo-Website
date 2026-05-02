@@ -70,13 +70,19 @@ export function ThesisSection() {
               Expansion
             </p>
             <div className="mt-4 grid grid-cols-3 gap-x-2 gap-y-2 sm:gap-x-2.5 sm:gap-y-2.5">
-              {ladder.map((step) => (
-                <div key={step} className="flex min-w-0 justify-center">
-                  <span className="inline-flex w-full max-w-full items-center justify-center rounded-full border border-[var(--background)]/18 bg-[var(--background)]/[0.06] px-2 py-1.5 text-center text-[11px] leading-snug text-[var(--background)]/92 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] sm:px-3 sm:text-[13px] sm:leading-normal">
-                    {step}
-                  </span>
-                </div>
-              ))}
+              {ladder.map((step) => {
+                const isFlights = step === "Flights";
+                const chipBase =
+                  "inline-flex w-full max-w-full items-center justify-center rounded-full px-2 py-1.5 text-center text-[11px] leading-snug shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] sm:px-3 sm:text-[13px] sm:leading-normal";
+                const chipClass = isFlights
+                  ? `${chipBase} border border-[color-mix(in_srgb,var(--accent)_55%,transparent)] bg-[color-mix(in_srgb,var(--accent)_42%,rgba(4,5,6,0.92))] font-semibold text-[var(--background)] ring-1 ring-[color-mix(in_srgb,var(--accent)_32%,transparent)]`
+                  : `${chipBase} border border-[var(--background)]/18 bg-[var(--background)]/[0.06] text-[var(--background)]/92`;
+                return (
+                  <div key={step} className="flex min-w-0 justify-center">
+                    <span className={chipClass}>{step}</span>
+                  </div>
+                );
+              })}
             </div>
           </FadeIn>
         </div>
