@@ -7,7 +7,12 @@ const flow = ["Intent", "Prepare", "Review", "Approve", "Done"] as const;
 
 const accentLine = "bg-[var(--accent)]";
 
-const lineViewport = { once: false, margin: "-56px 0px" } as const;
+/** iOS Safari is picky about whileInView on SVG primitives; use generous rootMargin + once. */
+const mobileMotionViewport = {
+  once: true,
+  amount: 0.02,
+  margin: "160px 0px 200px 0px",
+} as const;
 
 const lineEase = [0.22, 1, 0.36, 1] as const;
 
@@ -19,7 +24,7 @@ function MobileGrayHopConnector({ delay }: { delay: number }) {
       className="mx-1 inline-flex h-[2px] w-4 shrink-0 origin-center self-center sm:w-5"
       initial={{ opacity: 0, scaleX: 0.2 }}
       whileInView={{ opacity: 1, scaleX: 1 }}
-      viewport={lineViewport}
+      viewport={mobileMotionViewport}
       transition={{ duration: 0.38, delay, ease: lineEase }}
     >
       <span className="block h-full w-full rounded-full bg-[var(--line-strong)]" />
@@ -52,39 +57,27 @@ function ConnectorHMotion({
 
 /**
  * Mobile: gray curve from end of step 1–2–3 (Review, right) down to Approve (left).
+ * Always-visible SVG: iOS Safari often never resolves whileInView on nested motion under FadeIn,
+ * which left the curve at opacity 0. Section FadeIn still reveals the whole block.
  */
-function MobileCurveReviewToApprove({ animated = true }: { animated?: boolean }) {
+function MobileCurveReviewToApprove() {
   const pathD = "M 250 1 C 252 42 52 44 50 75";
   return (
     <div className="mx-auto w-full max-w-[20rem] px-1" aria-hidden>
       <svg
-        className="mx-auto block h-[4.75rem] w-full max-w-[17.5rem] overflow-visible"
+        className="mx-auto block h-[4.75rem] min-h-[4.75rem] w-full min-w-[10rem] max-w-[17.5rem] overflow-visible text-[color-mix(in_srgb,var(--foreground)_24%,transparent)]"
         viewBox="0 0 300 76"
         fill="none"
         preserveAspectRatio="xMidYMid meet"
       >
-        {animated ? (
-          <motion.path
-            d={pathD}
-            stroke="var(--line-strong)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={lineViewport}
-            transition={{ duration: 0.5, delay: 0.18, ease: lineEase }}
-          />
-        ) : (
-          <path
-            d={pathD}
-            stroke="var(--line-strong)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        )}
+        <path
+          d={pathD}
+          stroke="currentColor"
+          strokeWidth="2.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          vectorEffect="nonScalingStroke"
+        />
       </svg>
     </div>
   );
@@ -114,7 +107,7 @@ function MobileApproveDoneConnector({ animated = true }: { animated?: boolean })
       className="mx-1.5 inline-flex h-[2px] min-w-[1.5rem] max-w-[6rem] flex-1 origin-center"
       initial={{ opacity: 0, scaleX: 0.15 }}
       whileInView={{ opacity: 1, scaleX: 1 }}
-      viewport={lineViewport}
+      viewport={mobileMotionViewport}
       transition={{
         duration: mobileApproveDoneLine.duration,
         delay: mobileApproveDoneLine.delay,
@@ -196,7 +189,7 @@ function mobileChipMotion(delay: number, doneChip: boolean) {
     return {
       initial: { opacity: 0, x: -40, y: 0, scale: 0.94, filter: "blur(4px)" },
       whileInView: { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" },
-      viewport: { once: false, margin: "-56px 0px" },
+      viewport: mobileMotionViewport,
       transition: {
         type: "spring" as const,
         stiffness: 420,
@@ -209,7 +202,7 @@ function mobileChipMotion(delay: number, doneChip: boolean) {
   return {
     initial: { opacity: 0, y: -10, x: 0, scale: 0.92, filter: "blur(4px)" },
     whileInView: { opacity: 1, y: 0, x: 0, scale: 1, filter: "blur(0px)" },
-    viewport: { once: false, margin: "-56px 0px" },
+    viewport: mobileMotionViewport,
     transition: { ...springPop, delay },
   };
 }
@@ -240,7 +233,7 @@ export function DelegationFlow() {
               />
               <span className={`${pillClass(false)} shrink-0 border-0 px-3`}>{flow[2]}</span>
             </div>
-            <MobileCurveReviewToApprove animated={false} />
+            <MobileCurveReviewToApprove />
             <div className="flex w-full flex-nowrap items-center justify-center">
               <span className={`${pillClass(false)} shrink-0 border-0 px-3`}>{flow[3]}</span>
               <MobileApproveDoneConnector animated={false} />
