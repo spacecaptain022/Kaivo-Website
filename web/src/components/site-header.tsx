@@ -89,9 +89,14 @@ export function SiteHeader() {
     setMobileMenuOpen(false);
   }, [showCollapsed]);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
   const barTone = heroInView
-    ? "border-white/[0.28] bg-white/[0.13] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.42),0_12px_40px_-14px_rgba(0,0,0,0.18)]"
-    : "border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)] shadow-[var(--glass-shadow)]";
+    ? "border-white/[0.16] bg-[rgba(10,20,26,0.82)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12),0_12px_40px_-14px_rgba(0,0,0,0.5)]"
+    : "border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-[rgba(255,255,255,0.84)] shadow-[var(--glass-shadow)]";
 
   const lockupTone = heroInView ? "text-white" : "text-[var(--foreground)]";
   const lockupMuted = heroInView
@@ -102,12 +107,11 @@ export function SiteHeader() {
     "flex h-8 w-8 shrink-0 items-center justify-center rounded-[11px]",
     "bg-gradient-to-b from-[#5ef8e4] via-[var(--accent)] to-[var(--accent-mid)]",
     "shadow-[inset_0_1px_0_0_rgba(255,_255,_255,_0.32)]",
-    heroInView
-      ? "ring-1 ring-white/25"
-      : "ring-1 ring-[var(--accent-deep)]/22",
+    heroInView ? "ring-1 ring-white/25" : "ring-1 ring-[var(--accent-deep)]/22",
   );
 
   return (
+    <>
     <header className="pointer-events-none fixed left-0 right-0 top-0 z-50">
       <div className="mx-auto max-w-6xl px-4 pt-[max(0.65rem,_env(safe-area-inset-top,0px))] sm:px-6 lg:px-10">
         <motion.div
@@ -176,13 +180,10 @@ export function SiteHeader() {
                 onClick={() => setMobileMenuOpen((v) => !v)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
-                className={cn(
-                  "inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line-strong)]/70 sm:hidden",
-                  heroInView ? "text-white" : "text-[var(--foreground)]",
-                )}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full sm:hidden text-[var(--foreground)]"
               >
                 <span className="sr-only">Menu</span>
-                <svg viewBox="0 0 20 20" className="h-4.5 w-4.5" aria-hidden>
+                <svg viewBox="0 0 20 20" className="h-5 w-5" aria-hidden>
                   {mobileMenuOpen ? (
                     <path
                       d="M5 5l10 10M15 5L5 15"
@@ -248,7 +249,7 @@ export function SiteHeader() {
                       className={cn(
                         "py-2 whitespace-nowrap transition-colors duration-150",
                         heroInView
-                          ? "text-white/[0.78] hover:text-white"
+                          ? "text-white/75 hover:text-white"
                           : "text-[var(--muted)] hover:text-[var(--foreground)]",
                       )}
                     >
@@ -280,12 +281,12 @@ export function SiteHeader() {
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
                 className={cn(
-                  "inline-flex h-9 w-9 items-center justify-center justify-self-end rounded-full border border-[var(--line-strong)]/70 sm:hidden",
+                  "inline-flex h-9 w-9 items-center justify-center justify-self-end rounded-full sm:hidden",
                   heroInView ? "text-white" : "text-[var(--foreground)]",
                 )}
               >
                 <span className="sr-only">Menu</span>
-                <svg viewBox="0 0 20 20" className="h-4.5 w-4.5" aria-hidden>
+                <svg viewBox="0 0 20 20" className="h-5 w-5" aria-hidden>
                   {mobileMenuOpen ? (
                     <path
                       d="M5 5l10 10M15 5L5 15"
@@ -307,43 +308,75 @@ export function SiteHeader() {
               </button>
             </div>
           )}
-          <AnimatePresence initial={false}>
-            {mobileMenuOpen && !showCollapsed ? (
-              <motion.nav
-                key="mobile-nav"
-                initial={{ opacity: 0, y: -6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className={cn(
-                  "absolute left-3 right-3 top-[calc(100%+0.55rem)] rounded-2xl border p-3 shadow-[var(--glass-shadow)] backdrop-blur-xl sm:hidden",
-                  heroInView
-                    ? "border-white/[0.14] bg-[rgba(10,14,22,0.42)]"
-                    : "border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)]",
-                )}
-              >
-                <div className="flex flex-col">
-                  {links.map((l) => (
-                    <Link
-                      key={`mobile-${l.href}`}
-                      href={l.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "rounded-lg px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em]",
-                        heroInView
-                          ? "text-white/85 hover:bg-white/10 hover:text-white"
-                          : "text-[var(--foreground)] hover:bg-[var(--panel)]",
-                      )}
-                    >
-                      {l.label}
-                    </Link>
-                  ))}
-                </div>
-              </motion.nav>
-            ) : null}
-          </AnimatePresence>
         </motion.div>
       </div>
     </header>
+
+    {/* Full-screen mobile menu overlay */}
+    <AnimatePresence>
+      {mobileMenuOpen && !showCollapsed && (
+        <motion.div
+          key="mobile-fullscreen"
+          className="fixed inset-0 z-40 flex flex-col sm:hidden pointer-events-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-[rgba(8,16,22,0.96)] backdrop-blur-3xl" />
+
+          {/* Links — vertically centered */}
+          <div className="relative flex flex-1 flex-col items-center justify-center gap-1 px-8">
+            {links.map((l, i) => (
+              <motion.div
+                key={l.href}
+                className="w-full"
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{
+                  delay: i * 0.06,
+                  duration: 0.38,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                <Link
+                  href={l.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full py-5 text-center text-[2rem] font-bold uppercase tracking-[0.16em] text-white/80 transition-colors hover:text-white"
+                >
+                  {l.label}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            className="relative flex justify-center pb-16 pt-6"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.22, duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Link
+              href="/waitlist"
+              onClick={() => setMobileMenuOpen(false)}
+              className={cn(
+                "rounded-full border border-[var(--accent-deep)]/[0.22]",
+                "bg-gradient-to-b from-[var(--accent)] via-[var(--accent)] to-[var(--accent-mid)]",
+                "px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em]",
+                "text-[var(--accent-ink)]",
+                "shadow-[0_8px_28px_-6px_rgba(87,212,196,0.55),inset_0_1px_0_0_rgba(255,255,255,0.2)]",
+              )}
+            >
+              Join waitlist
+            </Link>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
