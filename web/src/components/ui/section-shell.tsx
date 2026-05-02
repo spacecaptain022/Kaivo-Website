@@ -88,10 +88,11 @@ export function SectionShell({
     <motion.section
       id={id}
       className={shellClassName}
-      initial={{ opacity: 0.92, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2, margin: "-8% 0px -8% 0px" }}
-      transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0.985 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: false, amount: 0.08, margin: "0px" }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+      style={{ willChange: "opacity" }}
     >
       {content}
     </motion.section>

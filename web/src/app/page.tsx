@@ -6,6 +6,7 @@ import { DifferentiatorSection } from "@/components/sections/differentiator";
 import { DemoSection } from "@/components/sections/demo";
 import { ContactSection } from "@/components/sections/contact";
 import { FinalCtaSection } from "@/components/sections/final-cta";
+import { HomeRefreshReset } from "@/components/home-refresh-reset";
 import { JoinCtaSection } from "@/components/sections/join-cta";
 import { KvidSection } from "@/components/sections/kvid-section";
 import { Hero } from "@/components/sections/hero";
@@ -19,6 +20,7 @@ import { WhyNowSection } from "@/components/sections/why-now";
 export default function Home() {
   return (
     <>
+      <HomeRefreshReset />
       <SiteHeader />
       <main className="overflow-x-hidden bg-[var(--surface)]">
         <Hero />
