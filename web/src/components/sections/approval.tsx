@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useEffect, useState } from "react";
 
 import {
   FeatureIconBanknote,
@@ -36,6 +37,15 @@ const trustRows: {
 
 export function ApprovalSection() {
   const reduceMotion = useReducedMotion();
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 640px)");
+    setIsDesktop(mq.matches);
+    const onChange = (event: MediaQueryListEvent) => setIsDesktop(event.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   return (
     <SectionShell
@@ -52,20 +62,20 @@ export function ApprovalSection() {
         </p>
 
         <ul
-          className="mx-auto mt-10 grid w-full max-w-3xl grid-cols-2 gap-3 sm:gap-4 md:gap-5"
+          className="mx-auto mt-10 grid w-full max-w-3xl grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:justify-items-stretch sm:gap-4 md:gap-5"
           role="list"
         >
           {trustRows.map(({ text, icon }, i) => {
             const topRow = i < 2;
-            const restX = topRow ? -32 : 32;
-            const offX = topRow ? -140 : 140;
+            const restX = isDesktop ? (topRow ? -32 : 32) : 0;
+            const offX = isDesktop ? (topRow ? -140 : 140) : 0;
             const atRest = { opacity: 1, x: restX };
             const offScreen = { opacity: 0, x: offX };
 
             return (
               <motion.li
                 key={text}
-                className="min-w-0"
+                className="min-w-0 w-full max-w-[32rem] sm:max-w-none"
                 initial={reduceMotion ? atRest : offScreen}
                 whileInView={atRest}
                 viewport={{ once: false, amount: 0.32, margin: "0px 0px -12% 0px" }}
@@ -75,7 +85,7 @@ export function ApprovalSection() {
                     : {
                         duration: 0.68,
                         ease: [0.22, 1, 0.36, 1],
-                        delay: i * 0.08,
+                        delay: isDesktop ? i * 0.08 : 0,
                       }
                 }
               >
