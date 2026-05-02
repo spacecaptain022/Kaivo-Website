@@ -84,21 +84,34 @@ export default function WaitlistPage() {
 
               <label className="flex flex-col gap-3 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
                 <span className="pl-0.5">Travel frequency</span>
-                <select
-                  name="travelFrequency"
-                  defaultValue=""
-                  required
-                  className="w-full rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] px-4 py-3.5 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
-                >
-                  <option value="" disabled>
-                    Select frequency
-                  </option>
-                  {travelFrequencyOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
+                <div className="relative">
+                  <select
+                    name="travelFrequency"
+                    defaultValue=""
+                    required
+                    className="w-full appearance-none rounded-xl border border-[color-mix(in_srgb,var(--foreground)_13%,transparent)] bg-[var(--surface)] py-3.5 pl-4 pr-12 text-[15px] normal-case tracking-normal text-[var(--foreground)] outline-none transition-colors focus:border-[var(--accent)]"
+                  >
+                    <option value="" disabled>
+                      Select frequency
                     </option>
-                  ))}
-                </select>
+                    {travelFrequencyOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  <span
+                    className="pointer-events-none absolute right-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center text-[var(--foreground)]"
+                    aria-hidden
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-[18px] w-[18px] shrink-0 fill-current opacity-80"
+                    >
+                      <path d="M12,17.56l-9.3-9.3a1,1,0,0,1,1.42-1.42L12,14.73l7.88-7.89a1,1,0,0,1,1.42,1.42Z" />
+                    </svg>
+                  </span>
+                </div>
               </label>
             </div>
 
