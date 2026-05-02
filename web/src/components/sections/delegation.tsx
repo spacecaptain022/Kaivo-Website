@@ -17,7 +17,7 @@ export function DelegationSection() {
           best option. You review. You approve. It’s done.
         </p>
       </FadeIn>
-      <FadeIn delay={0.1} className="mt-10">
+      <FadeIn delay={0.1} className="mt-10 w-full md:w-auto">
         <DelegationFlow />
       </FadeIn>
       <FadeIn delay={0.12} className="mt-10">

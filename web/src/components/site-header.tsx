@@ -344,7 +344,7 @@ export function SiteHeader() {
                 <Link
                   href={l.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full py-5 text-center text-[2rem] font-bold uppercase tracking-[0.16em] text-white/80 transition-colors hover:text-white"
+                  className="block w-full py-3 text-center text-[clamp(1.125rem,4.2vw,1.375rem)] font-bold uppercase tracking-[0.14em] text-white/80 transition-colors hover:text-white"
                 >
                   {l.label}
                 </Link>
