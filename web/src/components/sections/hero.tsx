@@ -1,5 +1,6 @@
 "use client";
 
+import { CornerArrowMark } from "@/components/ui/corner-arrow-mark";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
@@ -89,7 +90,7 @@ export function Hero() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.18} className="mt-2 flex w-full justify-center px-1">
+          <FadeIn delay={0.18} className="mt-5 flex w-full justify-center px-1 sm:mt-6">
             <div
               className={cn(
                 "relative z-10 flex w-fit max-w-[min(100%,18rem)] origin-center flex-col items-stretch justify-center overflow-visible p-1 transition-[transform,box-shadow] duration-[680ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out has-[a:hover]:translate-y-px has-[a:hover]:scale-[0.98] has-[a:focus-visible]:translate-y-px has-[a:focus-visible]:scale-[0.98] motion-reduce:has-[a:hover]:translate-y-0 motion-reduce:has-[a:hover]:scale-100 motion-reduce:has-[a:focus-visible]:translate-y-0 motion-reduce:has-[a:focus-visible]:scale-100 sm:p-1.5",
@@ -101,7 +102,7 @@ export function Hero() {
               <Link
                 href="/waitlist"
                 className={cn(
-                  "group inline-flex w-auto min-w-0 max-w-full items-center justify-between gap-2.5 rounded-[calc(2.25rem-0.25rem)] border border-[color-mix(in_srgb,var(--accent-deep)_28%,transparent)] sm:gap-3 sm:rounded-[calc(2.25rem-0.375rem)]",
+                  "group inline-flex w-auto min-w-0 max-w-full items-center justify-between gap-2.5 overflow-visible rounded-[calc(2.25rem-0.25rem)] border border-[color-mix(in_srgb,var(--accent-deep)_28%,transparent)] sm:gap-3 sm:rounded-[calc(2.25rem-0.375rem)]",
                   "bg-[var(--accent)] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--accent-ink)] shadow-[var(--card-shadow-soft)] sm:px-4 sm:tracking-[0.18em]",
                   "transition-[filter,transform,box-shadow] duration-[680ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out hover:brightness-[0.99] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12),var(--card-shadow-soft)] active:scale-[0.98] motion-reduce:active:scale-100",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
@@ -110,23 +111,9 @@ export function Hero() {
                 <span className="pl-1.5 sm:pl-2">Join waitlist</span>
                 <span
                   aria-hidden
-                  className="inline-flex size-9 origin-center items-center justify-center rounded-full bg-[var(--accent-deep)] text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)] ring-1 ring-black/10 transition-[transform,box-shadow] duration-[680ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out motion-safe:group-hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.35)] motion-reduce:group-hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)]"
+                  className="inline-flex size-9 origin-center items-center justify-center rounded-full bg-[var(--accent-deep)] text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)] ring-1 ring-black/10 transition-[transform,box-shadow] duration-[680ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out motion-safe:group-hover:scale-[1.1] motion-safe:group-focus-visible:scale-[1.1] motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100 motion-safe:group-hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.35)] motion-reduce:group-hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)]"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="block h-4 w-4 shrink-0 origin-center transition-transform duration-[720ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out motion-safe:group-hover:rotate-45 motion-reduce:group-hover:rotate-0"
-                    aria-hidden
-                  >
-                    {/* NE “out” arrow; corner at (12,12) so clockwise hover pivots cleanly */}
-                    <path
-                      d="M8 16L16 8M16 8H9.5M16 8V14.5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <CornerArrowMark className="h-5 w-5 transition-transform duration-[720ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out motion-safe:group-hover:rotate-45 motion-safe:group-hover:scale-110 motion-safe:group-focus-visible:rotate-45 motion-safe:group-focus-visible:scale-110 motion-reduce:group-hover:rotate-0 motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:rotate-0 motion-reduce:group-focus-visible:scale-100 sm:h-[22px] sm:w-[22px]" />
                 </span>
               </Link>
             </div>
@@ -157,19 +144,12 @@ export function Hero() {
             }
           >
             <svg
-              viewBox="0 0 20 20"
-              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              className="h-5 w-5 fill-current"
               focusable="false"
               aria-hidden
             >
-              <path
-                d="M10 3v11.2m0 0l-4.2-4.2M10 14.2l4.2-4.2"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M17.71,11.29a1,1,0,0,0-1.42,0L13,14.59V7a1,1,0,0,0-2,0v7.59l-3.29-3.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l5-5A1,1,0,0,0,17.71,11.29Z" />
             </svg>
           </motion.span>
         </div>

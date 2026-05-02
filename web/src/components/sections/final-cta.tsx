@@ -50,15 +50,28 @@ export function FinalCtaSection({ hideTopBorder }: FinalCtaSectionProps = {}) {
                 {label}
               </a>
             ))}
+          </nav>
+
+          <div className="flex w-full justify-center">
             <a
               href="https://x.com/askkaivo"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--foreground)] transition-colors duration-150 hover:text-[var(--foreground)] focus-visible:outline-none focus-visible:underline"
+              aria-label="Kaivo on X (opens in a new tab)"
+              className="inline-flex shrink-0 items-center justify-center rounded-md text-[var(--foreground)] transition-opacity duration-150 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
-              X (Twitter)
+              <svg
+                className="h-[18px] w-[18px]"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path
+                  fill="currentColor"
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
             </a>
-          </nav>
+          </div>
 
           <p className="text-center text-[12px] leading-relaxed text-[var(--muted)]">
             © 2026 Kaivo. All rights reserved.
