@@ -44,7 +44,7 @@ export function Hero() {
           tabIndex={-1}
           aria-hidden
           poster="/hero/airplane-island.png"
-          className="pointer-events-none h-full min-h-full w-full scale-105 object-cover object-[center_35%]"
+          className="pointer-events-none h-full min-h-full w-full object-cover object-[center_35%]"
         >
           <source src="/hero/airplane-island-video.mp4" type="video/mp4" />
         </video>
