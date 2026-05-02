@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { AppBootLoader } from "@/components/app-boot-loader";
 import "./globals.css";
 
 const googleSansFlex = localFont({
@@ -26,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${googleSansFlex.variable} h-full antialiased`}>
-      <body className="min-h-full font-sans">{children}</body>
+      <body className="min-h-full font-sans">
+        <AppBootLoader>{children}</AppBootLoader>
+      </body>
     </html>
   );
 }
