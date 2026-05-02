@@ -15,7 +15,6 @@ import { SpeaksSection } from "@/components/sections/speaks";
 import { TeamSection } from "@/components/sections/team";
 import { ThesisSection } from "@/components/sections/thesis";
 import { ValueSection } from "@/components/sections/value";
-import { WhyNowSection } from "@/components/sections/why-now";
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
         <SpeaksSection />
         <ApprovalSection />
         <ValueSection />
-        <WhyNowSection />
         <AboutSection />
         <DifferentiatorSection />
         <ThesisSection />

@@ -42,20 +42,18 @@ export function ThesisSection() {
           </FadeIn>
           <FadeIn delay={0.06} className="mt-7 max-w-3xl text-[17px] leading-relaxed text-[var(--background)]/74">
             <p>
-              Flights are where the friction is highest: constant price swings,
-              endless options, repeated decisions, and plans that need to fit
-              around personal preferences.
+              Flights are where friction is highest: price swings, endless
+              options, and repeated decisions.
             </p>
             <p className="mt-3.5">
-              The same search, over and over again - different dates, different
-              routes, different trade-offs. Too many tabs. Too many variables.
-              Never a clear best choice.
+              You search again and again, different dates, routes, trade-offs.
+              Too many tabs. Too many variables. No clear best choice.
             </p>
-            <p className="mt-3.5">It’s the perfect place to prove a better way.</p>
+            <p className="mt-3.5">It&apos;s the perfect place to prove a better way.</p>
             <p className="mt-3.5">
-              Start with flights. Then expand to the rest of travel, and
-              eventually everything repetitive people are tired of managing
-              manually.
+              We&apos;re starting with flights. Then everything around
+              travel: trains, hotels, full trips. Then the rest of life:
+              anything repetitive that should be simple to book.
             </p>
           </FadeIn>
           <FadeIn
@@ -71,14 +69,13 @@ export function ThesisSection() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--background)]/55">
               Expansion
             </p>
-            <div className="mt-4 flex flex-wrap gap-2.5">
-              {ladder.map((step, i) => (
-                <span key={step} className="flex items-center gap-2 text-[13px]">
-                  {i > 0 && <span className="text-[var(--background)]/30">→</span>}
-                  <span className="rounded-full border border-[var(--background)]/18 bg-[var(--background)]/[0.06] px-3 py-1.5 text-[var(--background)]/92 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+            <div className="mt-4 grid grid-cols-3 gap-x-2 gap-y-2 sm:gap-x-2.5 sm:gap-y-2.5">
+              {ladder.map((step) => (
+                <div key={step} className="flex min-w-0 justify-center">
+                  <span className="inline-flex w-full max-w-full items-center justify-center rounded-full border border-[var(--background)]/18 bg-[var(--background)]/[0.06] px-2 py-1.5 text-center text-[11px] leading-snug text-[var(--background)]/92 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] sm:px-3 sm:text-[13px] sm:leading-normal">
                     {step}
                   </span>
-                </span>
+                </div>
               ))}
             </div>
           </FadeIn>

@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 
 const LINE =
-  "Kaivo is building the delegation layer for modern life. We believe the next great consumer products won't just help people search better. They'll help people get things done.";
+  "We believe the next great consumer products won't just help people search better. They'll help people get things done.";
 const words = LINE.split(/\s+/);
 
 const containerVariants = {
@@ -45,7 +45,7 @@ export function AboutHeadline() {
       <h2 className="mx-auto max-w-5xl text-center text-[clamp(2.1rem,6vw,4.2rem)] font-semibold leading-[1.03] tracking-[-0.04em] text-[var(--foreground)] [text-wrap:balance]">
         {words.map((word, i) => {
           const normalized = word.replace(/[^\w']/g, "").toLowerCase();
-          const isAccentWord = normalized === "kaivo" || normalized === "done";
+          const isAccentWord = normalized === "done";
           return (
             <span
               key={`${i}-${word}`}
@@ -73,7 +73,7 @@ export function AboutHeadline() {
       >
         {words.map((word, i) => {
           const normalized = word.replace(/[^\w']/g, "").toLowerCase();
-          const isAccentWord = normalized === "kaivo" || normalized === "done";
+          const isAccentWord = normalized === "done";
           return (
           <motion.span
             key={`${i}-${word}`}

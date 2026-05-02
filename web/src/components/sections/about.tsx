@@ -9,7 +9,7 @@ export function AboutSection() {
     <SectionShell id="about" tone="paper">
       <FadeIn className="text-center">
         <SectionTag icon="briefcase">
-          About Kaivo
+          Our purpose
         </SectionTag>
       </FadeIn>
       <div className="mt-6">

@@ -47,12 +47,10 @@ export function ProblemSection() {
             className="mt-10 max-w-2xl text-[17px] font-light leading-[1.62] tracking-[-0.01em] text-[var(--muted)] antialiased"
           >
             <p>
-              Search made options infinite. Comparison sites made tabs multiply.
-              AI made answers faster. But somehow, you still do the work. You
-              still check five websites. You still compare flight times, baggage
-              rules, layovers, and refund policies. You still re-enter passenger
-              details. You still second-guess whether you picked the right
-              option.
+              Search gave you endless options. Comparison sites multiplied tabs.
+              AI sped up answers; but you still do the work. You check multiple
+              sites, compare flights, baggage, and policies, re-enter details,
+              and wonder if you chose right.
             </p>
           </FadeIn>
         </div>
