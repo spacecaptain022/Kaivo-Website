@@ -12,31 +12,33 @@ import { KaivoMark } from "@/components/kaivo-mark";
 import { cn } from "@/lib/cn";
 
 const links = [
-  { href: "#top", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/waitlist", label: "Waitlist" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/tokenomics", label: "Tokenomics" },
+  /** Slash + hash so inner routes (e.g. /tokenomics) still open marketing sections on `/`. */
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 function linkIsActive(href: string, pathname: string | null, rawHash: string) {
   const hash = (rawHash || "").toLowerCase();
   const path = pathname ?? "";
+  const onHome = path === "/" || path === "";
+
+  const homeSection = /^\/#([\w-]+)$/i.exec(href);
+  if (homeSection) {
+    return onHome && hash === `#${homeSection[1].toLowerCase()}`;
+  }
 
   if (href.startsWith("/")) {
     const base = href.replace(/\/$/, "") || "/";
+    if (base === "/") {
+      return onHome && (!hash || hash === "#" || hash === "#top" || hash === "#");
+    }
     return path === base || path.startsWith(`${base}/`);
   }
 
-  const h = href.toLowerCase();
-  const onHome = path === "/" || path === "";
-
-  if (h === "#top") {
-    if (!onHome) return false;
-    return !hash || hash === "#" || hash === "#top";
-  }
-
-  if (!onHome) return false;
-  return hash === h;
+  return false;
 }
 
 const barTransition = {
@@ -68,10 +70,18 @@ export function SiteHeader() {
   }, [pathname]);
 
   useEffect(() => {
-    const el = document.getElementById("top");
-    if (!el || typeof IntersectionObserver === "undefined") {
+    const onMarketingHome = pathname === "/" || pathname === "";
+    if (!onMarketingHome) {
+      setHeroInView(false);
       return;
     }
+
+    const el = document.getElementById("top");
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setHeroInView(false);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setHeroInView(entry.intersectionRatio > 0);
@@ -80,7 +90,7 @@ export function SiteHeader() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     if (reduceMotion) {
@@ -118,12 +128,16 @@ export function SiteHeader() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
-  const barTone = heroInView
+  /** Hero chrome (white nav, dark chip) only on `/` while `#top` is in view — inner pages always use light chrome. */
+  const onMarketingHome = pathname === "/" || pathname === "";
+  const useHeroChrome = onMarketingHome && heroInView;
+
+  const barTone = useHeroChrome
     ? "border-white/[0.16] bg-[rgba(10,20,26,0.82)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12),0_12px_40px_-14px_rgba(0,0,0,0.5)]"
     : "border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-[rgba(255,255,255,0.84)] shadow-[var(--glass-shadow)]";
 
-  const lockupTone = heroInView ? "text-white" : "text-[var(--foreground)]";
-  const lockupMuted = heroInView
+  const lockupTone = useHeroChrome ? "text-white" : "text-[var(--foreground)]";
+  const lockupMuted = useHeroChrome
     ? "text-white hover:text-white/90"
     : "text-[var(--foreground)] hover:text-[var(--foreground)]";
 
@@ -131,19 +145,19 @@ export function SiteHeader() {
     "flex h-8 w-8 shrink-0 items-center justify-center rounded-[11px]",
     "bg-gradient-to-b from-[#5ef8e4] via-[var(--accent)] to-[var(--accent-mid)]",
     "shadow-[inset_0_1px_0_0_rgba(255,_255,_255,_0.32)]",
-    heroInView ? "ring-1 ring-white/25" : "ring-1 ring-[var(--accent-deep)]/22",
+    useHeroChrome ? "ring-1 ring-white/25" : "ring-1 ring-[var(--accent-deep)]/22",
   );
 
   /** Center pill nav — reference layout; tones swap on hero vs page */
-  const navPill = heroInView
+  const navPill = useHeroChrome
     ? "border border-white/18 bg-white/[0.09] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl"
     : "border border-[color-mix(in_srgb,var(--foreground)_7%,transparent)] bg-[color-mix(in_srgb,var(--panel)_92%,var(--background)_8%)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.92)]";
 
-  const navIdle = heroInView
+  const navIdle = useHeroChrome
     ? "text-white/65 hover:bg-white/10 hover:text-white"
     : "text-[var(--muted)] hover:bg-[color-mix(in_srgb,var(--foreground)_5%,transparent)] hover:text-[var(--foreground)]";
 
-  const navActive = heroInView
+  const navActive = useHeroChrome
     ? "bg-white/17 text-[var(--accent)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.14)]"
     : "bg-[color-mix(in_srgb,var(--accent)_24%,var(--surface))] text-[var(--accent-deep)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.55)]";
 
@@ -193,7 +207,8 @@ export function SiteHeader() {
           {showCollapsed ? (
             <div className="flex w-full items-center gap-5">
               <Link
-                href="#top"
+                href="/"
+                aria-label="Kaivo — Home"
                 className={cn(
                   "group flex min-w-0 shrink-0 items-center gap-2 transition-colors duration-150 sm:gap-2.5",
                   lockupMuted,
@@ -221,7 +236,7 @@ export function SiteHeader() {
                 aria-expanded={mobileMenuOpen}
                 className={cn(
                   "inline-flex h-9 w-9 items-center justify-center rounded-full sm:hidden",
-                  heroInView ? "text-white" : "text-[var(--foreground)]",
+                  useHeroChrome ? "text-white" : "text-[var(--foreground)]",
                 )}
               >
                 <span className="sr-only">Menu</span>
@@ -249,7 +264,8 @@ export function SiteHeader() {
           ) : (
             <div className="relative flex w-full min-w-0 items-center justify-between gap-3 sm:gap-4">
               <Link
-                href="#top"
+                href="/"
+                aria-label="Kaivo — Home"
                 className={cn(
                   "relative z-30 flex min-w-0 shrink-0 items-center gap-2 transition-colors duration-150 sm:gap-2.5",
                   lockupMuted,
@@ -324,7 +340,7 @@ export function SiteHeader() {
                   aria-expanded={mobileMenuOpen}
                   className={cn(
                     "inline-flex h-9 w-9 items-center justify-center rounded-full sm:hidden",
-                    heroInView ? "text-white" : "text-[var(--foreground)]",
+                    useHeroChrome ? "text-white" : "text-[var(--foreground)]",
                   )}
                 >
                   <span className="sr-only">Menu</span>

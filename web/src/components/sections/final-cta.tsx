@@ -1,19 +1,31 @@
 import { KaivoMark } from "@/components/kaivo-mark";
+import { cn } from "@/lib/cn";
 
 const menuLinks = [
-  { href: "#top", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/waitlist", label: "Waitlist" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/tokenomics", label: "Tokenomics" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
-export function FinalCtaSection() {
+type FinalCtaSectionProps = {
+  /** Omit default top rule (e.g. tokenomics page sits flush after last section). */
+  hideTopBorder?: boolean;
+};
+
+export function FinalCtaSection({ hideTopBorder }: FinalCtaSectionProps = {}) {
   return (
-    <footer className="relative z-10 border-t border-[var(--line)] bg-[var(--background)] text-[var(--foreground)]">
+    <footer
+      className={cn(
+        "relative z-10 bg-[var(--background)] text-[var(--foreground)]",
+        hideTopBorder ? "border-t-0" : "border-t border-[var(--line)]",
+      )}
+    >
       <div className="mx-auto max-w-6xl px-5 py-[clamp(3.75rem,10vw,6rem)] sm:px-8 lg:px-10">
         <div className="flex flex-col items-center gap-[clamp(2.25rem,6vw,3.5rem)]">
           <a
-            href="#top"
+            href="/"
             className="group flex flex-col items-center gap-5 transition-opacity hover:opacity-90 sm:flex-row sm:gap-10"
             aria-label="Kaivo — Home"
           >

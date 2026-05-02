@@ -22,7 +22,11 @@ const pillars = [
 
 export function TokenSection() {
   return (
-    <SectionShell tone="panel" className="border-t border-[color-mix(in_srgb,var(--foreground)_6%,transparent)]">
+    <SectionShell
+      tone="panel"
+      showBorderBottom={false}
+      className="border-t border-[color-mix(in_srgb,var(--foreground)_6%,transparent)]"
+    >
       <article className="surface-card rounded-3xl px-6 py-10 shadow-[var(--card-shadow-soft)] md:px-10 md:py-12">
         <SectionTag icon="cube">
           Tokenomics

@@ -89,42 +89,40 @@ export function Hero() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.18} className="mt-2 w-full max-w-[17.5rem] sm:max-w-[18.5rem] md:max-w-sm lg:max-w-md">
+          <FadeIn delay={0.18} className="mt-2 flex w-full justify-center px-1">
             <div
               className={cn(
-                "relative z-10 mx-auto flex w-full flex-col items-stretch gap-3 px-3.5 py-3.5",
-                "sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:py-2.5 sm:pl-5 sm:pr-3.5",
+                "relative z-10 flex w-fit max-w-[min(100%,18rem)] origin-center flex-col items-stretch justify-center overflow-visible p-1 transition-[transform,box-shadow] duration-[680ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out has-[a:hover]:translate-y-px has-[a:hover]:scale-[0.98] has-[a:focus-visible]:translate-y-px has-[a:focus-visible]:scale-[0.98] motion-reduce:has-[a:hover]:translate-y-0 motion-reduce:has-[a:hover]:scale-100 motion-reduce:has-[a:focus-visible]:translate-y-0 motion-reduce:has-[a:focus-visible]:scale-100 sm:p-1.5",
                 reduceMotion
-                  ? "rounded-[2.25rem] bg-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-xl backdrop-saturate-[1.45] shadow-[0_28px_80px_-28px_rgba(0,_0,_0,_0.5)] ring-1 ring-[color-mix(in_srgb,var(--accent)_40%,transparent)]"
+                  ? "rounded-[2.25rem] bg-[color-mix(in_srgb,var(--accent)_30%,transparent)] backdrop-blur-xl backdrop-saturate-[1.45] shadow-[0_28px_80px_-28px_rgba(0,_0,_0,_0.5)] ring-1 ring-[color-mix(in_srgb,var(--accent)_38%,transparent)]"
                   : "hero-waitlist-bordered",
               )}
             >
-              <div className="min-w-0 flex-1 space-y-0.5 px-0 text-center sm:text-left">
-                <p className="text-[13px] font-medium leading-snug tracking-[-0.02em] text-white text-balance sm:text-[14px] md:text-[15px]">
-                  Early access &amp; live demo invites
-                </p>
-              </div>
               <Link
                 href="/waitlist"
                 className={cn(
-                  "group inline-flex w-full items-center justify-between gap-3 rounded-full border border-[color-mix(in_srgb,var(--accent-deep)_35%,transparent)]",
-                  "bg-[var(--accent)] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--accent-ink)] shadow-[var(--card-shadow-soft)]",
-                  "transition-[filter,transform,box-shadow,border-color] hover:brightness-[1.02] hover:shadow-[var(--card-shadow)] active:scale-[0.99]",
+                  "group inline-flex w-auto min-w-0 max-w-full items-center justify-between gap-2.5 rounded-[calc(2.25rem-0.25rem)] border border-[color-mix(in_srgb,var(--accent-deep)_28%,transparent)] sm:gap-3 sm:rounded-[calc(2.25rem-0.375rem)]",
+                  "bg-[var(--accent)] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--accent-ink)] shadow-[var(--card-shadow-soft)] sm:px-4 sm:tracking-[0.18em]",
+                  "transition-[filter,transform,box-shadow] duration-[680ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out hover:brightness-[0.99] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12),var(--card-shadow-soft)] active:scale-[0.98] motion-reduce:active:scale-100",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
-                  "sm:w-auto sm:shrink-0",
                 )}
               >
-                <span className="pl-2">Join waitlist</span>
+                <span className="pl-1.5 sm:pl-2">Join waitlist</span>
                 <span
                   aria-hidden
-                  className="inline-flex size-9 items-center justify-center rounded-full bg-[var(--accent-deep)] text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)] ring-1 ring-black/10 transition-transform duration-200 group-hover:translate-y-[-1px]"
+                  className="inline-flex size-9 origin-center items-center justify-center rounded-full bg-[var(--accent-deep)] text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)] ring-1 ring-black/10 transition-[transform,box-shadow] duration-[680ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out motion-safe:group-hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.35)] motion-reduce:group-hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)]"
                 >
-                  <svg viewBox="0 0 20 20" className="h-4 w-4" aria-hidden>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="block h-4 w-4 shrink-0 origin-center transition-transform duration-[720ms] ease-[cubic-bezier(0.22,1.78,0.34,1.02)] motion-reduce:duration-200 motion-reduce:ease-out motion-safe:group-hover:rotate-45 motion-reduce:group-hover:rotate-0"
+                    aria-hidden
+                  >
+                    {/* NE “out” arrow; corner at (12,12) so clockwise hover pivots cleanly */}
                     <path
-                      d="M6.5 13.5 13.5 6.5M13.5 6.5H7.25M13.5 6.5V12.75"
+                      d="M8 16L16 8M16 8H9.5M16 8V14.5"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2.15"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />

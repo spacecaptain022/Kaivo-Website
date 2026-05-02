@@ -110,7 +110,8 @@ body {
   position: relative;
   isolation: isolate;
   border-radius: 2.25rem;
-  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  /* Slightly richer teal glass so the inner CTA reads as one unit with the rim */
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
   backdrop-filter: blur(38px) saturate(1.45);
   -webkit-backdrop-filter: blur(38px) saturate(1.45);
   box-shadow: 0 28px 80px -28px rgba(0, 0, 0, 0.5);

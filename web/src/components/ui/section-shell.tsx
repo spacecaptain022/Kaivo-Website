@@ -17,6 +17,8 @@ type SectionShellProps = {
   overlay?: ReactNode;
   /** Background & atmosphere — rhythms the page beyond flat gray slabs */
   tone?: SectionTone;
+  /** Default on: bottom rule between sections. Turn off when this shell is the last block before a flush footer. */
+  showBorderBottom?: boolean;
 };
 
 const toneBg: Record<SectionTone, string> = {
@@ -38,12 +40,15 @@ export function SectionShell({
   innerClassName,
   overlay,
   tone = "default",
+  showBorderBottom = true,
 }: SectionShellProps) {
   return (
     <section
       id={id}
       className={cn(
-        "relative isolate scroll-mt-[7.25rem] overflow-hidden border-b border-[color-mix(in_srgb,var(--foreground)_6%,transparent)] py-24 md:py-32",
+        "relative isolate scroll-mt-[7.25rem] overflow-hidden py-24 md:py-32",
+        showBorderBottom &&
+          "border-b border-[color-mix(in_srgb,var(--foreground)_6%,transparent)]",
         toneBg[tone],
         /* soft top vignette — section feels lifted from neighbour */
         "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[0] before:h-24 before:bg-gradient-to-b before:from-[var(--surface)]/75 before:to-transparent",

@@ -13,7 +13,6 @@ import { ProblemSection } from "@/components/sections/problem";
 import { SpeaksSection } from "@/components/sections/speaks";
 import { TeamSection } from "@/components/sections/team";
 import { ThesisSection } from "@/components/sections/thesis";
-import { TokenSection } from "@/components/sections/token";
 import { ValueSection } from "@/components/sections/value";
 import { WhyNowSection } from "@/components/sections/why-now";
 
@@ -34,7 +33,6 @@ export default function Home() {
         <AboutSection />
         <DifferentiatorSection />
         <ThesisSection />
-        <TokenSection />
         <TeamSection />
         <JoinCtaSection />
         <ContactSection />
