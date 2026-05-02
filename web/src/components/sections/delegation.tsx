@@ -5,7 +5,10 @@ import { DelegationFlow } from "./delegation-flow";
 
 export function DelegationSection() {
   return (
-    <SectionShell tone="default" className="[&::after]:hidden">
+    <SectionShell
+      tone="default"
+      className="[&::after]:hidden !overflow-visible"
+    >
       <FadeIn>
         <h2 className="text-center text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.03em] md:text-left">
           The next interface isn’t search. It’s delegation.

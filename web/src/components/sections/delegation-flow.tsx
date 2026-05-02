@@ -58,7 +58,7 @@ function MobileCurveReviewToApprove({ animated = true }: { animated?: boolean })
   return (
     <div className="mx-auto w-full max-w-[20rem] px-1" aria-hidden>
       <svg
-        className="mx-auto block h-[4.75rem] w-full max-w-[17.5rem]"
+        className="mx-auto block h-[4.75rem] w-full max-w-[17.5rem] overflow-visible"
         viewBox="0 0 300 76"
         fill="none"
         preserveAspectRatio="xMidYMid meet"
@@ -71,13 +71,10 @@ function MobileCurveReviewToApprove({ animated = true }: { animated?: boolean })
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-            initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={lineViewport}
-            transition={{
-              pathLength: { duration: 0.62, delay: 0.18, ease: lineEase },
-              opacity: { duration: 0.36, delay: 0.14, ease: lineEase },
-            }}
+            transition={{ duration: 0.5, delay: 0.18, ease: lineEase }}
           />
         ) : (
           <path
@@ -275,13 +272,11 @@ export function DelegationFlow() {
 
   return (
     <>
-      <motion.div
-        className={`flex w-full max-w-full flex-col items-center md:hidden ${typeClass}`}
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: "-56px 0px" }}
-        transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-      >
+      {/*
+        Plain wrapper: FadeIn on DelegationSection already fades this block in.
+        A nested motion opacity here kept children (including the curve SVG) at 0 on mobile.
+      */}
+      <div className={`flex w-full max-w-full flex-col items-center md:hidden ${typeClass}`}>
         <div className="mx-auto flex w-full max-w-[20rem] flex-col items-stretch gap-1">
           <div className="flex flex-nowrap items-center justify-center">
             <motion.span
@@ -322,7 +317,7 @@ export function DelegationFlow() {
             </motion.span>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <motion.div
         className={`hidden w-full max-w-full flex-row flex-nowrap items-center justify-start gap-0 md:flex ${typeClass}`}
