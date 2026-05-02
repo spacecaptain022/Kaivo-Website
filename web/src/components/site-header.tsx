@@ -90,7 +90,7 @@ export function SiteHeader() {
   }, [showCollapsed]);
 
   const barTone = heroInView
-    ? "border-white/[0.14] bg-[rgba(10,14,22,0.42)] shadow-[inset_0_1px_0_0_rgba(255,_255,_255,_0.06),0_12px_40px_-14px_rgba(0,_0,_0,_0.45)]"
+    ? "border-white/[0.28] bg-white/[0.13] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.42),0_12px_40px_-14px_rgba(0,0,0,0.18)]"
     : "border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)] shadow-[var(--glass-shadow)]";
 
   const lockupTone = heroInView ? "text-white" : "text-[var(--foreground)]";

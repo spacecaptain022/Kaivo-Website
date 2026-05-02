@@ -1,8 +1,8 @@
 "use client";
 
-import { FrameButton } from "@/components/ui/frame-button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/cn";
+import Link from "next/link";
 import {
   motion,
   useReducedMotion,
@@ -85,28 +85,48 @@ export function Hero() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.18} className="mt-2 w-full max-w-xl md:max-w-[34rem]">
+          <FadeIn delay={0.18} className="mt-2 w-full max-w-[17.5rem] sm:max-w-[18.5rem] md:max-w-sm lg:max-w-md">
             <div
               className={cn(
-                "relative z-10 mx-auto flex w-full flex-col items-stretch gap-4 px-5 py-4",
-                "sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-2.5 sm:pl-10 sm:pr-5",
+                "relative z-10 mx-auto flex w-full flex-col items-stretch gap-3 px-3.5 py-3.5",
+                "sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:py-2.5 sm:pl-5 sm:pr-3.5",
                 reduceMotion
                   ? "rounded-[2.25rem] bg-[color-mix(in_srgb,var(--accent)_24%,transparent)] backdrop-blur-xl backdrop-saturate-[1.45] shadow-[0_28px_80px_-28px_rgba(0,_0,_0,_0.5)] ring-1 ring-[color-mix(in_srgb,var(--accent)_40%,transparent)]"
                   : "hero-waitlist-bordered",
               )}
             >
               <div className="min-w-0 flex-1 space-y-0.5 px-0 text-center sm:text-left">
-                <p className="text-[14px] font-medium leading-snug tracking-[-0.02em] text-white text-balance sm:text-[15px] md:text-[16px]">
+                <p className="text-[13px] font-medium leading-snug tracking-[-0.02em] text-white text-balance sm:text-[14px] md:text-[15px]">
                   Early access &amp; live demo invites
                 </p>
               </div>
-              <FrameButton
+              <Link
                 href="/waitlist"
-                variant="primary"
-                className="w-full shrink-0 justify-center sm:w-auto"
+                className={cn(
+                  "group inline-flex w-full items-center justify-between gap-3 rounded-full border border-[color-mix(in_srgb,var(--accent-deep)_35%,transparent)]",
+                  "bg-[var(--accent)] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--accent-ink)] shadow-[var(--card-shadow-soft)]",
+                  "transition-[filter,transform,box-shadow,border-color] hover:brightness-[1.02] hover:shadow-[var(--card-shadow)] active:scale-[0.99]",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+                  "sm:w-auto sm:shrink-0",
+                )}
               >
-                Join waitlist
-              </FrameButton>
+                <span className="pl-2">Join waitlist</span>
+                <span
+                  aria-hidden
+                  className="inline-flex size-9 items-center justify-center rounded-full bg-[var(--accent-deep)] text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)] ring-1 ring-black/10 transition-transform duration-200 group-hover:translate-y-[-1px]"
+                >
+                  <svg viewBox="0 0 20 20" className="h-4 w-4" aria-hidden>
+                    <path
+                      d="M6.5 13.5 13.5 6.5M13.5 6.5H7.25M13.5 6.5V12.75"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.15"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </Link>
             </div>
           </FadeIn>
         </div>
