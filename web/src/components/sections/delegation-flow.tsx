@@ -99,7 +99,10 @@ const doneVariantsV = {
 
 export function DelegationFlow() {
   const reduceMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 767px)").matches;
+  });
 
   useLayoutEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -111,6 +114,9 @@ export function DelegationFlow() {
 
   const stepVariants = isMobile ? stepVariantsV : stepVariantsH;
   const doneVariants = isMobile ? doneVariantsV : doneVariantsH;
+  const containerClass = isMobile
+    ? "flex w-full max-w-full flex-col items-center justify-center gap-2 text-[clamp(0.8rem,2.1vw,0.9375rem)] font-bold uppercase tracking-[0.14em] text-[var(--foreground)]"
+    : "flex w-full max-w-full flex-col items-center justify-center gap-2 text-[clamp(0.8rem,2.1vw,0.9375rem)] font-bold uppercase tracking-[0.14em] text-[var(--foreground)] md:w-auto md:flex-row md:flex-nowrap md:items-center md:justify-start md:gap-x-3";
 
   const pillClass = (isDone: boolean) =>
     isDone
@@ -119,13 +125,12 @@ export function DelegationFlow() {
 
   if (reduceMotion) {
     return (
-      <div className="flex w-full max-w-full flex-col items-center justify-center gap-2 text-[clamp(0.8rem,2.1vw,0.9375rem)] font-bold uppercase tracking-[0.16em] text-[var(--foreground)] md:w-auto md:flex-row md:flex-wrap md:items-center md:justify-start md:gap-x-3 md:gap-y-3">
+      <div className={containerClass}>
         {flow.map((step, i) => (
           <Fragment key={step}>
             {i > 0 && (
-              <span className="flex items-center justify-center md:w-auto">
-                <span className="md:hidden"><ArrowDown /></span>
-                <span className="hidden md:flex"><ArrowRight /></span>
+              <span className="flex items-center justify-center">
+                {isMobile ? <ArrowDown /> : <ArrowRight />}
               </span>
             )}
             <span className={pillClass(step === "Done")}>{step}</span>
@@ -137,7 +142,7 @@ export function DelegationFlow() {
 
   return (
     <motion.div
-      className="flex w-full max-w-full flex-col items-center justify-center gap-2 text-[clamp(0.8rem,2.1vw,0.9375rem)] font-bold uppercase tracking-[0.14em] text-[var(--foreground)] md:w-auto md:flex-row md:flex-wrap md:items-center md:justify-start md:gap-x-3 md:gap-y-4"
+      className={containerClass}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -148,9 +153,8 @@ export function DelegationFlow() {
         return (
           <Fragment key={step}>
             {i > 0 && (
-              <span className="flex items-center justify-center md:w-auto">
-                <span className="md:hidden"><ArrowDown /></span>
-                <span className="hidden md:flex"><ArrowRight /></span>
+              <span className="flex items-center justify-center">
+                {isMobile ? <ArrowDown /> : <ArrowRight />}
               </span>
             )}
             <motion.span
