@@ -194,28 +194,28 @@ const connectorVariantsH: Variants = {
 const typeClass =
   "text-[clamp(0.8rem,2.1vw,0.9375rem)] font-bold uppercase tracking-[0.14em] text-[var(--foreground)]";
 
-const mobileChipMotion = (delay: number, doneChip: boolean) =>
-  (
-    doneChip
-      ? {
-          initial: { opacity: 0, x: -40, y: 0, scale: 0.94, filter: "blur(4px)" },
-          whileInView: { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" },
-          viewport: { once: false, margin: "-56px 0px" },
-          transition: {
-            type: "spring" as const,
-            stiffness: 420,
-            damping: 24,
-            mass: 0.72,
-            delay,
-          },
-        }
-      : {
-          initial: { opacity: 0, y: -10, x: 0, scale: 0.92, filter: "blur(4px)" },
-          whileInView: { opacity: 1, y: 0, x: 0, scale: 1, filter: "blur(0px)" },
-          viewport: { once: false, margin: "-56px 0px" },
-          transition: { ...springPop, delay },
-        }
-  ) as const;
+function mobileChipMotion(delay: number, doneChip: boolean) {
+  if (doneChip) {
+    return {
+      initial: { opacity: 0, x: -40, y: 0, scale: 0.94, filter: "blur(4px)" },
+      whileInView: { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" },
+      viewport: { once: false, margin: "-56px 0px" },
+      transition: {
+        type: "spring" as const,
+        stiffness: 420,
+        damping: 24,
+        mass: 0.72,
+        delay,
+      },
+    };
+  }
+  return {
+    initial: { opacity: 0, y: -10, x: 0, scale: 0.92, filter: "blur(4px)" },
+    whileInView: { opacity: 1, y: 0, x: 0, scale: 1, filter: "blur(0px)" },
+    viewport: { once: false, margin: "-56px 0px" },
+    transition: { ...springPop, delay },
+  };
+}
 
 export function DelegationFlow() {
   const reduceMotion = useReducedMotion();
