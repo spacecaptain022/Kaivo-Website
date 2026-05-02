@@ -22,11 +22,11 @@ export function FinalCtaSection({ hideTopBorder }: FinalCtaSectionProps = {}) {
         hideTopBorder ? "border-t-0" : "border-t border-[var(--line)]",
       )}
     >
-      <div className="mx-auto max-w-6xl px-5 py-[clamp(3.75rem,10vw,6rem)] sm:px-8 lg:px-10">
-        <div className="flex flex-col items-center gap-[clamp(2.25rem,6vw,3.5rem)]">
+      <div className="mx-auto max-w-6xl px-5 py-[clamp(2.25rem,6vw,3.5rem)] sm:px-8 lg:px-10">
+        <div className="flex flex-col items-center gap-[clamp(1.25rem,3.4vw,2rem)]">
           <a
             href="/"
-            className="group flex flex-col items-center gap-5 transition-opacity hover:opacity-90 sm:flex-row sm:gap-10"
+            className="group flex flex-col items-center gap-3 transition-opacity hover:opacity-90 sm:flex-row sm:gap-6"
             aria-label="Kaivo — Home"
           >
             <KaivoMark
@@ -38,7 +38,7 @@ export function FinalCtaSection({ hideTopBorder }: FinalCtaSectionProps = {}) {
           </a>
 
           <nav
-            className="flex max-w-xl flex-wrap items-center justify-center gap-x-10 gap-y-3 text-[14px] font-medium text-[var(--muted)] sm:gap-x-12"
+            className="flex max-w-xl flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[14px] font-medium text-[var(--muted)] sm:gap-x-10"
             aria-label="Footer"
           >
             {menuLinks.map(({ href, label }) => (
