@@ -14,8 +14,7 @@ import { cn } from "@/lib/cn";
 const links = [
   { href: "/", label: "Home" },
   { href: "/waitlist", label: "Waitlist" },
-  { href: "/tokenomics", label: "Tokenomics" },
-  /** Slash + hash so inner routes (e.g. /tokenomics) still open marketing sections on `/`. */
+  /** Slash + hash so inner routes (e.g. /waitlist) still open marketing sections on `/`. */
   { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ] as const;

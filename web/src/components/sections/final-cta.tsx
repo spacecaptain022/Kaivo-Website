@@ -1,27 +1,15 @@
 import { KaivoMark } from "@/components/kaivo-mark";
-import { cn } from "@/lib/cn";
 
 const menuLinks = [
   { href: "/", label: "Home" },
   { href: "/waitlist", label: "Waitlist" },
-  { href: "/tokenomics", label: "Tokenomics" },
   { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 
-type FinalCtaSectionProps = {
-  /** Omit default top rule (e.g. tokenomics page sits flush after last section). */
-  hideTopBorder?: boolean;
-};
-
-export function FinalCtaSection({ hideTopBorder }: FinalCtaSectionProps = {}) {
+export function FinalCtaSection() {
   return (
-    <footer
-      className={cn(
-        "relative z-10 bg-[var(--background)] text-[var(--foreground)]",
-        hideTopBorder ? "border-t-0" : "border-t border-[var(--line)]",
-      )}
-    >
+    <footer className="relative z-10 border-t border-[var(--line)] bg-[var(--background)] text-[var(--foreground)]">
       <div className="mx-auto max-w-6xl px-5 py-[clamp(2.25rem,6vw,3.5rem)] sm:px-8 lg:px-10">
         <div className="flex flex-col items-center gap-[clamp(1.25rem,3.4vw,2rem)]">
           <a

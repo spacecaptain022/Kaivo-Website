@@ -131,23 +131,7 @@ Microcopy: Be early to the year travel booking got better.
 
 Alternative campaign names \- Passport to takeoff \- First Class List \- Cleared for Departure \- Queue Jump for Jetsetters
 
-**10\) TOKEN**
-
-## SECTION HEADLINE: Tokenomics
-
-Kaivo’s token isn’t just part of the system…it *is* the system.
-
-Built on Real Usage  
-Every action on Kaivo runs through the token. More usage \= more demand. Simple.
-
-Supply That Shrinks  
-Activity triggers automatic burns, permanently removing tokens from circulation. The more Kaivo is used, the scarcer it gets.
-
-Revenue That Buys Back  
-A share of platform revenue is used to buy tokens off the market, feeding value straight back into the ecosystem.
-
-Everything Aligned  
-Users, builders, and holders all pull in the same direction. Growth isn’t extracted \- it’s shared.
+**10\) TOKEN / TOKENOMICS** — *Removed from the marketing site (no dedicated tokenomics page or section).*
 
 **11\) WHY NOW / CATEGORY STORY**
 

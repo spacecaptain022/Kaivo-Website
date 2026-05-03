@@ -116,14 +116,27 @@ export function DemoSection() {
           </article>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <article className="relative flex h-full flex-col rounded-2xl border border-[color-mix(in_srgb,var(--accent)_48%,transparent)] bg-[linear-gradient(170deg,color-mix(in_srgb,var(--accent)_18%,rgba(7,14,16,0.92))_0%,rgba(7,12,16,0.96)_100%)] p-6 shadow-[0_24px_56px_-30px_rgba(0,0,0,0.65),0_0_0_1px_color-mix(in_srgb,var(--accent)_26%,transparent),0_0_42px_-16px_color-mix(in_srgb,var(--accent)_45%,transparent)]">
-            <div className="pointer-events-none absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--accent)_32%,transparent)] bg-[color-mix(in_srgb,var(--accent)_14%,transparent)] text-[var(--accent)]/90 shadow-[0_12px_28px_-20px_color-mix(in_srgb,var(--accent)_55%,transparent)]">
+          <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--accent)_48%,transparent)] p-6 shadow-[0_24px_56px_-30px_rgba(0,0,0,0.65),0_0_0_1px_color-mix(in_srgb,var(--accent)_26%,transparent),0_0_42px_-16px_color-mix(in_srgb,var(--accent)_45%,transparent)]">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[var(--card-image-photo-opacity)]"
+              style={{ backgroundImage: "url(/contact/web-flow-2026.jpg)" }}
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(170deg,color-mix(in_srgb,var(--accent)_14%,rgba(7,14,16,0.62))_0%,rgba(7,12,16,0.72)_100%)]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(4,8,10,0.22)]"
+            />
+            <div className="pointer-events-none absolute right-5 top-5 z-10 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--accent)_32%,transparent)] bg-[color-mix(in_srgb,var(--accent)_14%,transparent)] text-[var(--accent)]/90 shadow-[0_12px_28px_-20px_color-mix(in_srgb,var(--accent)_55%,transparent)] backdrop-blur-[2px]">
               <KaivoMark className="h-5 w-5" />
             </div>
-            <h3 className="max-w-md text-[11px] font-extrabold uppercase leading-snug tracking-[0.11em] text-white sm:text-[12px] md:max-w-none">
+            <h3 className="relative z-10 max-w-md text-[11px] font-extrabold uppercase leading-snug tracking-[0.11em] text-white sm:text-[12px] md:max-w-none">
               WITH KAIVO, LESS IS MORE.
             </h3>
-            <ul className="mt-4 space-y-2.5 text-[15px] font-medium leading-relaxed text-white/92">
+            <ul className="relative z-10 mt-4 space-y-2.5 text-[15px] font-medium leading-relaxed text-white/92">
               {withKaivo.map((step, i) => {
                 const content = (
                   <>
@@ -167,20 +180,24 @@ export function DemoSection() {
       <FadeIn delay={0.12} className="mt-10">
         <div
           ref={calloutRef}
-          className="relative overflow-hidden rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-field)]/40 p-7 text-center shadow-[var(--card-shadow-soft)]"
+          className="relative overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--accent)_42%,var(--line))] bg-[color-mix(in_srgb,var(--accent-field)_58%,var(--surface)_42%)] p-7 text-center shadow-[0_14px_36px_-20px_color-mix(in_srgb,var(--accent)_32%,transparent),var(--card-shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--accent)_24%,transparent)]"
         >
           <motion.div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 -inset-y-8 bg-cover bg-center bg-no-repeat opacity-10"
+            className="pointer-events-none absolute inset-x-0 -inset-y-8 bg-cover bg-center bg-no-repeat opacity-[var(--card-image-photo-opacity)]"
             style={{
               backgroundImage: "url(/lady-booking.png)",
               y: reduceMotion ? "0%" : calloutParallaxY,
             }}
           />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,color-mix(in_srgb,var(--accent)_26%,rgba(255,255,255,0.52))_0%,color-mix(in_srgb,var(--accent)_14%,rgba(248,252,251,0.58))_55%,color-mix(in_srgb,var(--accent)_10%,rgba(255,255,255,0.5))_100%)]"
+          />
           <p className="relative z-10 mx-auto max-w-4xl text-[clamp(0.9375rem,2.35vw,1.5rem)] font-extrabold uppercase leading-snug tracking-[0.085em] text-[var(--foreground)]">
             We exist so you can make the best choice, faster.
           </p>
-          <p className="relative z-10 mt-4 text-[13px] text-[var(--muted)]">
+          <p className="relative z-10 mt-4 text-[13px] font-medium text-[color-mix(in_srgb,var(--accent-ink)_72%,var(--muted)_28%)]">
             Natural-language booking. One review. One approval.
           </p>
         </div>

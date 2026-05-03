@@ -8,7 +8,7 @@ const bubbles = [
     highlight: false,
   },
   {
-    quote: "Anything with a brutal layover? Skip it.",
+    quote: "Anything with a brutal layover?\nSkip it.",
     highlight: false,
   },
   {
@@ -48,15 +48,28 @@ export function SpeaksSection() {
             <figure
               className={
                 item.highlight
-                  ? "flex h-full min-h-[8.25rem] flex-col rounded-2xl border border-[color-mix(in_srgb,var(--accent)_35%,var(--line))] bg-[color-mix(in_srgb,var(--accent-field)_62%,var(--surface)_38%)] p-5 shadow-[var(--card-shadow-soft)]"
-                  : "flex h-full min-h-[8.25rem] flex-col rounded-2xl border border-[var(--line)] bg-[color-mix(in_srgb,var(--surface)_96%,white_4%)] p-5 shadow-[var(--card-shadow-soft)]"
+                  ? "relative flex h-full min-h-[8.25rem] flex-col items-center justify-center overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--accent)_35%,var(--line))] p-5 text-center shadow-[var(--card-shadow-soft)]"
+                  : "flex h-full min-h-[8.25rem] flex-col items-center justify-center rounded-2xl border border-[var(--line)] bg-[color-mix(in_srgb,var(--surface)_96%,white_4%)] p-5 text-center shadow-[var(--card-shadow-soft)]"
               }
             >
+              {item.highlight ? (
+                <>
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[var(--card-image-photo-opacity)]"
+                    style={{ backgroundImage: "url(/paris%20card.jpg)" }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-[color-mix(in_srgb,var(--accent-field)_48%,var(--surface)_52%)] opacity-[0.88]"
+                  />
+                </>
+              ) : null}
               <blockquote
                 className={
                   item.highlight
-                    ? "text-[15px] font-medium leading-relaxed text-[var(--accent-ink)]"
-                    : "text-[15px] font-medium leading-relaxed text-[var(--foreground)]"
+                    ? "relative z-10 max-w-[28ch] whitespace-pre-line text-[15px] font-medium leading-relaxed text-[var(--accent-ink)]"
+                    : "max-w-[28ch] whitespace-pre-line text-[15px] font-medium leading-relaxed text-[var(--foreground)]"
                 }
               >
                 &ldquo;{item.quote}&rdquo;

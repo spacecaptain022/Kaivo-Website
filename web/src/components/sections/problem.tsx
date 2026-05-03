@@ -61,28 +61,51 @@ export function ProblemSection() {
                 key={row.label === "Kaivo" ? "kaivo-brand" : row.label}
                 className={
                   row.label === "Kaivo"
-                    ? "grid grid-cols-1 gap-3 border-t border-[color-mix(in_srgb,var(--accent)_24%,var(--line))] bg-[color-mix(in_srgb,var(--accent-field)_45%,var(--surface)_55%)] px-4 py-4 sm:grid-cols-[minmax(120px,150px)_1fr] sm:items-center sm:gap-5 sm:px-5"
+                    ? "relative grid grid-cols-1 gap-3 overflow-hidden border-t border-[color-mix(in_srgb,var(--accent)_48%,transparent)] px-4 py-4 sm:grid-cols-[minmax(120px,150px)_1fr] sm:items-center sm:gap-5 sm:px-5"
                     : "grid grid-cols-1 gap-3 border-b border-[var(--line)] px-4 py-4 last:border-b-0 sm:grid-cols-[minmax(120px,150px)_1fr] sm:items-center sm:gap-5 sm:px-5"
                 }
               >
+                {row.label === "Kaivo" ? (
+                  <>
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-[url('/thin%20wave.jpg')] bg-cover bg-center bg-no-repeat opacity-[0.46]"
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-[linear-gradient(170deg,color-mix(in_srgb,var(--accent)_22%,rgba(7,14,16,0.3))_0%,rgba(7,12,16,0.4)_100%)]"
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-[rgba(4,8,10,0.32)]"
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(4,10,12,0.06)]"
+                    />
+                  </>
+                ) : null}
                 <span
                   className={
                     row.label === "Kaivo"
-                      ? "inline-flex min-w-0 items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--foreground)]"
+                      ? "relative z-10 inline-flex min-w-0 items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white"
                       : row.label === "OTAs"
                         ? "text-[12px] font-semibold tracking-[0.14em] text-[var(--muted)] sm:pl-1"
                         : "text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)] sm:pl-1"
                   }
                 >
                   {row.label === "Kaivo" && (
-                    <KaivoMark className="h-7 w-7 shrink-0" aria-hidden />
+                    <KaivoMark
+                      className="h-7 w-7 shrink-0 text-[var(--accent)]"
+                      aria-hidden
+                    />
                   )}
                   {row.label === "Kaivo" ? "KAIVO" : row.label}
                 </span>
                 <span
                   className={
                     row.label === "Kaivo"
-                      ? "inline-flex min-h-[3.2rem] w-full items-center justify-center rounded-2xl border border-[color-mix(in_srgb,var(--accent)_42%,var(--line))] bg-[color-mix(in_srgb,var(--accent-field)_82%,var(--surface)_18%)] px-4 py-2.5 text-center text-[13px] font-semibold leading-snug text-[var(--accent-ink)] shadow-[0_10px_22px_-16px_rgba(87,212,196,0.45),inset_0_1px_0_0_rgba(255,255,255,0.42)] sm:min-h-[3.6rem] sm:px-5 sm:text-[15px]"
+                      ? "relative z-10 inline-flex min-h-[3.2rem] w-full items-center justify-center rounded-2xl border border-[color-mix(in_srgb,var(--accent)_58%,transparent)] bg-[color-mix(in_srgb,var(--accent)_34%,rgba(12,24,26,0.28))] px-4 py-2.5 text-center text-[13px] font-semibold leading-snug text-white shadow-[0_12px_32px_-18px_color-mix(in_srgb,var(--accent)_52%,transparent),inset_0_1px_0_0_rgba(255,255,255,0.3)] backdrop-blur-[2px] sm:min-h-[3.6rem] sm:px-5 sm:text-[15px]"
                       : "text-left text-[15px] leading-relaxed text-[var(--foreground)] sm:max-w-[27ch]"
                   }
                 >

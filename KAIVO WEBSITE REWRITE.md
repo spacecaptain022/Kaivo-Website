@@ -4,7 +4,7 @@
 
 This document is the **copy and structure spec**. It has been **implemented in the Next.js app** under `web/` (see `web/src/app/page.tsx` for section order and `web/src/components/sections/*.tsx` for copy).
 
-**Page order (marketing flow):** Hero → Trust strip → Problem → Delegation → Demo (old way / Kaivo) → Speaks → Approval → Value (includes §18 final strip) → About → Thesis (“travel wedge”) → Why now → Team → Waitlist (§16 CTA block) → **Tokenomics (§15, shortened)** → Contact (§17) → Footer / final CTA (`FinalCtaSection`).
+**Page order (marketing flow):** Hero → Trust strip → Problem → Delegation → Demo (old way / Kaivo) → Speaks → Approval → Value (includes §18 final strip) → About → Thesis (“travel wedge”) → Why now → Team → Waitlist (§16 CTA block) → Contact (§17) → Footer / final CTA (`FinalCtaSection`). *(Tokenomics / token page removed.)*
 
 **Notes:**
 
@@ -132,14 +132,7 @@ This document is the **copy and structure spec**. It has been **implemented in t
 | Long explanation | **AI can now understand intent, handle multi-step workflows, and prepare transactions in real time.** |
 | 3 bullets | (keep, slightly tightened) |
 
-**15\. TOKENOMICS** 
-
-Strong recommendation: **move out of main marketing flow \- move to the very bottom of the page (between 16 and 17 below).**
-
-| Current | New |
-| :---- | :---- |
-| Kaivo’s token isn’t just part of the system... | **move to bottom of page** |
-| Full token explanation | **The system aligns incentives.** \- Usage drives demand \- Activity reduces supply \- Revenue feeds back into the system |
+**15\. TOKENOMICS** — *Removed from the implemented site (no `/tokenomics` route or token section).*
 
 **16\. FINAL CTA**
 
@@ -150,8 +143,6 @@ Strong recommendation: **move out of main marketing flow \- move to the very bot
 | Bullet list | **Early demo access** Priority beta Private product drops |
 | Claim your boarding pass | **Get early access** |
 | Be early to the year travel booking got better | remove |
-
-**Tokenomics placement (§15):** Implemented **after** the §16 waitlist / dark CTA block and **before** §17 Contact, as recommended above.
 
 **17\. NEW SECTION \- CONTACT**
 

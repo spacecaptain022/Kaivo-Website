@@ -80,7 +80,7 @@ export function ValueSection() {
       <div className="relative mt-12 overflow-hidden rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-field)]/40 px-6 py-9 text-center shadow-[var(--card-shadow-soft)]">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[var(--card-image-photo-opacity)]"
           style={{ backgroundImage: "url(/60-second-bg.png)" }}
         />
         <SixtySecondTagline />

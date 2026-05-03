@@ -17,16 +17,16 @@ export function ThesisSection() {
       <div className="relative overflow-hidden rounded-3xl border border-[var(--background)]/12 bg-[var(--foreground)]/94 px-6 py-14 text-[var(--background)] shadow-[var(--card-shadow)] md:px-10 md:py-20">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.08]"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[var(--card-image-photo-opacity)]"
           style={{ backgroundImage: "url(/vert-paris.png)" }}
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[color-mix(in_srgb,var(--accent)_8%,transparent)]"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(170deg,color-mix(in_srgb,var(--accent)_26%,rgba(6,10,12,0.46))_0%,color-mix(in_srgb,var(--accent)_12%,rgba(4,8,10,0.58))_100%)]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.035] via-transparent to-black/[0.12]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[color-mix(in_srgb,var(--accent)_8%,transparent)] to-black/[0.14]"
         />
         <div className="relative z-10">
           <FadeIn className="flex justify-start">
