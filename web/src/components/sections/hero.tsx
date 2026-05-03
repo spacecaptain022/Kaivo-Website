@@ -79,13 +79,8 @@ export function Hero() {
 
           <FadeIn delay={0.1} className="w-full min-w-0">
             <p className="mx-auto max-w-4xl text-[clamp(1.2rem,_2.4vw,_1.85rem)] font-medium leading-snug tracking-[-0.02em] text-white/95 sm:leading-normal">
-              <span className="block">
-                No endless searching. No guesswork. Just better travel choices, faster.
-              </span>
-              <span className="mt-2 block sm:mt-2.5">
-                Stop doing.{" "}
-                <span className="font-semibold text-[var(--accent)]">Start delegating.</span>
-              </span>
+              No endless searching. No guesswork. Just better travel choices, faster. Stop doing.{" "}
+              <span className="font-semibold text-[var(--accent)]">Start delegating.</span>
             </p>
           </FadeIn>
 

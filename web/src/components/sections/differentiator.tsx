@@ -24,7 +24,8 @@ export function DifferentiatorSection() {
               Business model
             </SectionTag>
             <h2 className="mx-auto mt-4 max-w-4xl text-balance text-[clamp(1.6rem,3.2vw,2.45rem)] font-semibold leading-tight tracking-[-0.03em] text-[var(--foreground)]">
-              What drives &amp; differentiates Kaivo?
+              What drives &amp; differentiates{" "}
+              <span className="text-[var(--accent)]">Kaivo</span>?
             </h2>
           </div>
         </FadeIn>
