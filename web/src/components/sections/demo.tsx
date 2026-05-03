@@ -92,7 +92,7 @@ export function DemoSection() {
         className="mx-auto mt-6 max-w-2xl text-center text-[17px] leading-relaxed text-[var(--muted)]"
       >
         <p>
-          The old way stacks tabs and busywork. Kaivo lines up one clear choice
+          The old way stacks tabs and busy work. Kaivo lines up one clear choice
           for you to approve.
         </p>
       </FadeIn>

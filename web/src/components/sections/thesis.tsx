@@ -51,21 +51,12 @@ export function ThesisSection() {
             </p>
             <p className="mt-3.5">It&apos;s the perfect place to prove a better way.</p>
             <p className="mt-3.5">
-              We&apos;re starting with flights. Then everything around
+              So, we are starting with flights. Then everything around
               travel: trains, hotels, full trips. Then the rest of life:
               anything repetitive that should be simple to book.
             </p>
           </FadeIn>
-          <FadeIn
-            delay={0.1}
-            className="mt-8 max-w-3xl rounded-2xl border border-[color-mix(in_srgb,var(--accent)_40%,transparent)] bg-[color-mix(in_srgb,var(--accent)_14%,rgba(0,0,0,0.22))] p-5 text-[15px] font-medium leading-relaxed text-[var(--background)]/95 shadow-[0_14px_30px_-16px_rgba(87,212,196,0.35)] ring-1 ring-[color-mix(in_srgb,var(--accent)_18%,transparent)]"
-          >
-            <span className="inline-flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" aria-hidden />
-              Kaivo owns the moment of decision. Every approval becomes an outcome.
-            </span>
-          </FadeIn>
-          <FadeIn delay={0.14} className="mt-8">
+          <FadeIn delay={0.1} className="mt-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--background)]/55">
               Expansion
             </p>

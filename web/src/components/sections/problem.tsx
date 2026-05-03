@@ -8,7 +8,10 @@ import { motion } from "motion/react";
 
 const contrast = [
   { label: "Search", value: "browse and filter it yourself" },
-  { label: "OTAs", value: "compare endlessly, then book manually" },
+  {
+    label: "Online Travel Agents",
+    value: "compare endlessly, then book manually",
+  },
   { label: "AI chat", value: "get answers, then start booking from scratch" },
   {
     label: "Kaivo",
@@ -61,8 +64,8 @@ export function ProblemSection() {
                 key={row.label === "Kaivo" ? "kaivo-brand" : row.label}
                 className={
                   row.label === "Kaivo"
-                    ? "relative grid grid-cols-1 gap-3 overflow-hidden border-t border-[color-mix(in_srgb,var(--accent)_48%,transparent)] px-4 py-4 sm:grid-cols-[minmax(120px,150px)_1fr] sm:items-center sm:gap-5 sm:px-5"
-                    : "grid grid-cols-1 gap-3 border-b border-[var(--line)] px-4 py-4 last:border-b-0 sm:grid-cols-[minmax(120px,150px)_1fr] sm:items-center sm:gap-5 sm:px-5"
+                    ? "relative grid grid-cols-1 gap-3 overflow-hidden border-t border-[color-mix(in_srgb,var(--accent)_48%,transparent)] px-4 py-4 sm:grid-cols-[minmax(140px,220px)_1fr] sm:items-center sm:gap-5 sm:px-5"
+                    : "grid grid-cols-1 gap-3 border-b border-[var(--line)] px-4 py-4 last:border-b-0 sm:grid-cols-[minmax(140px,220px)_1fr] sm:items-center sm:gap-5 sm:px-5"
                 }
               >
                 {row.label === "Kaivo" ? (
@@ -89,9 +92,7 @@ export function ProblemSection() {
                   className={
                     row.label === "Kaivo"
                       ? "relative z-10 inline-flex min-w-0 items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white"
-                      : row.label === "OTAs"
-                        ? "text-[12px] font-semibold tracking-[0.14em] text-[var(--muted)] sm:pl-1"
-                        : "text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)] sm:pl-1"
+                      : "text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)] sm:pl-1"
                   }
                 >
                   {row.label === "Kaivo" && (

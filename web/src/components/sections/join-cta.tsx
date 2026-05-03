@@ -17,7 +17,7 @@ export function JoinCtaSection() {
           className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]"
         >
           <p>
-            Join Kaivo&apos;s early founders list and help shape how modern travel gets delegated.
+            Join Kaivo&apos;s early founders&apos; list and help shape how modern travel gets delegated.
           </p>
         </FadeIn>
         <FadeIn delay={0.1} className="mt-8 flex justify-center">
