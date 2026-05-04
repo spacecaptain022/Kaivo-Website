@@ -13,7 +13,7 @@ export function KvidSection() {
           muted
           playsInline
           aria-label="Kaivo app demo"
-          className="mx-auto block w-full max-w-4xl object-contain"
+          className="mx-auto block w-full max-w-5xl object-contain"
         />
       </div>
     </section>
