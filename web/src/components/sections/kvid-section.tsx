@@ -1,9 +1,13 @@
 export function KvidSection() {
+  const demoSrc =
+    process.env.NEXT_PUBLIC_KVID_DEMO_URL?.trim() ||
+    "/kaivo-white-mockup-2026-small.mov";
+
   return (
     <section className="bg-[var(--surface)] py-10 sm:py-12 md:py-14">
       <div className="mx-auto flex w-full max-w-6xl justify-center px-5 sm:px-8 lg:px-10">
         <video
-          src="/kaivo-white-mockup-2026-small.mov"
+          src={demoSrc}
           autoPlay
           loop
           muted
