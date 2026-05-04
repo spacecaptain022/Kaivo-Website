@@ -1,7 +1,7 @@
 export function KvidSection() {
   const demoSrc =
     process.env.NEXT_PUBLIC_KVID_DEMO_URL?.trim() ||
-    "/kaivo-white-mockup-2026-small.mov";
+    "/kaivo-demo-web.mp4";
 
   return (
     <section className="bg-[var(--surface)] py-10 sm:py-12 md:py-14">
